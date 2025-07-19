@@ -1,13 +1,23 @@
+# Environment variables (contains API keys)
+.env
+
 __pycache__/
 *.json
 *.txt
 
-
-
+# NLTK data
 nltk_data/
+
+# Generated files
 parsed_client_data.json
 test_scraped_content.txt
 processed_client_data.json
 generated_ads.json
+*.faiss
+*.pkl
+client_data_with_content*
+generated_ad_campaigns.json
+processed_client_data_rag.json
+*_content.txt
 
 

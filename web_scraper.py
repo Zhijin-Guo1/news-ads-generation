@@ -1,5 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
+import json
+import time
 
 def scrape_text_from_url(url):
     try:
@@ -27,12 +29,35 @@ def scrape_text_from_url(url):
         return None
 
 if __name__ == '__main__':
-    # Example usage (will be replaced by actual client URLs)
-    test_url = "https://www.ssga.com/uk/en_gb/institutional/capabilities/esg"
-    scraped_content = scrape_text_from_url(test_url)
-    if scraped_content:
-        with open("/home/ubuntu/test_scraped_content.txt", "w", encoding="utf-8") as f:
-            f.write(scraped_content)
-        print(f"Scraped content from {test_url} saved to /home/ubuntu/test_scraped_content.txt")
+    # Load parsed client data
+    try:
+        with open('parsed_client_data.json', 'r') as f:
+            client_data = json.load(f)
+    except FileNotFoundError:
+        print("Please run parse_client_data.py first to generate parsed_client_data.json")
+        exit(1)
+    
+    # Scrape all client URLs
+    print("=== SCRAPING CLIENT LANDING PAGES ===")
+    for client in client_data:
+        url = client['url']
+        print(f"\nScraping {client['client_name']}: {url}")
+        
+        content = scrape_text_from_url(url)
+        client['landing_page_content'] = content
+        
+        if content:
+            print(f"  ✓ Successfully scraped {len(content)} characters")
+            # Save a sample for review
+            with open(f"{client['client_name'].replace(' ', '_')}_content.txt", "w", encoding="utf-8") as f:
+                f.write(content[:1000] + "..." if len(content) > 1000 else content)
+        else:
+            print(f"  ✗ Failed to scrape content")
+    
+    # Save updated data
+    with open('client_data_with_content.json', 'w', encoding='utf-8') as f:
+        json.dump(client_data, f, indent=2, ensure_ascii=False)
+    
+    print(f"\nClient data with scraped content saved to client_data_with_content.json")
 
 
