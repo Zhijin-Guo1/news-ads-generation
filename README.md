@@ -18,6 +18,88 @@ Our solution is an **AI-powered, RAG-enabled system** that automatically generat
 - **Compliance-Aware**: Maintains professional, regulatory-compliant tone for financial services
 - **Scalable Architecture**: Modular design supporting easy expansion and customization
 
+## 🚀 How It Works: Step-by-Step Example
+
+Let's walk through exactly how the system transforms raw data into professional ad campaigns using **PIMCO** as our example:
+
+### **📊 Step 1: Data Input**
+```
+Input File: URL_and_news_articles_examples_by_client.xlsx
+- PIMCO URL: https://www.ssga.com/uk/en_gb/institutional/capabilities/esg
+- 50 financial news articles (Fed policy, ESG trends, inflation, etc.)
+```
+
+### **🕷️ Step 2: Web Scraping**
+```python
+# System scrapes PIMCO's landing page
+Scraped Content (sample):
+"SPDR® Gold MiniShares® Trust, sustainable investing screening, 
+ESG capabilities, environmental social governance solutions, 
+institutional investment strategies..."
+
+Result: 20,156 characters of landing page content
+```
+
+### **🧠 Step 3: RAG Processing**
+```python
+# AI analyzes content and builds understanding
+Landing Page Keywords: ["sustainable investing", "ESG", "environmental governance"]
+
+# Semantic search through 50 news articles
+News Article Matching:
+✅ "The Role Of Sustainable Investing In Modern Financial Portfolios" → Relevance: 0.535
+✅ "Sustainable investing: How does it work?" → Relevance: 0.466  
+❌ "Fed rate cuts supported by officials" → Relevance: 0.201 (not relevant)
+
+Top 3 Relevant News Selected
+```
+
+### **🤖 Step 4: AI Ad Generation**
+```python
+# OpenAI GPT-4 receives structured prompt:
+"Client: PIMCO specializes in ESG investing and sustainable finance
+Relevant News: Sustainable investing trends are paramount in 2025
+Task: Create professional LinkedIn ad connecting PIMCO's ESG expertise 
+with current sustainable investing news"
+
+AI Response: [Generated ad content below]
+```
+
+### **📢 Step 5: Generated Ad Output**
+```json
+{
+  "linkedin_single_image": {
+    "headline": "Redefining Sustainable Investing with PIMCO",
+    "body": "As sustainable investing becomes paramount in modern financial portfolios, PIMCO leads with innovative ESG solutions. Our expertise in sustainable finance positions your investments for both impact and returns in today's evolving market.",
+    "call_to_action": "Learn More",
+    "image_description": "Professional team analyzing ESG data with green overlay graphics showing sustainable investment growth trends",
+    "news_connection_rationale": "Connects PIMCO's ESG expertise with current sustainable investing trends in financial markets"
+  },
+  "banner_ad_300x250": {
+    "headline": "ESG Innovation",
+    "body": "PIMCO's sustainable investing expertise",
+    "call_to_action": "Explore ESG Solutions",
+    "image_description": "Clean, modern graphic with upward trending ESG metrics"
+  }
+}
+```
+
+### **🎯 What Makes This Powerful**
+
+**Traditional Process (3 days):**
+1. Marketing team manually reads financial news
+2. Brainstorms connections to company expertise  
+3. Writes ad copy from scratch
+4. Reviews and revises multiple times
+
+**Our AI Process (5 minutes):**
+1. ✅ Automatically analyzes 50+ news articles
+2. ✅ Finds semantic connections (0.535 relevance score)
+3. ✅ Generates professional, compliant ad copy
+4. ✅ Creates multiple ad formats simultaneously
+
+**Key Innovation:** The system doesn't just generate generic ads—it creates **contextually relevant** ads that meaningfully connect what PIMCO does (ESG investing) with what's happening now (sustainable investing trends).
+
 ## 🏗️ Architecture Overview
 
 ```
