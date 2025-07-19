@@ -2,13 +2,11 @@
 .env
 
 __pycache__/
-*.json
-*.txt
 
 # NLTK data
 nltk_data/
 
-# Generated files
+# Temporary processing files (exclude these)
 parsed_client_data.json
 test_scraped_content.txt
 processed_client_data.json
@@ -19,5 +17,17 @@ client_data_with_content*
 generated_ad_campaigns.json
 processed_client_data_rag.json
 *_content.txt
+
+# IMPORTANT: Allow final results folders
+!generated_ads_text/
+!generated_ads_text/**
+!generated_ads_images/
+!generated_ads_images/**
+!data/
+!data/**
+
+# But exclude large vector files in data
+data/*.faiss
+data/*.pkl
 
 

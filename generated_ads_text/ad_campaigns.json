@@ -1,0 +1,162 @@
+[
+  {
+    "client_name": "PIMCO",
+    "client_url": "https://www.ssga.com/uk/en_gb/institutional/capabilities/esg",
+    "generation_timestamp": 1752965756.886653,
+    "relevant_news_count": 6,
+    "top_keywords": [
+      "spdr \u00ae gold minishares \u00ae trust (\u201c gldm \u00ae\u201d)",
+      "excluding spdr \u00ae gold trust (\u201c gld \u00ae\u201d)",
+      "first equity index mandate applying negative sustainable investing screening",
+      "dow jones trademark holdings llc (\u201c dow jones \u201d)",
+      "2026 \u00a9 [[]] %% state street corporation %%."
+    ],
+    "ad_creative": {
+      "linkedin_single_image": {
+        "headline": "Redefining Sustainable Investing with PIMCO",
+        "body": "As sustainable investing becomes paramount in modern financial portfolios, PIMCO leads the way with differentiated solutions, deep research, and robust reporting. Our aim is to empower investors to achieve their sustainability-related goals with confidence. Discover our sustainable investing capabilities.",
+        "call_to_action": "Learn More",
+        "image_description": "A vibrant green earth with diverse plant species symbolizing sustainable investing, overlayed with PIMCO logo.",
+        "news_connection_rationale": "This ad connects PIMCO's sustainable investing capabilities with Forbes' article on the role of sustainable investing in modern portfolios."
+      },
+      "banner_ad_300x250": {
+        "headline": "PIMCO: Your Sustainable Investing Partner",
+        "body": "Empowering investors with robust sustainable investing solutions. Learn more.",
+        "call_to_action": "Discover Now",
+        "image_description": "A sleek banner featuring a stylised globe, with greenery, and PIMCO logo.",
+        "news_connection_rationale": "This banner ad links PIMCO's sustainable investing solutions to the increased importance of sustainable investing highlighted by Business Times."
+      },
+      "additional_creative": {
+        "concept": "Interactive Quiz Ad",
+        "headline": "Is Your Portfolio Truly Sustainable?",
+        "body": "Take our quick quiz to see how your investments stack up in terms of sustainability. Plus, learn how PIMCO's solutions can help.",
+        "call_to_action": "Start Quiz",
+        "image_description": "A quiz card with tick boxes and a stylized question mark, along with PIMCO logo.",
+        "news_connection_rationale": "The interactive quiz ad connects the sustainable investing theme from Forbes article and offers a unique engagement opportunity, while subtly introducing PIMCO's expertise."
+      }
+    },
+    "news_sources": [
+      {
+        "title": "The Role Of Sustainable Investing In Modern Financial Portfolios",
+        "source": "forbes.com",
+        "relevance_score": 0.5346106886863708
+      },
+      {
+        "title": "State Street Global Advisors makes first Indian asset management investment",
+        "source": "funds-europe.com",
+        "relevance_score": 0.5315721035003662
+      },
+      {
+        "title": "Sustainable investing is no passing fad",
+        "source": "businesstimes.com.sg",
+        "relevance_score": 0.5152348279953003
+      },
+      {
+        "title": "SRI Redefined: Going Beyond Socially Responsible Investing",
+        "source": "kiplinger.com",
+        "relevance_score": 0.49877306818962097
+      },
+      {
+        "title": "Sustainable investing: How does it work and can my money support green issues?",
+        "source": "independent.co.uk",
+        "relevance_score": 0.49158889055252075
+      }
+    ]
+  },
+  {
+    "client_name": "State Street",
+    "client_url": "https://www.pimco.com/us/en/insights/fed-policymakers-split-decision",
+    "generation_timestamp": 1752965770.1624792,
+    "relevant_news_count": 2,
+    "top_keywords": [
+      "location americas brazil canada latin america united states asia pacific australia hong kong japan korea singapore taiwan europe",
+      "share share via email share via linkedin share via twitter print",
+      "africa belgium denmark europe finland france germany italy luxembourg middle east",
+      "personal information site map pacific investment management company llc (\u201c pimco \u201d)",
+      "contact us pimco offices press releases media contacts careers united states log"
+    ],
+    "ad_creative": {
+      "linkedin_single_image": {
+        "headline": "Navigating Uncertainty: Fed's Split Decision",
+        "body": "As tariffs challenge U.S. exceptionalism, the Fed's split decision further complicates the landscape. Join us at State Street to decode these complexities and gain a clear understanding of the evolving global economy. Let's navigate uncertainty together.",
+        "call_to_action": "Read More",
+        "image_description": "A split road sign against a backdrop of a stormy sky, symbolizing the Fed's split decision and uncertain market conditions.",
+        "news_connection_rationale": "The ad headlines the Fed's split decision, and connects it with the current news of U.S. tariffs challenging exceptionalism. This underscores State Street's expertise in interpreting global economic shifts."
+      },
+      "banner_ad_300x250": {
+        "headline": "Decoding Markets Amid Uncertainty",
+        "body": "State Street's insights on navigating the impact of Fed's split decision & U.S. tariffs.",
+        "call_to_action": "Discover More",
+        "image_description": "A magnifying glass over a financial newspaper, symbolizing State Street's ability to decode complex market news.",
+        "news_connection_rationale": "The ad connects the current news of U.S. tariffs and the Fed's split decision with State Street's capabilities in understanding and navigating these shifts."
+      },
+      "additional_creative": {
+        "headline": "Webinar: Insightful Perspectives on Global Economy",
+        "body": "Join our webinar as State Street experts decode the impact of Fed's split decision and U.S. tariffs. Stay informed, stay prepared.",
+        "call_to_action": "Register Now",
+        "image_description": "A webinar screen with a speaker presenting a slide about Fed's split decision and U.S. tariffs.",
+        "news_connection_rationale": "This ad format introduces a webinar, connecting current market news with State Street's thought leadership. It offers a more interactive way for audiences to gain insights on complex market issues."
+      }
+    },
+    "news_sources": [
+      {
+        "title": "Emerging markets gains in the cards as Trump's tariffs challenge U.S. exceptionalism",
+        "source": "pionline.com",
+        "relevance_score": 0.3129074275493622
+      },
+      {
+        "title": "Emerging markets: South Korea, trade and tariffs and Chinese banks",
+        "source": "sharesmagazine.co.uk",
+        "relevance_score": 0.28185412287712097
+      }
+    ]
+  },
+  {
+    "client_name": "T Rowe Price",
+    "client_url": "https://www.troweprice.com/financial-intermediary/uk/en/lp/global-market-outlook.html",
+    "generation_timestamp": 1752965780.897952,
+    "relevant_news_count": 2,
+    "top_keywords": [
+      "austria english deutsch belgium english denmark english estonia english finland english france english germany english deutsch iceland english ireland english italy english italiano latvia english lithuania english luxembourg english netherlands english norway english portugal english spain english espa\u00f1ol sweden english switzerland english deutsch united kingdom english close 2025 midyear market outlook investing",
+      "low tracking error equity solutions close capabilities capabilities asset class asset class overview equities fixed income thematic thematic us equities impact investing value investing close esg esg esg overview esg overview esg",
+      "low tracking error equity solutions close capabilities capabilities asset class asset class overview equities fixed income thematic thematic us equities impact investing value investing close esg esg esg overview esg overview esg",
+      "australia english hong kong english \u4e2d\u6587 japan \u65e5\u672c\u8a9e new zealand english singapore english europe",
+      "fixed income cio analysts notebook 2025 midyear market outlook market volatility featured topics featured topics redeploying cash browse"
+    ],
+    "ad_creative": {
+      "linkedin_single_image": {
+        "headline": "Navigate 2025's Global Market with Confidence",
+        "body": "Explore T. Rowe Price's 2025 Global Market Outlook to understand the future of investing. Gain insights on emerging markets, ESG's outcomes, and more. Stay ahead of the curve, adapt to the new growth world, and make informed investment decisions.",
+        "call_to_action": "Read Our 2025 Market Outlook",
+        "image_description": "A professional image with a globe overlayed by financial charts indicating future market trends. T. Rowe Price logo in the corner.",
+        "news_connection_rationale": "This ad connects T. Rowe Price's 2025 Global Market Outlook expertise with the news on the Emerging Markets Equities strategy and the future of ESG - key themes in the financial industry."
+      },
+      "banner_ad_300x250": {
+        "headline": "Uncover 2025's Market Trends",
+        "body": "Find insights on emerging markets and future of ESG with T. Rowe Price's Market Outlook.",
+        "call_to_action": "Explore Now",
+        "image_description": "An intriguing image of a futuristic city skyline with financial data overlay, signalling forward-thinking investment strategies. Brand's logo prominently displayed.",
+        "news_connection_rationale": "The ad ties client's expertise in ESG and Emerging Markets with current news themes, inviting viewers to explore T. Rowe Price's 2025 Market Outlook."
+      },
+      "additional_creative": {
+        "headline": "Stay ahead in the Investment Game",
+        "body": "T. Rowe Price's 2025 Market Outlook is your compass in the new world of growth. Navigate emerging markets and ESG's future with our expert insights.",
+        "call_to_action": "Discover More",
+        "image_description": "A compelling image of a compass overlayed on a global map, symbolizing guidance in international investment trends. T. Rowe Price logo present.",
+        "news_connection_rationale": "This creative concept aligns with the news about emerging markets and the evolving ESG landscape, showcasing T. Rowe Price as a thought leader in these areas."
+      }
+    },
+    "news_sources": [
+      {
+        "title": "Partner Insight: Robeco Emerging Markets Equities strategy - Targeting alpha in a new world of growth",
+        "source": "investmentweek.co.uk",
+        "relevance_score": 0.46376481652259827
+      },
+      {
+        "title": "\"ESG's future is about outcomes, not labels\": Nordea",
+        "source": "funds-europe.com",
+        "relevance_score": 0.4160137474536896
+      }
+    ]
+  }
+]
