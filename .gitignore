@@ -1,0 +1,13 @@
+__pycache__/
+*.json
+*.txt
+
+
+
+nltk_data/
+parsed_client_data.json
+test_scraped_content.txt
+processed_client_data.json
+generated_ads.json
+
+
