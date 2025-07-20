@@ -88,13 +88,13 @@ AI Response: [Generated ad content below]
 
 The system creates complete, ready-to-deploy marketing ads with professional imagery and text overlays:
 
-#### **LinkedIn Single Image Ad Example**
+#### **LinkedIn Single Image Ad Example - PIMCO ESG Focus**
 ![PIMCO LinkedIn Ad](generated_ads_images/final_ads/PIMCO_linkedin_single_image_final_004158.png)
 
-#### **Banner Ad Example (300x250)**
-![PIMCO Banner Ad](generated_ads_images/final_ads/PIMCO_banner_ad_300x250_final_004225.png)
+#### **Banner Ad Example - State Street Fed Policy Analysis**
+![State Street Banner Ad](generated_ads_images/final_ads/State_Street_banner_ad_300x250_final_004323.png)
 
-#### **Additional Creative Example**
+#### **Additional Creative Example - T. Rowe Price Global Markets**
 ![T. Rowe Price Creative](generated_ads_images/final_ads/T_Rowe_Price_additional_creative_final_004444.png)
 
 **Key Features of Generated Images:**
