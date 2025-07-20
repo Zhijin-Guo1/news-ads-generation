@@ -13,13 +13,33 @@ Our solution is an **AI-powered, RAG-enabled system** that automatically generat
 
 ## 🚀 Key Features
 
+- **🌐 Web Interface**: User-friendly Streamlit app with drag & drop functionality
 - **Real OpenAI GPT-4o Integration**: Production-ready AI ad generation using latest models
 - **RAG (Retrieval-Augmented Generation)**: Vector database with semantic search for precise news relevance
 - **Professional Image Generation**: DALL-E 3 HD integration with text overlays
 - **Multi-Client Support**: Processes multiple asset management firms simultaneously
 - **Compliance-Aware**: Maintains professional, regulatory-compliant tone for financial services
 - **Complete Marketing Pipeline**: End-to-end automated workflow from data to deployment-ready ads
-- **Scalable Architecture**: Modular design supporting easy expansion and customization
+- **Cloud Deployable**: Ready for Streamlit Cloud, Heroku, or Docker deployment
+
+## 🌐 Try the Web App
+
+**Option 1: Local Setup (2 minutes)**
+```bash
+git clone https://github.com/Zhijin-Guo1/news-generation.git
+cd news-generation
+pip install -r requirements.txt
+streamlit run streamlit_app.py
+```
+→ Open `http://localhost:8501` in your browser
+
+**Option 2: Deploy to Cloud (Free)**
+- Fork this repo to your GitHub
+- Deploy to [Streamlit Cloud](https://share.streamlit.io) 
+- Add your OpenAI API key in secrets
+- Share your public app URL!
+
+**📋 See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions**
 
 ## 🚀 How It Works: Step-by-Step Example
 
@@ -248,7 +268,15 @@ pip install -r requirements.txt
 python3 run_streamlit.py
 # OR
 streamlit run streamlit_app.py
+
+# Access the app at: http://localhost:8501
 ```
+
+**🌐 Web Interface Access:**
+- **Local Development**: `http://localhost:8501` (after running the commands above)
+- **Public Demo**: Deploy to [Streamlit Cloud](https://share.streamlit.io) for free public access
+- **GitHub Repository**: [View Source Code](https://github.com/Zhijin-Guo1/news-generation)
+- **Deployment Guide**: [See DEPLOYMENT.md](DEPLOYMENT.md) for cloud deployment options
 
 **🌐 The web interface provides:**
 - **📁 File Upload**: Drag & drop Excel files with client data
