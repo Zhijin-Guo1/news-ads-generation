@@ -189,9 +189,11 @@ Parsed URLs     Landing Page      FAISS Index     Structured   HD Images    Mark
    - Multiple format support (square, banner, custom)
    - Organized output structure with metadata tracking
 
-5. **Pipeline Orchestration** (`main_pipeline.py`)
-   - Automated end-to-end workflow
-   - Dependency management and error handling
+6. **Web Interface Layer** (`streamlit_app.py`)
+   - Interactive Streamlit frontend for the entire pipeline
+   - Real-time progress tracking and visualization
+   - File upload, campaign generation, and download features
+   - User-friendly interface for non-technical users
 
 ## 📁 Repository Structure
 
@@ -200,7 +202,9 @@ news_generation/
 ├── README.md                           # This file
 ├── .env                               # OpenAI API key (secure)
 ├── .gitignore                         # Protects sensitive files
-├── main_pipeline.py                   # 🚀 Main execution script
+├── streamlit_app.py                   # 🌐 Web interface (Streamlit)
+├── run_streamlit.py                   # 🚀 Launch script for web app
+├── requirements.txt                   # 📦 Python dependencies
 ├── parse_client_data.py               # Excel data parser
 ├── web_scraper.py                     # Landing page scraper  
 ├── rag_processor.py                   # Vector database & semantic search
@@ -232,13 +236,34 @@ news_generation/
 - Python 3.8+
 - OpenAI API key
 
-### Option 1: Automated Setup (Recommended)
+### Option 1: Web Interface (Recommended for Most Users)
 ```bash
 # Clone/download the repository
 cd news_generation
 
+# Install dependencies
+pip install -r requirements.txt
+
+# Launch the web interface
+python3 run_streamlit.py
+# OR
+streamlit run streamlit_app.py
+```
+
+**🌐 The web interface provides:**
+- **📁 File Upload**: Drag & drop Excel files with client data
+- **⚙️ Configuration**: Easy API key setup and processing options  
+- **📊 Real-time Progress**: Watch each pipeline step complete
+- **🎨 Visual Results**: Preview generated ads with images
+- **💾 Easy Downloads**: JSON, CSV, and image downloads
+
+### Option 2: Command Line (Advanced Users)
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
 # Add your OpenAI API key to .env file
-# Edit .env and replace 'your-openai-api-key-here' with your actual key
+echo "OPENAI_API_KEY=sk-your-actual-key-here" > .env
 
 # Run complete pipeline components
 python3 parse_client_data.py          # Parse Excel data
@@ -248,23 +273,28 @@ python3 openai_ad_generator.py        # Generate AI text campaigns
 python3 professional_ad_generator.py  # Create complete visual ads
 ```
 
-### Option 2: Manual Setup
-```bash
-# Install dependencies
-pip install pandas openpyxl requests beautifulsoup4 sentence-transformers rake-nltk nltk faiss-cpu openai scikit-learn python-dotenv
+### 🌐 Web Interface Features
 
-# Download NLTK data
-python3 -c "import nltk; nltk.download('stopwords'); nltk.download('punkt'); nltk.download('punkt_tab')"
+The Streamlit app provides a complete user-friendly interface:
 
-# Add your OpenAI API key to .env file
-echo "OPENAI_API_KEY=sk-your-actual-key-here" > .env
+**🎯 Main Dashboard:**
+- Interactive step-by-step pipeline execution
+- Real-time progress bars and status updates
+- Visual campaign previews with generated images
+- Comprehensive configuration options
 
-# Run individual components
-python3 parse_client_data.py          # Parse Excel data
-python3 web_scraper.py                # Scrape landing pages  
-python3 rag_processor.py              # Build vector database
-python3 openai_ad_generator.py        # Generate AI ads
-```
+**📊 Key Features:**
+- **File Upload**: Drag & drop Excel files or use sample data
+- **API Configuration**: Secure OpenAI API key management
+- **Processing Control**: Toggle image generation, set news article limits
+- **Results Visualization**: Preview ads with headlines, body text, and images
+- **Export Options**: Download campaigns as JSON, CSV, or view file structure
+
+**🔧 Configuration Panel:**
+- OpenAI API key setup with validation
+- Vector database status monitoring
+- Processing options (image generation on/off, max news articles)
+- System status indicators
 
 ## 🔑 API Key Setup
 
