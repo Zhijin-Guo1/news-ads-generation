@@ -82,6 +82,8 @@ st.markdown("""
 
 def init_session_state():
     """Initialize session state variables"""
+    if 'client_data' not in st.session_state:
+        st.session_state.client_data = None
     if 'processed_data' not in st.session_state:
         st.session_state.processed_data = None
     if 'generated_campaigns' not in st.session_state:
@@ -205,6 +207,8 @@ def file_upload_section():
             # Clean up temp file
             os.remove(temp_path)
             
+            # Store in session state
+            st.session_state.client_data = client_data
             return client_data
             
         except Exception as e:
@@ -219,6 +223,8 @@ def file_upload_section():
                     with open("data/parsed_client_data.json", 'r') as f:
                         client_data = json.load(f)
                     st.success(f"✅ Loaded existing data for {len(client_data)} clients")
+                    # Store in session state
+                    st.session_state.client_data = client_data
                     return client_data
                 else:
                     st.warning("⚠️ No existing sample data found. Please upload a file.")
@@ -254,6 +260,9 @@ def web_scraping_section(client_data):
             progress_bar.progress((i + 1) / len(client_data))
         
         status_text.text("✅ Web scraping completed!")
+        
+        # Store updated data in session state
+        st.session_state.client_data = client_data
         return client_data
     
     return None
@@ -512,18 +521,23 @@ def main():
     # Processing pipeline
     client_data = file_upload_section()
     
-    if client_data:
-        st.session_state.processing_step = max(st.session_state.processing_step, 1)
+    # Use session state data if available
+    if client_data or st.session_state.client_data:
+        if client_data:
+            st.session_state.processing_step = max(st.session_state.processing_step, 1)
+        
+        # Use session state data for subsequent steps
+        current_client_data = st.session_state.client_data
         
         # Web scraping
-        scraped_data = web_scraping_section(client_data)
-        if scraped_data:
-            client_data = scraped_data
-            st.session_state.processing_step = max(st.session_state.processing_step, 2)
+        if current_client_data:
+            scraped_data = web_scraping_section(current_client_data)
+            if scraped_data:
+                st.session_state.processing_step = max(st.session_state.processing_step, 2)
         
         # RAG processing
-        if st.session_state.processing_step >= 2:
-            processed_data = rag_processing_section(client_data, config)
+        if st.session_state.processing_step >= 2 and st.session_state.client_data:
+            processed_data = rag_processing_section(st.session_state.client_data, config)
             if processed_data:
                 st.session_state.processed_data = processed_data
                 st.session_state.processing_step = max(st.session_state.processing_step, 3)
