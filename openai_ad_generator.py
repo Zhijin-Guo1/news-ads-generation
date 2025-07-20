@@ -19,6 +19,10 @@ except ImportError:
     print("   Or set environment variables manually")
 
 class OpenAIAdGenerator:
+    # Model Configuration - Using the latest and best OpenAI models
+    TEXT_MODEL = "gpt-4o"  # Latest GPT-4 Omni model (May 2024) - best for reasoning and complex tasks
+    IMAGE_MODEL = "dall-e-3"  # Latest DALL-E 3 model - best for image generation
+    
     def __init__(self, api_key: str = None):
         """
         Initialize OpenAI Ad Generator
@@ -149,13 +153,13 @@ Landing Page URL: {client_data.get('url', '')}
             user_prompt = self.create_ad_prompt(client_data, relevant_news)
             
             response = self.client.chat.completions.create(
-                model="gpt-4",
+                model=self.TEXT_MODEL,
                 messages=[
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt}
                 ],
                 temperature=0.7,
-                max_tokens=2000
+                max_tokens=4000
             )
             
             # Parse JSON response

@@ -21,6 +21,10 @@ except ImportError:
     print("⚠️  python-dotenv not installed")
 
 class ProfessionalAdGenerator:
+    # Model Configuration - Using the best available OpenAI models
+    IMAGE_MODEL = "dall-e-3"  # Latest DALL-E 3 model
+    IMAGE_QUALITY = "hd"      # HD quality for professional marketing materials
+    
     def __init__(self, api_key: str = None):
         """Initialize the professional ad generator"""
         if api_key is None:
@@ -105,10 +109,10 @@ class ProfessionalAdGenerator:
             print(f"   Prompt: {prompt[:80]}...")
             
             response = self.client.images.generate(
-                model="dall-e-3",
+                model=self.IMAGE_MODEL,
                 prompt=prompt,
                 size=size,
-                quality="standard",
+                quality=self.IMAGE_QUALITY,
                 n=1,
             )
             

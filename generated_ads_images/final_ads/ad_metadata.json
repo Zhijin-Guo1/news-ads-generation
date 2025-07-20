@@ -2,100 +2,100 @@
   {
     "client": "PIMCO",
     "ad_format": "linkedin_single_image",
-    "background_image": "generated_ads_images/PIMCO_linkedin_single_image_bg_004158.png",
-    "final_ad": "generated_ads_images/final_ads/PIMCO_linkedin_single_image_final_004158.png",
-    "headline": "Redefining Sustainable Investing with PIMCO",
-    "body": "As sustainable investing becomes paramount in modern financial portfolios, PIMCO leads the way with differentiated solutions, deep research, and robust reporting. Our aim is to empower investors to achieve their sustainability-related goals with confidence. Discover our sustainable investing capabilities.",
-    "cta": "Learn More",
+    "background_image": "generated_ads_images/PIMCO_linkedin_single_image_bg_013039.png",
+    "final_ad": "generated_ads_images/final_ads/PIMCO_linkedin_single_image_final_013039.png",
+    "headline": "Navigating Market Shifts: Insights on Fed Policy & Emerging Trends",
+    "body": "As Fed policymakers face a split decision, the implications for emerging markets are profound. PIMCO's insights explore how these dynamics interact with global trade tensions, particularly in the context of U.S. tariffs. Discover strategies to manage risk and capture potential in uncertain times.",
+    "cta": "Explore PIMCO's Insights",
     "size": "1024x1024",
-    "generated_at": "2025-07-20T00:42:00.766735"
+    "generated_at": "2025-07-20T01:30:41.683816"
   },
   {
     "client": "PIMCO",
     "ad_format": "banner_ad_300x250",
-    "background_image": "generated_ads_images/PIMCO_banner_ad_300x250_bg_004225.png",
-    "final_ad": "generated_ads_images/final_ads/PIMCO_banner_ad_300x250_final_004225.png",
-    "headline": "PIMCO: Your Sustainable Investing Partner",
-    "body": "Empowering investors with robust sustainable investing solutions. Learn more.",
-    "cta": "Discover Now",
-    "size": "1792x1024",
-    "generated_at": "2025-07-20T00:42:27.160704"
-  },
-  {
-    "client": "PIMCO",
-    "ad_format": "additional_creative",
-    "background_image": "generated_ads_images/PIMCO_additional_creative_bg_004242.png",
-    "final_ad": "generated_ads_images/final_ads/PIMCO_additional_creative_final_004242.png",
-    "headline": "Is Your Portfolio Truly Sustainable?",
-    "body": "Take our quick quiz to see how your investments stack up in terms of sustainability. Plus, learn how PIMCO's solutions can help.",
-    "cta": "Start Quiz",
-    "size": "1024x1024",
-    "generated_at": "2025-07-20T00:42:44.504751"
-  },
-  {
-    "client": "State Street",
-    "ad_format": "linkedin_single_image",
-    "background_image": "generated_ads_images/State_Street_linkedin_single_image_bg_004300.png",
-    "final_ad": "generated_ads_images/final_ads/State_Street_linkedin_single_image_final_004300.png",
-    "headline": "Navigating Uncertainty: Fed's Split Decision",
-    "body": "As tariffs challenge U.S. exceptionalism, the Fed's split decision further complicates the landscape. Join us at State Street to decode these complexities and gain a clear understanding of the evolving global economy. Let's navigate uncertainty together.",
+    "background_image": "generated_ads_images/PIMCO_banner_ad_300x250_bg_013110.png",
+    "final_ad": "generated_ads_images/final_ads/PIMCO_banner_ad_300x250_final_013110.png",
+    "headline": "Fed Decisions & Market Trends",
+    "body": "Learn how Fed policy impacts emerging markets.",
     "cta": "Read More",
-    "size": "1024x1024",
-    "generated_at": "2025-07-20T00:43:02.938856"
-  },
-  {
-    "client": "State Street",
-    "ad_format": "banner_ad_300x250",
-    "background_image": "generated_ads_images/State_Street_banner_ad_300x250_bg_004323.png",
-    "final_ad": "generated_ads_images/final_ads/State_Street_banner_ad_300x250_final_004323.png",
-    "headline": "Decoding Markets Amid Uncertainty",
-    "body": "State Street's insights on navigating the impact of Fed's split decision & U.S. tariffs.",
-    "cta": "Discover More",
     "size": "1792x1024",
-    "generated_at": "2025-07-20T00:43:26.375813"
+    "generated_at": "2025-07-20T01:31:13.093466"
   },
   {
-    "client": "State Street",
+    "client": "PIMCO",
     "ad_format": "additional_creative",
-    "background_image": "generated_ads_images/State_Street_additional_creative_bg_004345.png",
-    "final_ad": "generated_ads_images/final_ads/State_Street_additional_creative_final_004345.png",
-    "headline": "Webinar: Insightful Perspectives on Global Economy",
-    "body": "Join our webinar as State Street experts decode the impact of Fed's split decision and U.S. tariffs. Stay informed, stay prepared.",
+    "background_image": "generated_ads_images/PIMCO_additional_creative_bg_013138.png",
+    "final_ad": "generated_ads_images/final_ads/PIMCO_additional_creative_final_013138.png",
+    "headline": "Join Our Webinar: Market Dynamics in a Changing World",
+    "body": "Participate in PIMCO's exclusive webinar discussing the impact of Fed decisions on emerging markets. Gain insights from our experts on navigating global trade challenges and uncover potential opportunities in the current landscape.",
     "cta": "Register Now",
     "size": "1024x1024",
-    "generated_at": "2025-07-20T00:43:47.899930"
+    "generated_at": "2025-07-20T01:31:40.427957"
+  },
+  {
+    "client": "State Street",
+    "ad_format": "linkedin_single_image",
+    "background_image": "generated_ads_images/State_Street_linkedin_single_image_bg_013203.png",
+    "final_ad": "generated_ads_images/final_ads/State_Street_linkedin_single_image_final_013203.png",
+    "headline": "Sustainable Investing: A Pillar of Modern Portfolios",
+    "body": "As sustainable investing becomes integral to financial portfolios, State Street's insights and solutions lead the way. Leverage our expertise to align your investments with sustainability goals, supported by robust research and analytics. Discover how our innovative approaches meet the evolving demands of modern investors, ensuring you can invest with confidence.",
+    "cta": "Explore Sustainable Solutions",
+    "size": "1024x1024",
+    "generated_at": "2025-07-20T01:32:05.045514"
+  },
+  {
+    "client": "State Street",
+    "ad_format": "banner_ad_300x250",
+    "background_image": "generated_ads_images/State_Street_banner_ad_300x250_bg_013233.png",
+    "final_ad": "generated_ads_images/final_ads/State_Street_banner_ad_300x250_final_013233.png",
+    "headline": "Shape the Future with ESG",
+    "body": "Access insights to drive sustainability in your portfolio.",
+    "cta": "Learn More",
+    "size": "1792x1024",
+    "generated_at": "2025-07-20T01:32:35.519005"
+  },
+  {
+    "client": "State Street",
+    "ad_format": "additional_creative",
+    "background_image": "generated_ads_images/State_Street_additional_creative_bg_013259.png",
+    "final_ad": "generated_ads_images/final_ads/State_Street_additional_creative_final_013259.png",
+    "headline": "State Street Leads in ESG Innovation",
+    "body": "Join forces with an industry leader in sustainable investing. Our first Indian asset management venture marks a new chapter in ESG-focused growth. Benefit from our unmatched expertise and cutting-edge solutions that keep you ahead in the evolving landscape of sustainable finance.",
+    "cta": "Join the Sustainability Journey",
+    "size": "1024x1024",
+    "generated_at": "2025-07-20T01:33:01.087288"
   },
   {
     "client": "T Rowe Price",
     "ad_format": "linkedin_single_image",
-    "background_image": "generated_ads_images/T_Rowe_Price_linkedin_single_image_bg_004403.png",
-    "final_ad": "generated_ads_images/final_ads/T_Rowe_Price_linkedin_single_image_final_004403.png",
-    "headline": "Navigate 2025's Global Market with Confidence",
-    "body": "Explore T. Rowe Price's 2025 Global Market Outlook to understand the future of investing. Gain insights on emerging markets, ESG's outcomes, and more. Stay ahead of the curve, adapt to the new growth world, and make informed investment decisions.",
-    "cta": "Read Our 2025 Market Outlook",
+    "background_image": "generated_ads_images/T_Rowe_Price_linkedin_single_image_bg_013326.png",
+    "final_ad": "generated_ads_images/final_ads/T_Rowe_Price_linkedin_single_image_final_013326.png",
+    "headline": "T. Rowe Price's 2025 Outlook: Navigating Emerging Growth",
+    "body": "As global markets evolve, T. Rowe Price's 2025 Market Outlook provides insights into navigating emerging growth and ESG outcomes. Explore the balance between opportunity and responsibility in a changing landscape. Our expert analysts, drawing parallels with Robeco's strategy on targeting alpha, offer a forward-thinking perspective for institutional investors.",
+    "cta": "Explore the 2025 Outlook",
     "size": "1024x1024",
-    "generated_at": "2025-07-20T00:44:05.095056"
+    "generated_at": "2025-07-20T01:33:28.755320"
   },
   {
     "client": "T Rowe Price",
     "ad_format": "banner_ad_300x250",
-    "background_image": "generated_ads_images/T_Rowe_Price_banner_ad_300x250_bg_004425.png",
-    "final_ad": "generated_ads_images/final_ads/T_Rowe_Price_banner_ad_300x250_final_004425.png",
-    "headline": "Uncover 2025's Market Trends",
-    "body": "Find insights on emerging markets and future of ESG with T. Rowe Price's Market Outlook.",
-    "cta": "Explore Now",
+    "background_image": "generated_ads_images/T_Rowe_Price_banner_ad_300x250_bg_013359.png",
+    "final_ad": "generated_ads_images/final_ads/T_Rowe_Price_banner_ad_300x250_final_013359.png",
+    "headline": "2025 Market Insights",
+    "body": "Discover strategies for growth and ESG outcomes with T. Rowe Price.",
+    "cta": "Learn More",
     "size": "1792x1024",
-    "generated_at": "2025-07-20T00:44:28.104194"
+    "generated_at": "2025-07-20T01:34:01.451316"
   },
   {
     "client": "T Rowe Price",
     "ad_format": "additional_creative",
-    "background_image": "generated_ads_images/T_Rowe_Price_additional_creative_bg_004444.png",
-    "final_ad": "generated_ads_images/final_ads/T_Rowe_Price_additional_creative_final_004444.png",
-    "headline": "Stay ahead in the Investment Game",
-    "body": "T. Rowe Price's 2025 Market Outlook is your compass in the new world of growth. Navigate emerging markets and ESG's future with our expert insights.",
-    "cta": "Discover More",
+    "background_image": "generated_ads_images/T_Rowe_Price_additional_creative_bg_013422.png",
+    "final_ad": "generated_ads_images/final_ads/T_Rowe_Price_additional_creative_final_013422.png",
+    "headline": "2025 Insights Podcast: Growth & ESG",
+    "body": "Tune into T. Rowe Price's exclusive podcast featuring top analysts discussing market growth and ESG's future. Gain a comprehensive understanding from industry leaders on navigating emerging markets.",
+    "cta": "Listen Now",
     "size": "1024x1024",
-    "generated_at": "2025-07-20T00:44:46.948376"
+    "generated_at": "2025-07-20T01:34:24.124803"
   }
 ]
