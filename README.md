@@ -1,4 +1,4 @@
-News-Responsive Ad Generation with RAG
+# News-Responsive Ad Generation 
 
 ## 🎯 Project Goal
 
