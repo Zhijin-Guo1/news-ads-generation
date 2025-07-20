@@ -1,4 +1,4 @@
-# Alphix ML Engineering Challenge: News-Responsive Ad Generation with RAG
+News-Responsive Ad Generation with RAG
 
 ## 🎯 Project Goal
 
