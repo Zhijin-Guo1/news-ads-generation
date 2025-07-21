@@ -1,0 +1,16 @@
+# System packages required for the application
+# These are installed via apt-get on Ubuntu-based systems
+
+# For NLTK and text processing
+build-essential
+libssl-dev
+libffi-dev
+
+# For image processing
+libpng-dev
+libjpeg-dev
+libfreetype6-dev
+
+# For web scraping
+libxml2-dev
+libxslt1-dev

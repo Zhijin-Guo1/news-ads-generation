@@ -109,22 +109,14 @@ def sidebar_config():
     """Configure the sidebar with settings and information"""
     st.sidebar.header("⚙️ Configuration")
     
-    # API Key Configuration
-    st.sidebar.subheader("🔑 OpenAI API Key")
-    api_key = st.sidebar.text_input(
-        "Enter your OpenAI API Key:",
-        value=st.session_state.api_key,
-        type="password",
-        help="Required for AI ad generation and image creation"
-    )
+    # Use API key from environment variable
+    api_key = os.getenv('OPENAI_API_KEY', '')
     st.session_state.api_key = api_key
     
-    # Set environment variable
     if api_key:
-        os.environ['OPENAI_API_KEY'] = api_key
-        st.sidebar.success("✅ API Key configured")
+        st.sidebar.success("✅ API Key configured from environment")
     else:
-        st.sidebar.warning("⚠️ API Key required for generation")
+        st.sidebar.error("❌ OPENAI_API_KEY environment variable not set")
     
     # System Information
     st.sidebar.subheader("📊 System Status")
@@ -147,7 +139,7 @@ def sidebar_config():
     generate_images = st.sidebar.checkbox(
         "Generate Images with DALL-E 3",
         value=True,
-        help="Requires API key and additional processing time"
+        help="Requires OpenAI API key set as environment variable"
     )
     
     max_news_articles = st.sidebar.slider(
@@ -334,7 +326,7 @@ def campaign_generation_section(processed_data, config):
     st.markdown('<h2 class="step-header">🤖 Step 4: AI Campaign Generation</h2>', unsafe_allow_html=True)
     
     if not config['api_key']:
-        st.warning("⚠️ OpenAI API key required for campaign generation")
+        st.error("❌ OpenAI API key not found. Please set OPENAI_API_KEY environment variable.")
         return None
     
     if st.button("🎯 Generate Ad Campaigns", type="primary"):
@@ -380,7 +372,7 @@ def image_generation_section(campaigns, config):
         return campaigns
     
     if not config['api_key']:
-        st.warning("⚠️ OpenAI API key required for image generation")
+        st.error("❌ OpenAI API key not found. Please set OPENAI_API_KEY environment variable.")
         return campaigns
     
     if st.button("🎨 Generate Professional Images", type="primary"):
@@ -447,7 +439,7 @@ def campaign_display_section(campaigns):
                     matching_files = glob.glob(image_path)
                     if matching_files:
                         latest_file = max(matching_files, key=os.path.getctime)
-                        st.image(latest_file, caption=f"{client_name} - {format_name}", width=300)
+                        st.image(latest_file, caption=f"{client_name} - {format_name}", width=600)
                 except:
                     pass
                 
