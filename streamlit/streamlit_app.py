@@ -14,14 +14,14 @@ from PIL import Image
 import base64
 from io import BytesIO
 
-# Add current directory to path for imports
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+# Add parent directory to path for imports
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Import our custom modules
 try:
-    from parse_client_data import parse_client_data
-    from web_scraper import scrape_text_from_url
-    from rag_processor import RAGProcessor, process_client_data_with_rag
+    from utils.parse_client_data import parse_client_data
+    from utils.web_scraper import scrape_text_from_url
+    from utils.rag_processor import RAGProcessor, process_client_data_with_rag
     from openai_ad_generator import OpenAIAdGenerator
     from professional_ad_generator import ProfessionalAdGenerator
 except ImportError as e:

@@ -6,7 +6,7 @@ import json
 import os
 from typing import List, Dict, Any, Optional
 from openai import OpenAI
-from rag_processor import RAGProcessor
+from utils.rag_processor import RAGProcessor
 import time
 
 # Load environment variables from .env file

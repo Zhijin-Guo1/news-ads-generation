@@ -92,9 +92,9 @@ def main():
     
     # Import modules after installation
     try:
-        from parse_client_data import parse_client_data
-        from web_scraper import scrape_text_from_url
-        from rag_processor import process_client_data_with_rag
+        from utils.parse_client_data import parse_client_data
+        from utils.web_scraper import scrape_text_from_url
+        from utils.rag_processor import process_client_data_with_rag
         from openai_ad_generator import generate_complete_campaign
     except ImportError as e:
         print(f"❌ Import error: {e}")
