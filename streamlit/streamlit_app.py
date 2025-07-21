@@ -4,6 +4,15 @@ Interactive web interface for the Alphix ML Challenge solution
 """
 
 import streamlit as st
+
+# Page configuration MUST be first
+st.set_page_config(
+    page_title="News-Responsive Ad Generator",
+    page_icon="🎯",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
 import pandas as pd
 import json
 import os
@@ -27,14 +36,6 @@ try:
 except ImportError as e:
     st.error(f"Error importing modules: {e}")
     st.stop()
-
-# Page configuration
-st.set_page_config(
-    page_title="News-Responsive Ad Generator",
-    page_icon="🎯",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
 
 # Custom CSS for better styling
 st.markdown("""
