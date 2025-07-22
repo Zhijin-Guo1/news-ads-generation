@@ -24,6 +24,8 @@ Our solution is an **AI-powered, RAG-enabled system** that automatically generat
 
 ## 🌐 Try the Web App
 
+**🚀 Live Demo:** [https://news-ads-generation.streamlit.app](https://news-ads-generation.streamlit.app)
+
 **Option 1: Local Setup (2 minutes)**
 ```bash
 git clone https://github.com/Zhijin-Guo1/news-ads-generation.git
