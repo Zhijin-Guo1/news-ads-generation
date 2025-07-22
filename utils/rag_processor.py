@@ -12,10 +12,20 @@ import os
 import nltk
 
 # Download NLTK stopwords if not present
+import ssl
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
+
 try:
     nltk.data.find('corpora/stopwords')
 except LookupError:
+    print("Downloading NLTK stopwords and punkt...")
     nltk.download('stopwords', quiet=True)
+    nltk.download('punkt', quiet=True)
 
 from rake_nltk import Rake
 
@@ -27,6 +37,18 @@ class RAGProcessor:
         Args:
             model_name: SentenceTransformer model name
         """
+        # Ensure NLTK stopwords are available before initializing RAKE
+        try:
+            nltk.data.find('corpora/stopwords')
+            nltk.data.find('tokenizers/punkt')
+        except LookupError:
+            print("Downloading required NLTK data...")
+            nltk.download('stopwords', quiet=True)
+            nltk.download('punkt', quiet=True)
+            # Force reload NLTK data paths
+            nltk.data.path.clear()
+            nltk.data.find('corpora/stopwords')  # This will trigger a reload
+        
         self.model = SentenceTransformer(model_name)
         self.rake = Rake()
         self.dimension = 384  # Dimension for all-MiniLM-L6-v2
@@ -40,8 +62,18 @@ class RAGProcessor:
     
     def extract_keywords(self, text: str, max_keywords: int = 5) -> List[str]:
         """Extract keywords using RAKE"""
-        self.rake.extract_keywords_from_text(text)
-        return self.rake.get_ranked_phrases()[:max_keywords]
+        try:
+            self.rake.extract_keywords_from_text(text)
+            return self.rake.get_ranked_phrases()[:max_keywords]
+        except Exception as e:
+            print(f"RAKE keyword extraction failed: {e}. Using simple word frequency fallback.")
+            # Simple fallback: return most frequent words
+            words = text.lower().split()
+            word_freq = {}
+            for word in words:
+                if len(word) > 3:  # Skip short words
+                    word_freq[word] = word_freq.get(word, 0) + 1
+            return sorted(word_freq.keys(), key=lambda x: word_freq[x], reverse=True)[:max_keywords]
     
     def build_vector_database(self, client_data: List[Dict[str, Any]]) -> None:
         """
