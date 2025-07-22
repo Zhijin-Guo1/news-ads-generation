@@ -92,7 +92,13 @@ def init_session_state():
     if 'processing_step' not in st.session_state:
         st.session_state.processing_step = 0
     if 'api_key' not in st.session_state:
-        st.session_state.api_key = os.getenv('OPENAI_API_KEY', '')
+        try:
+            if hasattr(st, 'secrets') and "OPENAI_API_KEY" in st.secrets:
+                st.session_state.api_key = st.secrets["OPENAI_API_KEY"]
+            else:
+                st.session_state.api_key = os.getenv('OPENAI_API_KEY', '')
+        except (KeyError, AttributeError):
+            st.session_state.api_key = os.getenv('OPENAI_API_KEY', '')
 
 def display_header():
     """Display the main header and description"""
@@ -110,14 +116,26 @@ def sidebar_config():
     """Configure the sidebar with settings and information"""
     st.sidebar.header("⚙️ Configuration")
     
-    # Use API key from environment variable
-    api_key = os.getenv('OPENAI_API_KEY', '')
-    st.session_state.api_key = api_key
+    # Use API key from Streamlit secrets or environment variable
+    api_key = ""
     
-    if api_key:
-        st.sidebar.success("✅ API Key configured from environment")
-    else:
-        st.sidebar.error("❌ OPENAI_API_KEY environment variable not set")
+    # Try Streamlit secrets first (for Streamlit Cloud)
+    try:
+        if hasattr(st, 'secrets') and "OPENAI_API_KEY" in st.secrets:
+            api_key = st.secrets["OPENAI_API_KEY"]
+            st.sidebar.success("✅ API Key configured from Streamlit secrets")
+        else:
+            # Fallback to environment variable
+            api_key = os.getenv('OPENAI_API_KEY', '')
+            if api_key:
+                st.sidebar.success("✅ API Key configured from environment")
+            else:
+                raise KeyError("No API key found")
+    except (KeyError, AttributeError):
+        st.sidebar.error("❌ OPENAI_API_KEY not found")
+        st.sidebar.info("💡 For Streamlit Cloud: Add OPENAI_API_KEY in app secrets\n💡 For local: Set OPENAI_API_KEY environment variable")
+    
+    st.session_state.api_key = api_key
     
     # System Information
     st.sidebar.subheader("📊 System Status")
