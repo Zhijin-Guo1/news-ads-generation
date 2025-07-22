@@ -1,4 +1,4 @@
-# News-Responsive Ad Generation with RAG Architecture
+# News-Ads Generation with RAG Architecture
 
 ## 🎯 Project Goal
 
@@ -26,8 +26,8 @@ Our solution is an **AI-powered, RAG-enabled system** that automatically generat
 
 **Option 1: Local Setup (2 minutes)**
 ```bash
-git clone https://github.com/Zhijin-Guo1/news-generation.git
-cd news-generation
+git clone https://github.com/Zhijin-Guo1/news-ads-generation.git
+cd news-ads-generation
 pip install -r requirements.txt
 streamlit run streamlit_app.py
 ```
@@ -218,7 +218,7 @@ Parsed URLs     Landing Page      FAISS Index     Structured   HD Images    Mark
 ## 📁 Repository Structure
 
 ```
-news_generation/
+news-ads-generation/
 ├── README.md                           # This file
 ├── .env                               # OpenAI API key (secure)
 ├── .gitignore                         # Protects sensitive files
@@ -259,7 +259,7 @@ news_generation/
 ### Option 1: Web Interface (Recommended for Most Users)
 ```bash
 # Clone/download the repository
-cd news_generation
+cd news-ads-generation
 
 # Install dependencies
 pip install -r requirements.txt
@@ -275,7 +275,7 @@ streamlit run streamlit_app.py
 **🌐 Web Interface Access:**
 - **Local Development**: `http://localhost:8501` (after running the commands above)
 - **Public Demo**: Deploy to [Streamlit Cloud](https://share.streamlit.io) for free public access
-- **GitHub Repository**: [View Source Code](https://github.com/Zhijin-Guo1/news-generation)
+- **GitHub Repository**: [View Source Code](https://github.com/Zhijin-Guo1/news-ads-generation)
 - **Deployment Guide**: [See DEPLOYMENT.md](DEPLOYMENT.md) for cloud deployment options
 
 **🌐 The web interface provides:**
