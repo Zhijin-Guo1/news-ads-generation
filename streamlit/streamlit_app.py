@@ -386,9 +386,15 @@ def campaign_generation_section(processed_data, config):
                 
                 st.success(f"✅ Generated {len(campaigns)} campaigns successfully!")
                 
-                # Save campaigns
+                # Save campaigns to both locations for compatibility
                 os.makedirs("generated_ads_text", exist_ok=True)
+                
+                # Save to organized folder structure
                 with open("generated_ads_text/ad_campaigns.json", 'w') as f:
+                    json.dump(campaigns, f, indent=2)
+                
+                # Save to root for image generation compatibility
+                with open("generated_ad_campaigns.json", 'w') as f:
                     json.dump(campaigns, f, indent=2)
                 
                 return campaigns
