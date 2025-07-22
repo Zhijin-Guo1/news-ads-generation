@@ -3,8 +3,7 @@
 
 __pycache__/
 
-# NLTK data
-nltk_data/
+# NLTK data (include in repo for deployment)
 
 # Temporary processing files (exclude these)
 parsed_client_data.json

@@ -11,10 +11,16 @@ import pickle
 import os
 import nltk
 
+# Set NLTK data path to local directory first
+local_nltk_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'nltk_data')
+if local_nltk_path not in nltk.data.path:
+    nltk.data.path.insert(0, local_nltk_path)
+
 # Download NLTK stopwords if not present
 try:
     nltk.data.find('corpora/stopwords')
 except LookupError:
+    print("Local NLTK data not found, downloading...")
     nltk.download('stopwords', quiet=True)
     nltk.download('punkt', quiet=True)
 
