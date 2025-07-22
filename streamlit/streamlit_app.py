@@ -131,9 +131,26 @@ def sidebar_config():
                 st.sidebar.success("✅ API Key configured from environment")
             else:
                 raise KeyError("No API key found")
-    except (KeyError, AttributeError):
+    except (KeyError, AttributeError, Exception) as e:
         st.sidebar.error("❌ OPENAI_API_KEY not found")
         st.sidebar.info("💡 For Streamlit Cloud: Add OPENAI_API_KEY in app secrets\n💡 For local: Set OPENAI_API_KEY environment variable")
+        
+        # Debug information
+        with st.sidebar.expander("🔍 Debug Info", expanded=False):
+            st.write("**Secrets Debug:**")
+            st.write(f"- `st.secrets` available: {hasattr(st, 'secrets')}")
+            if hasattr(st, 'secrets'):
+                try:
+                    secret_keys = list(st.secrets.keys())
+                    st.write(f"- Available secret keys: {secret_keys}")
+                    st.write(f"- OPENAI_API_KEY in secrets: {'OPENAI_API_KEY' in st.secrets}")
+                except Exception as debug_e:
+                    st.write(f"- Error accessing secrets: {debug_e}")
+            
+            st.write("**Environment Debug:**")
+            env_keys = [k for k in os.environ.keys() if 'API' in k or 'OPENAI' in k]
+            st.write(f"- Environment keys with API/OPENAI: {env_keys}")
+            st.write(f"- Error details: {str(e)}")
     
     st.session_state.api_key = api_key
     
