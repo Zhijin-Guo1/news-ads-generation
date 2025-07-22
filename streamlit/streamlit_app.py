@@ -108,13 +108,7 @@ def init_session_state():
     if 'processing_step' not in st.session_state:
         st.session_state.processing_step = 0
     if 'api_key' not in st.session_state:
-        try:
-            if hasattr(st, 'secrets') and "OPENAI_API_KEY" in st.secrets:
-                st.session_state.api_key = st.secrets["OPENAI_API_KEY"]
-            else:
-                st.session_state.api_key = os.getenv('OPENAI_API_KEY', '')
-        except (KeyError, AttributeError):
-            st.session_state.api_key = os.getenv('OPENAI_API_KEY', '')
+        st.session_state.api_key = os.getenv('OPENAI_API_KEY', '')
 
 def display_header():
     """Display the main header and description"""
@@ -132,46 +126,15 @@ def sidebar_config():
     """Configure the sidebar with settings and information"""
     st.sidebar.header("⚙️ Configuration")
     
-    # Use API key from Streamlit secrets or environment variable
-    api_key = ""
+    # Use API key from environment variable (Streamlit Cloud secrets are automatically available as env vars)
+    api_key = os.getenv('OPENAI_API_KEY', '')
+    st.session_state.api_key = api_key
     
-    # Try secrets first (for Streamlit Cloud)
-    try:
-        if hasattr(st, 'secrets') and "OPENAI_API_KEY" in st.secrets:
-            api_key = st.secrets["OPENAI_API_KEY"]
-            st.session_state.api_key = api_key
-            st.sidebar.success("✅ API Key configured from Streamlit secrets")
-        else:
-            raise KeyError("Not in secrets")
-    except (KeyError, AttributeError):
-        # Fallback to environment variable (for local development)
-        api_key = os.getenv('OPENAI_API_KEY', '')
-        st.session_state.api_key = api_key
-        
-        if api_key:
-            st.sidebar.success("✅ API Key configured from environment")
-        else:
-            st.sidebar.error("❌ OPENAI_API_KEY not found")
-            st.sidebar.markdown("""
-            **To fix this:**
-            
-            **For Streamlit Cloud:**
-            1. Go to your app settings
-            2. Click on "Secrets" 
-            3. Add: `OPENAI_API_KEY = "sk-your-key-here"`
-            
-            **For Local Development:**
-            ```bash
-            export OPENAI_API_KEY="sk-your-key-here"
-            ```
-            """)
-            
-            # Debug information
-            with st.sidebar.expander("🔍 Debug Info"):
-                st.write("Secrets available:", hasattr(st, 'secrets'))
-                if hasattr(st, 'secrets'):
-                    st.write("Secrets keys:", list(st.secrets.keys()) if st.secrets else "None")
-                st.write("Environment keys:", [k for k in os.environ.keys() if 'API' in k])
+    if api_key:
+        st.sidebar.success("✅ API Key configured")
+    else:
+        st.sidebar.error("❌ OPENAI_API_KEY not found")
+        st.sidebar.info("💡 Add OPENAI_API_KEY to Streamlit Cloud secrets or set as environment variable")
     
     # System Information
     st.sidebar.subheader("📊 System Status")
