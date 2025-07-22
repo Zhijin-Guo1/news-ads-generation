@@ -9,25 +9,8 @@ from sentence_transformers import SentenceTransformer
 import faiss
 import pickle
 import os
-import nltk
-
-# Download NLTK stopwords if not present
-import ssl
-try:
-    _create_unverified_https_context = ssl._create_unverified_context
-except AttributeError:
-    pass
-else:
-    ssl._create_default_https_context = _create_unverified_https_context
-
-try:
-    nltk.data.find('corpora/stopwords')
-except LookupError:
-    print("Downloading NLTK stopwords and punkt...")
-    nltk.download('stopwords', quiet=True)
-    nltk.download('punkt', quiet=True)
-
-from rake_nltk import Rake
+import re
+from collections import Counter
 
 class RAGProcessor:
     def __init__(self, model_name: str = "all-MiniLM-L6-v2"):
@@ -37,43 +20,82 @@ class RAGProcessor:
         Args:
             model_name: SentenceTransformer model name
         """
-        # Ensure NLTK stopwords are available before initializing RAKE
-        try:
-            nltk.data.find('corpora/stopwords')
-            nltk.data.find('tokenizers/punkt')
-        except LookupError:
-            print("Downloading required NLTK data...")
-            nltk.download('stopwords', quiet=True)
-            nltk.download('punkt', quiet=True)
-            # Force reload NLTK data paths
-            nltk.data.path.clear()
-            nltk.data.find('corpora/stopwords')  # This will trigger a reload
-        
         self.model = SentenceTransformer(model_name)
-        self.rake = Rake()
         self.dimension = 384  # Dimension for all-MiniLM-L6-v2
         self.index = None
         self.news_database = []
         self.client_database = []
+        
+        # Common English stopwords (avoiding NLTK dependency)
+        self.stopwords = {
+            'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he',
+            'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to', 'was', 'will', 'with',
+            'the', 'this', 'but', 'they', 'have', 'had', 'what', 'said', 'each', 'which',
+            'their', 'time', 'if', 'up', 'out', 'many', 'then', 'them', 'these', 'so',
+            'some', 'her', 'would', 'make', 'like', 'into', 'him', 'has', 'two', 'more',
+            'go', 'no', 'way', 'could', 'my', 'than', 'first', 'been', 'call', 'who',
+            'oil', 'sit', 'now', 'find', 'down', 'day', 'did', 'get', 'come', 'made',
+            'may', 'part'
+        }
         
     def get_embedding(self, text: str) -> np.ndarray:
         """Get embedding for text"""
         return self.model.encode(text)
     
     def extract_keywords(self, text: str, max_keywords: int = 5) -> List[str]:
-        """Extract keywords using RAKE"""
-        try:
-            self.rake.extract_keywords_from_text(text)
-            return self.rake.get_ranked_phrases()[:max_keywords]
-        except Exception as e:
-            print(f"RAKE keyword extraction failed: {e}. Using simple word frequency fallback.")
-            # Simple fallback: return most frequent words
-            words = text.lower().split()
-            word_freq = {}
-            for word in words:
-                if len(word) > 3:  # Skip short words
-                    word_freq[word] = word_freq.get(word, 0) + 1
-            return sorted(word_freq.keys(), key=lambda x: word_freq[x], reverse=True)[:max_keywords]
+        """Extract keywords using custom TF-IDF-like approach without NLTK dependency"""
+        if not text:
+            return []
+        
+        # Clean and tokenize text
+        text = text.lower()
+        # Remove special characters and digits, keep letters and spaces
+        text = re.sub(r'[^a-z\s]', ' ', text)
+        
+        # Extract multi-word phrases (2-3 words) and single words
+        phrases = []
+        words = text.split()
+        
+        # Single words
+        single_words = [word for word in words 
+                       if len(word) > 3 and word not in self.stopwords]
+        
+        # Two-word phrases
+        for i in range(len(words) - 1):
+            phrase = f"{words[i]} {words[i+1]}"
+            if (len(words[i]) > 2 and len(words[i+1]) > 2 and 
+                words[i] not in self.stopwords and words[i+1] not in self.stopwords):
+                phrases.append(phrase)
+        
+        # Three-word phrases
+        for i in range(len(words) - 2):
+            phrase = f"{words[i]} {words[i+1]} {words[i+2]}"
+            if (all(len(w) > 2 for w in words[i:i+3]) and 
+                all(w not in self.stopwords for w in words[i:i+3])):
+                phrases.append(phrase)
+        
+        # Combine and count frequency
+        all_candidates = phrases + single_words
+        word_freq = Counter(all_candidates)
+        
+        # Return top keywords, prioritizing longer phrases
+        keywords = []
+        for phrase, freq in word_freq.most_common():
+            if len(keywords) >= max_keywords:
+                break
+            # Prioritize multi-word phrases
+            if ' ' in phrase or len(keywords) < max_keywords // 2:
+                keywords.append(phrase)
+        
+        # Fill remaining slots with single words if needed
+        if len(keywords) < max_keywords:
+            for phrase, freq in word_freq.most_common():
+                if len(keywords) >= max_keywords:
+                    break
+                if phrase not in keywords:
+                    keywords.append(phrase)
+        
+        return keywords[:max_keywords]
     
     def build_vector_database(self, client_data: List[Dict[str, Any]]) -> None:
         """
