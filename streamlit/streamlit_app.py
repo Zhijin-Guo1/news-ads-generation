@@ -427,7 +427,9 @@ def image_generation_section(campaigns, config):
                 
                 if generated_ads is not None and len(generated_ads) > 0:
                     st.success(f"✅ Generated {len(generated_ads)} complete ads with images!")
-                    return generated_ads
+                    # Return the original campaigns since generated_ads has different structure
+                    # The images are saved to disk and will be displayed via file paths
+                    return campaigns
                 else:
                     st.warning("⚠️ Image generation completed but no ads were returned. Check the logs.")
                     return campaigns
