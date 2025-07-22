@@ -108,7 +108,10 @@ def init_session_state():
     if 'processing_step' not in st.session_state:
         st.session_state.processing_step = 0
     if 'api_key' not in st.session_state:
-        st.session_state.api_key = os.getenv('OPENAI_API_KEY', '')
+        try:
+            st.session_state.api_key = st.secrets["OPENAI_API_KEY"]
+        except (KeyError, FileNotFoundError):
+            st.session_state.api_key = os.getenv('OPENAI_API_KEY', '')
 
 def display_header():
     """Display the main header and description"""
@@ -126,14 +129,21 @@ def sidebar_config():
     """Configure the sidebar with settings and information"""
     st.sidebar.header("⚙️ Configuration")
     
-    # Use API key from environment variable
-    api_key = os.getenv('OPENAI_API_KEY', '')
-    st.session_state.api_key = api_key
-    
-    if api_key:
-        st.sidebar.success("✅ API Key configured from environment")
-    else:
-        st.sidebar.error("❌ OPENAI_API_KEY environment variable not set")
+    # Use API key from Streamlit secrets or environment variable
+    try:
+        api_key = st.secrets["OPENAI_API_KEY"]
+        st.session_state.api_key = api_key
+        st.sidebar.success("✅ API Key configured from Streamlit secrets")
+    except (KeyError, FileNotFoundError):
+        # Fallback to environment variable
+        api_key = os.getenv('OPENAI_API_KEY', '')
+        st.session_state.api_key = api_key
+        
+        if api_key:
+            st.sidebar.success("✅ API Key configured from environment")
+        else:
+            st.sidebar.error("❌ OPENAI_API_KEY not found in secrets or environment")
+            st.sidebar.info("💡 Add OPENAI_API_KEY to Streamlit Cloud secrets or set as environment variable")
     
     # System Information
     st.sidebar.subheader("📊 System Status")
@@ -343,7 +353,7 @@ def campaign_generation_section(processed_data, config):
     st.markdown('<h2 class="step-header">🤖 Step 4: AI Campaign Generation</h2>', unsafe_allow_html=True)
     
     if not config['api_key']:
-        st.error("❌ OpenAI API key not found. Please set OPENAI_API_KEY environment variable.")
+        st.error("❌ OpenAI API key not found. Please add OPENAI_API_KEY to Streamlit Cloud secrets or set as environment variable.")
         return None
     
     if st.button("🎯 Generate Ad Campaigns", type="primary"):
@@ -389,7 +399,7 @@ def image_generation_section(campaigns, config):
         return campaigns
     
     if not config['api_key']:
-        st.error("❌ OpenAI API key not found. Please set OPENAI_API_KEY environment variable.")
+        st.error("❌ OpenAI API key not found. Please add OPENAI_API_KEY to Streamlit Cloud secrets or set as environment variable.")
         return campaigns
     
     if st.button("🎨 Generate Professional Images", type="primary"):
