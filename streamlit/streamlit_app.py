@@ -26,6 +26,13 @@ from io import BytesIO
 # Add parent directory to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+# Download NLTK stopwords before imports
+import nltk
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords', quiet=True)
+
 # Import our custom modules
 try:
     from utils.parse_client_data import parse_client_data

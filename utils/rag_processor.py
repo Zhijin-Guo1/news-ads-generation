@@ -6,10 +6,18 @@ import json
 import numpy as np
 from typing import List, Dict, Any, Tuple
 from sentence_transformers import SentenceTransformer
-from rake_nltk import Rake
 import faiss
 import pickle
 import os
+import nltk
+
+# Download NLTK stopwords if not present
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords', quiet=True)
+
+from rake_nltk import Rake
 
 class RAGProcessor:
     def __init__(self, model_name: str = "all-MiniLM-L6-v2"):
