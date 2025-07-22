@@ -26,22 +26,6 @@ from io import BytesIO
 # Add parent directory to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-# Setup NLTK data path before imports
-import nltk
-import os
-
-# Set NLTK data path to local directory first
-local_nltk_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'nltk_data')
-if local_nltk_path not in nltk.data.path:
-    nltk.data.path.insert(0, local_nltk_path)
-
-# Download NLTK stopwords if not present
-try:
-    nltk.data.find('corpora/stopwords')
-except LookupError:
-    print("Local NLTK data not found, downloading...")
-    nltk.download('stopwords', quiet=True)
-
 # Import our custom modules
 try:
     from utils.parse_client_data import parse_client_data
@@ -126,15 +110,14 @@ def sidebar_config():
     """Configure the sidebar with settings and information"""
     st.sidebar.header("⚙️ Configuration")
     
-    # Use API key from environment variable (Streamlit Cloud secrets are automatically available as env vars)
+    # Use API key from environment variable
     api_key = os.getenv('OPENAI_API_KEY', '')
     st.session_state.api_key = api_key
     
     if api_key:
-        st.sidebar.success("✅ API Key configured")
+        st.sidebar.success("✅ API Key configured from environment")
     else:
-        st.sidebar.error("❌ OPENAI_API_KEY not found")
-        st.sidebar.info("💡 Add OPENAI_API_KEY to Streamlit Cloud secrets or set as environment variable")
+        st.sidebar.error("❌ OPENAI_API_KEY environment variable not set")
     
     # System Information
     st.sidebar.subheader("📊 System Status")
@@ -344,7 +327,7 @@ def campaign_generation_section(processed_data, config):
     st.markdown('<h2 class="step-header">🤖 Step 4: AI Campaign Generation</h2>', unsafe_allow_html=True)
     
     if not config['api_key']:
-        st.error("❌ OpenAI API key not found. Please add OPENAI_API_KEY to Streamlit Cloud secrets or set as environment variable.")
+        st.error("❌ OpenAI API key not found. Please set OPENAI_API_KEY environment variable.")
         return None
     
     if st.button("🎯 Generate Ad Campaigns", type="primary"):
@@ -390,7 +373,7 @@ def image_generation_section(campaigns, config):
         return campaigns
     
     if not config['api_key']:
-        st.error("❌ OpenAI API key not found. Please add OPENAI_API_KEY to Streamlit Cloud secrets or set as environment variable.")
+        st.error("❌ OpenAI API key not found. Please set OPENAI_API_KEY environment variable.")
         return campaigns
     
     if st.button("🎨 Generate Professional Images", type="primary"):
