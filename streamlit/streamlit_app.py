@@ -382,12 +382,21 @@ def image_generation_section(campaigns, config):
                 # Initialize image generator
                 img_generator = ProfessionalAdGenerator(api_key=config['api_key'])
                 
+                # Check if campaign file exists
+                campaign_file = 'generated_ad_campaigns.json'
+                if not os.path.exists(campaign_file):
+                    st.error("❌ No campaign file found. Please generate campaigns in Step 4 first.")
+                    return campaigns
+                
                 # Generate complete ads
                 generated_ads = img_generator.generate_complete_ad_campaign()
                 
-                st.success(f"✅ Generated {len(generated_ads)} complete ads with images!")
-                
-                return generated_ads
+                if generated_ads is not None and len(generated_ads) > 0:
+                    st.success(f"✅ Generated {len(generated_ads)} complete ads with images!")
+                    return generated_ads
+                else:
+                    st.warning("⚠️ Image generation completed but no ads were returned. Check the logs.")
+                    return campaigns
                 
             except Exception as e:
                 st.error(f"❌ Image generation failed: {str(e)}")
