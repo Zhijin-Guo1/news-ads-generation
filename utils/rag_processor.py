@@ -67,6 +67,9 @@ class RAGProcessor:
         # Process client landing pages
         for client in client_data:
             if client.get('landing_page_content'):
+                # Normalize client name
+                normalized_name = self._normalize_client_name(client['client_name'])
+                
                 # Chunk landing page content for better retrieval
                 chunks = self._chunk_text(client['landing_page_content'], max_length=512)
                 
@@ -75,7 +78,7 @@ class RAGProcessor:
                     embeddings.append(embedding)
                     metadata.append({
                         'type': 'landing_page',
-                        'client_name': client['client_name'],
+                        'client_name': normalized_name,
                         'url': client['url'],
                         'chunk_id': i,
                         'content': chunk,
@@ -84,6 +87,9 @@ class RAGProcessor:
         
         # Process news articles - IMPORTANT: Keep client association for separate searching
         for client in client_data:
+            # Normalize client name
+            normalized_name = self._normalize_client_name(client['client_name'])
+            
             for article in client['news_articles']:
                 # Combine title and source for richer embedding
                 article_text = f"{article['title']} {article.get('source', '')}"
@@ -91,7 +97,7 @@ class RAGProcessor:
                 embeddings.append(embedding)
                 metadata.append({
                     'type': 'news_article',
-                    'client_name': client['client_name'],  # Key: This maintains client association
+                    'client_name': normalized_name,  # Key: This maintains client association with normalized name
                     'title': article['title'],
                     'source': article.get('source', ''),
                     'published_date': article.get('published_date', ''),
@@ -138,6 +144,19 @@ class RAGProcessor:
         
         return chunks
     
+    def _normalize_client_name(self, client_name: str) -> str:
+        """
+        Normalize client names to handle variations (e.g., 'T. Rowe Price' vs 'T Rowe Price')
+        """
+        if not client_name:
+            return client_name
+        
+        # Handle T. Rowe Price variations
+        if 'T. Rowe Price' in client_name or 'T.Rowe Price' in client_name:
+            return 'T Rowe Price'
+        
+        return client_name.strip()
+
     def semantic_search(self, query: str, k: int = 5, filter_type: str = None, filter_client: str = None) -> List[Dict[str, Any]]:
         """
         Perform semantic search in vector database
@@ -154,12 +173,16 @@ class RAGProcessor:
         if self.index is None:
             raise ValueError("Vector database not built yet. Call build_vector_database() first.")
         
+        # Normalize filter_client name if provided
+        if filter_client:
+            filter_client = self._normalize_client_name(filter_client)
+        
         # Get query embedding
         query_embedding = self.get_embedding(query).astype('float32').reshape(1, -1)
         faiss.normalize_L2(query_embedding)
         
-        # Search with more results to allow for filtering
-        search_k = k * 3 if filter_client else k * 2
+        # Search with more results to allow for filtering and ensure we get k results
+        search_k = k * 5 if filter_client else k * 2  # Increased multiplier
         scores, indices = self.index.search(query_embedding, min(search_k, len(self.metadata)))
         
         results = []
@@ -173,18 +196,11 @@ class RAGProcessor:
             if filter_type and metadata['type'] != filter_type:
                 continue
             
-            # Apply client filter if specified (KEY CHANGE: search only within client's own news)
+            # Apply client filter if specified (with name normalization)
             if filter_client:
-                found_name = metadata['client_name']
-                looking_for = filter_client
-                if found_name != looking_for:
-                    # Debug: Show what's being filtered out with character analysis
-                    print(f"DEBUG: Filtering out - Found: '{found_name}' (len={len(found_name)}) != Looking for: '{looking_for}' (len={len(looking_for)})")
-                    print(f"  Found bytes: {found_name.encode('utf-8')}")
-                    print(f"  Looking bytes: {looking_for.encode('utf-8')}")
+                found_name = self._normalize_client_name(metadata['client_name'])
+                if found_name != filter_client:
                     continue
-                else:
-                    print(f"DEBUG: Match found - '{found_name}' == '{looking_for}'")
             
             results.append({
                 **metadata,
@@ -199,7 +215,7 @@ class RAGProcessor:
     def find_relevant_news(self, client_name: str, landing_page_content: str, k: int = 10) -> List[Dict[str, Any]]:
         """
         Find relevant news articles for a specific client's landing page
-        Searches within the client's own news articles from their Excel sheet and returns top k
+        Searches within the client's own news articles from their Excel sheet and returns exactly k articles
         
         Args:
             client_name: Name of the client
@@ -207,24 +223,45 @@ class RAGProcessor:
             k: Number of relevant news articles to return
             
         Returns:
-            List of top k most relevant news articles (from client's own news sheet)
+            List of exactly k most relevant news articles (from client's own news sheet)
         """
+        # Normalize client name to handle variations
+        normalized_client_name = self._normalize_client_name(client_name)
+        
         # REDESIGNED: Extract investment themes and market views from landing page
         investment_themes = self._extract_investment_themes(landing_page_content)
         
         # Create a focused query based on investment themes and client context
-        query = self._create_thematic_query(investment_themes, client_name)
+        query = self._create_thematic_query(investment_themes, normalized_client_name)
         
-        # Search within this client's news articles (already pre-matched in Excel)
-        # No need for filtering - the vector database already separates by client
+        # Search within this client's news articles with increased search space to ensure k results
         results = self.semantic_search(
             query, 
-            k=k,
+            k=k * 2,  # Search for more to ensure we get k results after filtering
             filter_type='news_article',
-            filter_client=client_name  # Use the built-in client filter since news are pre-matched
+            filter_client=normalized_client_name
         )
         
-        return results
+        # If we still don't have enough results, try a broader search
+        if len(results) < k:
+            # Fallback: search with just client name and basic terms
+            fallback_query = f"{normalized_client_name} investment finance market economic"
+            fallback_results = self.semantic_search(
+                fallback_query,
+                k=k * 3,  # Even broader search
+                filter_type='news_article',
+                filter_client=normalized_client_name
+            )
+            
+            # Combine results, removing duplicates by title
+            seen_titles = set(r['title'] for r in results)
+            for result in fallback_results:
+                if result['title'] not in seen_titles and len(results) < k:
+                    results.append(result)
+                    seen_titles.add(result['title'])
+        
+        # Return exactly k results (or all available if less than k)
+        return results[:k]
     
     def _extract_investment_themes(self, landing_page_content: str) -> Dict[str, str]:
         """

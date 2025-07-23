@@ -262,8 +262,8 @@ Landing Page URL: {client_data.get('url', '')}
         else:
             relevant_news = client_data.get('relevant_news', [])
         
-        # Generate primary ad creative
-        primary_ads = self.generate_ad_creative(client_data, relevant_news[:3])
+        # Generate primary ad creative (use all relevant news found by RAG)
+        primary_ads = self.generate_ad_creative(client_data, relevant_news)
         
         # Add metadata
         campaign = {

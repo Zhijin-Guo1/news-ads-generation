@@ -176,7 +176,7 @@ def sidebar_config():
         min_value=1,
         max_value=10,
         value=5,
-        help="Number of top-ranked relevant news articles from each client's own Excel sheet (guaranteed to return this many articles)"
+        help="Number of top-ranked relevant news articles to return. Each Excel sheet contains pre-matched news for each client."
     )
     
     return {
@@ -314,7 +314,7 @@ def rag_processing_section(client_data, config):
                 st.write(f"🔍 Debug - Vector database built with {len(rag_processor.metadata)} total embeddings")
                 news_embeddings = [item for item in rag_processor.metadata if item['type'] == 'news_article']
                 st.write(f"   📰 News embeddings: {len(news_embeddings)} total")
-                st.write(f"   🔄 Code version: 2025-07-23-v4 (thematic query design applied)")
+                st.write(f"   🔄 Code version: 2025-07-23-v5 (simplified RAG logic - pre-matched news per client)")
                 
                 # Force clear any import caches
                 import importlib
@@ -351,72 +351,20 @@ def rag_processing_section(client_data, config):
                         st.write(f"   👥 Client names in DB: {list(unique_clients_in_db)}")
                         st.write(f"   🎯 Looking for: '{client['client_name']}'")
                         
-                        # Test raw semantic search without client filtering
-                        if len(relevant_news) <= 2:  # Debug for low results too
-                            st.write("   🚨 Low/zero results - testing search query...")
+                        # Debug thematic query generation for low results
+                        if len(relevant_news) < config['max_news_articles']:
+                            st.write(f"   ℹ️ Found {len(relevant_news)}/{config['max_news_articles']} articles - checking thematic query")
                             
-                            # Test the new thematic query generation
+                            # Show the thematic query being used
                             try:
                                 investment_themes = rag_processor._extract_investment_themes(client['landing_page_content'])
-                                thematic_query = rag_processor._create_thematic_query(investment_themes)
+                                thematic_query = rag_processor._create_thematic_query(investment_themes, client['client_name'])
                                 
-                                st.write(f"   🎯 Investment themes detected: {list(investment_themes.keys())}")
-                                st.write(f"   📝 Thematic query length: {len(thematic_query)} chars")
-                                st.write(f"   🔍 Query sample: {thematic_query[:150]}...")
+                                st.write(f"   🎯 Investment themes: {list(investment_themes.keys())}")
+                                st.write(f"   📝 Query: {thematic_query[:100]}...")
                                 
-                                # Show key themes
-                                for theme_name, theme_content in list(investment_themes.items())[:2]:
-                                    st.write(f"   📊 {theme_name}: {theme_content[:100]}...")
-                                    
                             except Exception as e:
-                                st.write(f"   ❌ Thematic query error: {e}")
-                                # Fallback to show we're still using old approach
-                                st.write("   🔄 Falling back to old query method")
-                            
-                            # Test with old simple approach (for comparison)
-                            old_simple_results = rag_processor.semantic_search(
-                                client['landing_page_content'][:500],
-                                k=3,
-                                filter_type='news_article'
-                            )
-                            st.write(f"   🔍 Old simple search (first 500 chars): {len(old_simple_results)} results")
-                            
-                            # Test with new thematic query approach
-                            if 'thematic_query' in locals():
-                                thematic_results = rag_processor.semantic_search(
-                                    thematic_query,
-                                    k=3,
-                                    filter_type='news_article'
-                                )
-                                st.write(f"   🎯 New thematic search: {len(thematic_results)} results")
-                            else:
-                                st.write("   ❌ Thematic query not available")
-                            
-                            # Manual client filtering test - use thematic results if available, else old results
-                            test_results = thematic_results if 'thematic_query' in locals() and 'thematic_results' in locals() else old_simple_results
-                            if len(test_results) > 0:
-                                # Show what would be filtered manually
-                                client_filtered = [result for result in test_results 
-                                                 if result['client_name'] == client['client_name']]
-                                st.write(f"   🎯 Manual filtering for '{client['client_name']}': {len(client_filtered)} results")
-                                
-                                # Show what gets filtered out
-                                if len(test_results) > len(client_filtered):
-                                    st.write("   🚨 ISSUE: Manual filtering is removing results!")
-                                    for result in test_results:
-                                        if result['client_name'] != client['client_name']:
-                                            st.write(f"      ❌ Filtered out: '{result['client_name']}' != '{client['client_name']}'")
-                                        else:
-                                            st.write(f"      ✅ Kept: '{result['client_name']}' == '{client['client_name']}'")
-                                else:
-                                    st.write("   ✅ All results belong to the correct client")
-                            else:
-                                st.write("   ❓ Search returns 0 results - query might be the issue")
-                            
-                            if len(old_simple_results) > 0:
-                                st.write("   ✅ Old simple search works - issue is in content processing")
-                            if 'thematic_results' in locals() and len(thematic_results) > 0:
-                                st.write("   ✅ New thematic search works - improved query design")
+                                st.write(f"   ❌ Query generation error: {e}")
                         
                         # Extract keywords
                         keywords = rag_processor.extract_keywords(
