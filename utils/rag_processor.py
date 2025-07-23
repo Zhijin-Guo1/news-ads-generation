@@ -53,6 +53,7 @@ class RAGProcessor:
     def build_vector_database(self, client_data: List[Dict[str, Any]]) -> None:
         """
         Build FAISS vector database from client and news data
+        Each client's news articles are kept separate for client-specific search
         
         Args:
             client_data: List of client data with landing page content and news articles
@@ -81,7 +82,7 @@ class RAGProcessor:
                         'keywords': self.extract_keywords(chunk)
                     })
         
-        # Process news articles
+        # Process news articles - IMPORTANT: Keep client association for separate searching
         for client in client_data:
             for article in client['news_articles']:
                 # Combine title and source for richer embedding
@@ -90,7 +91,7 @@ class RAGProcessor:
                 embeddings.append(embedding)
                 metadata.append({
                     'type': 'news_article',
-                    'client_name': client['client_name'],
+                    'client_name': client['client_name'],  # Key: This maintains client association
                     'title': article['title'],
                     'source': article.get('source', ''),
                     'published_date': article.get('published_date', ''),
@@ -137,7 +138,7 @@ class RAGProcessor:
         
         return chunks
     
-    def semantic_search(self, query: str, k: int = 5, filter_type: str = None) -> List[Dict[str, Any]]:
+    def semantic_search(self, query: str, k: int = 5, filter_type: str = None, filter_client: str = None) -> List[Dict[str, Any]]:
         """
         Perform semantic search in vector database
         
@@ -145,6 +146,7 @@ class RAGProcessor:
             query: Search query
             k: Number of results to return
             filter_type: Optional filter by content type ('landing_page' or 'news_article')
+            filter_client: Optional filter by client name for client-specific search
             
         Returns:
             List of search results with metadata and similarity scores
@@ -156,8 +158,9 @@ class RAGProcessor:
         query_embedding = self.get_embedding(query).astype('float32').reshape(1, -1)
         faiss.normalize_L2(query_embedding)
         
-        # Search
-        scores, indices = self.index.search(query_embedding, k * 2)  # Get more results for filtering
+        # Search with more results to allow for filtering
+        search_k = k * 3 if filter_client else k * 2
+        scores, indices = self.index.search(query_embedding, min(search_k, len(self.metadata)))
         
         results = []
         for score, idx in zip(scores[0], indices[0]):
@@ -166,8 +169,12 @@ class RAGProcessor:
                 
             metadata = self.metadata[idx]
             
-            # Apply filter if specified
+            # Apply type filter if specified
             if filter_type and metadata['type'] != filter_type:
+                continue
+            
+            # Apply client filter if specified (KEY CHANGE: search only within client's own news)
+            if filter_client and metadata['client_name'] != filter_client:
                 continue
             
             results.append({
@@ -183,6 +190,7 @@ class RAGProcessor:
     def find_relevant_news(self, client_name: str, landing_page_content: str, k: int = 10) -> List[Dict[str, Any]]:
         """
         Find relevant news articles for a specific client's landing page
+        Searches within the client's own news articles from their Excel sheet and returns top k
         
         Args:
             client_name: Name of the client
@@ -190,20 +198,40 @@ class RAGProcessor:
             k: Number of relevant news articles to return
             
         Returns:
-            List of relevant news articles with similarity scores
+            List of top k most relevant news articles (from client's own news sheet)
         """
         # Extract key themes from landing page
         keywords = self.extract_keywords(landing_page_content, max_keywords=10)
-        query = f"{landing_page_content[:500]} {' '.join(keywords)}"
         
-        # Search for relevant news articles
-        results = self.semantic_search(query, k=k, filter_type='news_article')
+        # IMPROVED: Skip navigation content, use core article content for better matching
+        content_length = len(landing_page_content)
+        if content_length > 2000:
+            core_content = landing_page_content[1000:3000]
+        elif content_length > 1000:
+            core_content = landing_page_content[500:1500]
+        else:
+            core_content = landing_page_content[:500]
         
-        return results
+        # Combine core content with extracted keywords
+        query = f"{core_content} {' '.join(keywords[:5])}"
+        
+        # Search ALL news articles and filter to this client's news only
+        all_news_results = self.semantic_search(
+            query, 
+            k=k*3,  # Get more results to ensure we have enough after filtering
+            filter_type='news_article'  # No client filter here - we'll filter manually
+        )
+        
+        # Filter to only this client's news articles and return top k
+        client_news = [result for result in all_news_results 
+                      if result['client_name'] == client_name]
+        
+        return client_news[:k]  # Return top k from this client's news
     
     def get_contextual_information(self, client_name: str, topic: str, k: int = 5) -> Dict[str, Any]:
         """
         Get contextual information for ad generation
+        Now searches within client-specific content only
         
         Args:
             client_name: Name of the client
@@ -211,20 +239,22 @@ class RAGProcessor:
             k: Number of results per category
             
         Returns:
-            Dictionary with landing page context and relevant news
+            Dictionary with landing page context and relevant news (client-specific)
         """
-        # Get landing page context
+        # Get landing page context for this specific client
         landing_page_results = self.semantic_search(
             f"{client_name} {topic}", 
             k=k, 
-            filter_type='landing_page'
+            filter_type='landing_page',
+            filter_client=client_name
         )
         
-        # Get relevant news
+        # Get relevant news from this client's news only
         news_results = self.semantic_search(
             f"{topic} finance investment", 
             k=k, 
-            filter_type='news_article'
+            filter_type='news_article',
+            filter_client=client_name  # KEY CHANGE: Only this client's news
         )
         
         return {
