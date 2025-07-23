@@ -88,9 +88,9 @@ Output format: Return valid JSON with structured ad content."""
         # Format landing page summary
         landing_summary = landing_page_content[:800] if landing_page_content else "Investment expertise and market insights"
         
-        # Format top news articles
+        # Format top news articles (use all relevant news found)
         news_context = []
-        for i, news in enumerate(relevant_news[:3]):
+        for i, news in enumerate(relevant_news):
             news_context.append(f"{i+1}. {news.get('title', 'Market Development')} (Source: {news.get('source', 'Financial News')}) - Relevance: {news.get('similarity_score', 0.5):.2f}")
         
         prompt = f"""

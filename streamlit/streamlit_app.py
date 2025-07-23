@@ -340,7 +340,7 @@ def rag_processing_section(client_data, config):
                         
                         with col2:
                             st.subheader("📰 Relevant News")
-                            for news in client['relevant_news'][:3]:
+                            for news in client['relevant_news']:  # Show all relevant news found
                                 score = news.get('similarity_score', 0)
                                 st.write(f"• **{news['title'][:50]}...** (Score: {score:.3f})")
                 
