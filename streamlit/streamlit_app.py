@@ -314,7 +314,7 @@ def rag_processing_section(client_data, config):
                 st.write(f"🔍 Debug - Vector database built with {len(rag_processor.metadata)} total embeddings")
                 news_embeddings = [item for item in rag_processor.metadata if item['type'] == 'news_article']
                 st.write(f"   📰 News embeddings: {len(news_embeddings)} total")
-                st.write(f"   🔄 Code version: 2025-07-23-v3 (smart content detection applied)")
+                st.write(f"   🔄 Code version: 2025-07-23-v4 (thematic query design applied)")
                 
                 # Force clear any import caches
                 import importlib
@@ -355,51 +355,55 @@ def rag_processing_section(client_data, config):
                         if len(relevant_news) <= 2:  # Debug for low results too
                             st.write("   🚨 Low/zero results - testing search query...")
                             
-                            # Test what query is actually being generated
-                            keywords = rag_processor.extract_keywords(client['landing_page_content'], max_keywords=10)
+                            # Test the new thematic query generation
+                            try:
+                                investment_themes = rag_processor._extract_investment_themes(client['landing_page_content'])
+                                thematic_query = rag_processor._create_thematic_query(investment_themes)
+                                
+                                st.write(f"   🎯 Investment themes detected: {list(investment_themes.keys())}")
+                                st.write(f"   📝 Thematic query length: {len(thematic_query)} chars")
+                                st.write(f"   🔍 Query sample: {thematic_query[:150]}...")
+                                
+                                # Show key themes
+                                for theme_name, theme_content in list(investment_themes.items())[:2]:
+                                    st.write(f"   📊 {theme_name}: {theme_content[:100]}...")
+                                    
+                            except Exception as e:
+                                st.write(f"   ❌ Thematic query error: {e}")
+                                # Fallback to show we're still using old approach
+                                st.write("   🔄 Falling back to old query method")
                             
-                            # Check the content extraction logic from find_relevant_news
-                            content_length = len(client['landing_page_content'])
-                            if content_length > 2000:
-                                core_content = client['landing_page_content'][1000:3000]
-                            elif content_length > 1000:
-                                core_content = client['landing_page_content'][500:1500]
-                            else:
-                                core_content = client['landing_page_content'][:500]
-                            
-                            query = f"{core_content} {' '.join(keywords[:5])}"
-                            
-                            st.write(f"   📝 Query length: {len(query)} chars")
-                            st.write(f"   🔑 Keywords extracted: {len(keywords)} keywords")
-                            st.write(f"   📄 Core content sample: {core_content[:100]}...")
-                            
-                            # Test with simple query first
-                            simple_results = rag_processor.semantic_search(
+                            # Test with old simple approach (for comparison)
+                            old_simple_results = rag_processor.semantic_search(
                                 client['landing_page_content'][:500],
                                 k=3,
                                 filter_type='news_article'
                             )
-                            st.write(f"   🔍 Simple search (first 500 chars): {len(simple_results)} results")
+                            st.write(f"   🔍 Old simple search (first 500 chars): {len(old_simple_results)} results")
                             
-                            # Test with the actual query used by find_relevant_news
-                            complex_results = rag_processor.semantic_search(
-                                query,
-                                k=3,
-                                filter_type='news_article'
-                            )
-                            st.write(f"   🔍 Complex search (processed query): {len(complex_results)} results")
+                            # Test with new thematic query approach
+                            if 'thematic_query' in locals():
+                                thematic_results = rag_processor.semantic_search(
+                                    thematic_query,
+                                    k=3,
+                                    filter_type='news_article'
+                                )
+                                st.write(f"   🎯 New thematic search: {len(thematic_results)} results")
+                            else:
+                                st.write("   ❌ Thematic query not available")
                             
-                            # Manual client filtering test (since filter_client parameter doesn't exist)
-                            if len(complex_results) > 0:
+                            # Manual client filtering test - use thematic results if available, else old results
+                            test_results = thematic_results if 'thematic_query' in locals() and 'thematic_results' in locals() else old_simple_results
+                            if len(test_results) > 0:
                                 # Show what would be filtered manually
-                                client_filtered = [result for result in complex_results 
+                                client_filtered = [result for result in test_results 
                                                  if result['client_name'] == client['client_name']]
                                 st.write(f"   🎯 Manual filtering for '{client['client_name']}': {len(client_filtered)} results")
                                 
                                 # Show what gets filtered out
-                                if len(complex_results) > len(client_filtered):
+                                if len(test_results) > len(client_filtered):
                                     st.write("   🚨 ISSUE: Manual filtering is removing results!")
-                                    for result in complex_results:
+                                    for result in test_results:
                                         if result['client_name'] != client['client_name']:
                                             st.write(f"      ❌ Filtered out: '{result['client_name']}' != '{client['client_name']}'")
                                         else:
@@ -407,12 +411,12 @@ def rag_processing_section(client_data, config):
                                 else:
                                     st.write("   ✅ All results belong to the correct client")
                             else:
-                                st.write("   ❓ Complex search itself returns 0 - query might be the issue")
+                                st.write("   ❓ Search returns 0 results - query might be the issue")
                             
-                            if len(simple_results) > 0:
-                                st.write("   ✅ Simple search works - issue is in content processing")
-                            if len(complex_results) > 0:
-                                st.write("   ✅ Complex search works - issue is in client filtering")
+                            if len(old_simple_results) > 0:
+                                st.write("   ✅ Old simple search works - issue is in content processing")
+                            if 'thematic_results' in locals() and len(thematic_results) > 0:
+                                st.write("   ✅ New thematic search works - improved query design")
                         
                         # Extract keywords
                         keywords = rag_processor.extract_keywords(
