@@ -215,18 +215,15 @@ class RAGProcessor:
         # Combine core content with extracted keywords
         query = f"{core_content} {' '.join(keywords[:5])}"
         
-        # Search ALL news articles and filter to this client's news only
-        all_news_results = self.semantic_search(
+        # Search for relevant news articles ONLY within this client's news
+        results = self.semantic_search(
             query, 
-            k=k*3,  # Get more results to ensure we have enough after filtering
-            filter_type='news_article'  # No client filter here - we'll filter manually
+            k=k, 
+            filter_type='news_article',
+            filter_client=client_name  # Use the built-in client filter
         )
         
-        # Filter to only this client's news articles and return top k
-        client_news = [result for result in all_news_results 
-                      if result['client_name'] == client_name]
-        
-        return client_news[:k]  # Return top k from this client's news
+        return results
     
     def get_contextual_information(self, client_name: str, topic: str, k: int = 5) -> Dict[str, Any]:
         """
