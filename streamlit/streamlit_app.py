@@ -314,6 +314,7 @@ def rag_processing_section(client_data, config):
                 st.write(f"🔍 Debug - Vector database built with {len(rag_processor.metadata)} total embeddings")
                 news_embeddings = [item for item in rag_processor.metadata if item['type'] == 'news_article']
                 st.write(f"   📰 News embeddings: {len(news_embeddings)} total")
+                st.write(f"   🔄 Code version: 2025-07-23-v2 (client filtering fix applied)")
                 
                 # Process each client
                 processed_clients = []
