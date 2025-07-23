@@ -310,6 +310,11 @@ def rag_processing_section(client_data, config):
                 # Build vector database
                 rag_processor.build_vector_database(client_data)
                 
+                # Debug: Show database stats
+                st.write(f"🔍 Debug - Vector database built with {len(rag_processor.metadata)} total embeddings")
+                news_embeddings = [item for item in rag_processor.metadata if item['type'] == 'news_article']
+                st.write(f"   📰 News embeddings: {len(news_embeddings)} total")
+                
                 # Process each client
                 processed_clients = []
                 
@@ -321,6 +326,14 @@ def rag_processing_section(client_data, config):
                             client['landing_page_content'],
                             k=config['max_news_articles']
                         )
+                        
+                        # Debug: Show what we found
+                        st.write(f"🔍 Debug - {client['client_name']}: Found {len(relevant_news)}/{config['max_news_articles']} articles")
+                        
+                        # Additional debug info
+                        total_news_in_sheet = len(client.get('news_articles', []))
+                        landing_page_length = len(client.get('landing_page_content', ''))
+                        st.write(f"   📊 Total news in Excel: {total_news_in_sheet}, Landing page: {landing_page_length} chars")
                         
                         # Extract keywords
                         keywords = rag_processor.extract_keywords(
