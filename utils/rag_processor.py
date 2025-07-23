@@ -174,8 +174,17 @@ class RAGProcessor:
                 continue
             
             # Apply client filter if specified (KEY CHANGE: search only within client's own news)
-            if filter_client and metadata['client_name'] != filter_client:
-                continue
+            if filter_client:
+                found_name = metadata['client_name']
+                looking_for = filter_client
+                if found_name != looking_for:
+                    # Debug: Show what's being filtered out with character analysis
+                    print(f"DEBUG: Filtering out - Found: '{found_name}' (len={len(found_name)}) != Looking for: '{looking_for}' (len={len(looking_for)})")
+                    print(f"  Found bytes: {found_name.encode('utf-8')}")
+                    print(f"  Looking bytes: {looking_for.encode('utf-8')}")
+                    continue
+                else:
+                    print(f"DEBUG: Match found - '{found_name}' == '{looking_for}'")
             
             results.append({
                 **metadata,
