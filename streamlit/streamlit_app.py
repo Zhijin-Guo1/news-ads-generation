@@ -292,6 +292,15 @@ def rag_processing_section(client_data, config):
     """Handle RAG processing and vector database creation"""
     st.markdown('<h2 class="step-header">🧠 Step 3: RAG Processing</h2>', unsafe_allow_html=True)
     
+    # Check if max_news_articles setting has changed
+    if 'last_max_news_articles' not in st.session_state:
+        st.session_state.last_max_news_articles = config['max_news_articles']
+    
+    # Show warning if settings changed but haven't reprocessed
+    if (st.session_state.processed_data is not None and 
+        st.session_state.last_max_news_articles != config['max_news_articles']):
+        st.warning(f"⚠️ You changed 'Max News Articles per Client' from {st.session_state.last_max_news_articles} to {config['max_news_articles']}. Click 'Build Vector Database' again to apply the new setting.")
+    
     if st.button("🔍 Build Vector Database", type="primary"):
         with st.spinner("🧠 Building vector database and processing with RAG..."):
             try:
@@ -341,6 +350,9 @@ def rag_processing_section(client_data, config):
                             for news in client['relevant_news']:  # Show all relevant news found
                                 score = news.get('similarity_score', 0)
                                 st.write(f"• **{news['title'][:50]}...** (Score: {score:.3f})")
+                
+                # Update the last used setting
+                st.session_state.last_max_news_articles = config['max_news_articles']
                 
                 return processed_clients
                 
