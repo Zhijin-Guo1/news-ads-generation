@@ -212,14 +212,8 @@ class RAGProcessor:
         # Extract key themes from landing page
         keywords = self.extract_keywords(landing_page_content, max_keywords=10)
         
-        # IMPROVED: Skip navigation content, use core article content for better matching
-        content_length = len(landing_page_content)
-        if content_length > 2000:
-            core_content = landing_page_content[1000:3000]
-        elif content_length > 1000:
-            core_content = landing_page_content[500:1500]
-        else:
-            core_content = landing_page_content[:500]
+        # FIXED: Use simple approach that works - just take first 500 chars like backend
+        core_content = landing_page_content[:500]
         
         # Combine core content with extracted keywords
         query = f"{core_content} {' '.join(keywords[:5])}"
