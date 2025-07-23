@@ -351,29 +351,23 @@ def rag_processing_section(client_data, config):
                         st.write(f"   👥 Client names in DB: {list(unique_clients_in_db)}")
                         st.write(f"   🎯 Looking for: '{client['client_name']}'")
                         
-                        # Debug thematic query generation for low results
-                        if len(relevant_news) < config['max_news_articles']:
-                            st.write(f"   ℹ️ Found {len(relevant_news)}/{config['max_news_articles']} articles - checking thematic query")
+                        # Generate and store the thematic query for display
+                        try:
+                            investment_themes = rag_processor._extract_investment_themes(client['landing_page_content'])
+                            thematic_query = rag_processor._create_thematic_query(investment_themes, client['client_name'])
+                            client['thematic_query'] = thematic_query
                             
-                            # Show the thematic query being used
-                            try:
-                                investment_themes = rag_processor._extract_investment_themes(client['landing_page_content'])
-                                thematic_query = rag_processor._create_thematic_query(investment_themes, client['client_name'])
-                                
+                            # Debug info for low results
+                            if len(relevant_news) < config['max_news_articles']:
+                                st.write(f"   ℹ️ Found {len(relevant_news)}/{config['max_news_articles']} articles")
                                 st.write(f"   🎯 Investment themes: {list(investment_themes.keys())}")
-                                st.write(f"   📝 Query: {thematic_query[:100]}...")
+                                st.write(f"   📝 Query: {thematic_query}")
                                 
-                            except Exception as e:
-                                st.write(f"   ❌ Query generation error: {e}")
-                        
-                        # Extract keywords
-                        keywords = rag_processor.extract_keywords(
-                            client['landing_page_content'], 
-                            max_keywords=10
-                        )
+                        except Exception as e:
+                            st.write(f"   ❌ Query generation error: {e}")
+                            client['thematic_query'] = "Error generating query"
                         
                         client['relevant_news'] = relevant_news
-                        client['landing_page_keywords'] = keywords
                         
                         processed_clients.append(client)
                 
@@ -385,9 +379,16 @@ def rag_processing_section(client_data, config):
                         col1, col2 = st.columns(2)
                         
                         with col1:
-                            st.subheader("🔑 Keywords")
-                            for keyword in client['landing_page_keywords'][:5]:
-                                st.write(f"• {keyword}")
+                            st.subheader("🔍 Search Query")
+                            st.code(client.get('thematic_query', 'No query generated'), language=None)
+                            
+                            st.subheader("🎯 Investment Themes")
+                            try:
+                                investment_themes = rag_processor._extract_investment_themes(client['landing_page_content'])
+                                for theme in list(investment_themes.keys())[:4]:  # Show top 4 themes
+                                    st.write(f"• {theme.replace('_', ' ').title()}")
+                            except:
+                                st.write("• Theme extraction unavailable")
                         
                         with col2:
                             st.subheader("📰 Relevant News")
@@ -413,6 +414,56 @@ def campaign_generation_section(processed_data, config):
     if not config['api_key']:
         st.error("❌ OpenAI API key not found. Please set OPENAI_API_KEY environment variable.")
         return None
+    
+    # Add prompt customization section
+    with st.expander("🎯 Customize Generation Prompt", expanded=False):
+        st.markdown("**Edit the prompt template used for ad generation:**")
+        
+        default_prompt = """**Client Context:**
+Client: {client_name}
+Landing Page URL: {client_url}
+
+**Key Themes & Expertise:**
+{landing_summary}
+
+**Relevant Market News (Ranked by Relevance):**
+{news_context}
+
+**Task:** Generate ad creative for the following formats that meaningfully connects the client's expertise with the current news landscape:
+
+1. **LinkedIn Single Image Ad:**
+   - Headline (max 150 characters)
+   - Body (max 600 characters) 
+   - Call-to-Action
+   - Image Description (detailed visual concept)
+
+2. **Banner Ad 300x250:**
+   - Headline (max 50 characters)
+   - Body (max 100 characters)
+   - Call-to-Action
+   - Image Description (detailed visual concept)
+
+3. **Additional Creative Concept:**
+   - Provide one additional innovative ad format or approach
+
+**Requirements:**
+- Connect client expertise with at least one news item
+- Maintain compliance and professional tone
+- Focus on thought leadership, not direct selling
+- Ensure headlines are compelling and news-responsive
+- Make the connection between news and client value clear
+
+**Output:** Return as JSON with keys: "linkedin_single_image", "banner_ad_300x250", "additional_creative", each containing "headline", "body", "call_to_action", "image_description", and "news_connection_rationale"."""
+
+        custom_prompt = st.text_area(
+            "Prompt Template",
+            value=default_prompt,
+            height=400,
+            help="You can customize this prompt template. Use {client_name}, {client_url}, {landing_summary}, and {news_context} as placeholders."
+        )
+        
+        # Store the custom prompt in session state
+        st.session_state.custom_prompt = custom_prompt
     
     if st.button("🎯 Generate Ad Campaigns", type="primary"):
         with st.spinner("🤖 Generating AI campaigns with GPT-4o..."):
@@ -465,6 +516,22 @@ def image_generation_section(campaigns, config):
     if not config['api_key']:
         st.error("❌ OpenAI API key not found. Please set OPENAI_API_KEY environment variable.")
         return campaigns
+    
+    # Add image prompt customization section
+    with st.expander("🎨 Customize Image Generation Prompt", expanded=False):
+        st.markdown("**Edit the prompt template used for DALL-E 3 image generation:**")
+        
+        default_image_prompt = """Professional financial marketing image for {client_name}. {format_style}{description}. High-quality professional photography or clean vector graphics, modern financial services aesthetic, sophisticated color palette with blues and greens, corporate professional style, minimal and clean design, no text or typography in the image, suitable for adding text overlay later, institutional investor appropriate, premium brand feeling"""
+
+        custom_image_prompt = st.text_area(
+            "Image Prompt Template",
+            value=default_image_prompt,
+            height=200,
+            help="Customize the DALL-E 3 prompt template. Use {client_name}, {format_style}, and {description} as placeholders."
+        )
+        
+        # Store the custom image prompt in session state
+        st.session_state.custom_image_prompt = custom_image_prompt
     
     if st.button("🎨 Generate Professional Images", type="primary"):
         with st.spinner("🎨 Generating images with DALL-E 3 HD..."):
