@@ -109,8 +109,6 @@ def display_header():
         <h3>🤖 AI-Powered Marketing Campaign Generation</h3>
         <p>Transform client data and news articles into professional, contextually relevant ad campaigns using 
         RAG (Retrieval-Augmented Generation) and OpenAI's latest models.</p>
-        <p><strong>✨ Updated:</strong> Each client now searches only within their own Excel sheet's news articles, 
-        returning the top-ranked relevant articles with improved content extraction.</p>
     </div>
     """, unsafe_allow_html=True)
 
