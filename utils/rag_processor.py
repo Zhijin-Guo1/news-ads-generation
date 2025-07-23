@@ -209,28 +209,11 @@ class RAGProcessor:
         Returns:
             List of top k most relevant news articles (from client's own news sheet)
         """
-        # Extract key themes from landing page
-        keywords = self.extract_keywords(landing_page_content, max_keywords=10)
+        # REDESIGNED: Extract investment themes and market views from landing page
+        investment_themes = self._extract_investment_themes(landing_page_content)
         
-        # SMART: Find actual content by looking for key markers
-        content_lower = landing_page_content.lower()
-        
-        # Look for actual content markers (not navigation)
-        content_markers = ['federal reserve', 'fed policymakers', 'investment', 'market', 'economic', 'sustainable', 'esg']
-        
-        best_start = 0
-        for marker in content_markers:
-            marker_pos = content_lower.find(marker)
-            if marker_pos > 0 and marker_pos < len(landing_page_content) * 0.7:  # Not too far down
-                # Go back a bit for context
-                best_start = max(0, marker_pos - 100)
-                break
-        
-        # Extract content from the best position
-        core_content = landing_page_content[best_start:best_start + 800]
-        
-        # Combine core content with extracted keywords
-        query = f"{core_content} {' '.join(keywords[:5])}"
+        # Create a focused query based on investment themes rather than raw content
+        query = self._create_thematic_query(investment_themes)
         
         # Search ALL news articles and filter to this client's news only
         all_news_results = self.semantic_search(
@@ -247,6 +230,83 @@ class RAGProcessor:
         print(f"Found {len(all_news_results)} total results, {len(client_news)} for client '{client_name}'")
         
         return client_news[:k]  # Return top k from this client's news
+    
+    def _extract_investment_themes(self, landing_page_content: str) -> Dict[str, str]:
+        """
+        Extract investment themes and market views from landing page content
+        
+        Returns:
+            Dictionary with investment themes, market outlook, key focus areas
+        """
+        content_lower = landing_page_content.lower()
+        
+        # Define theme extraction patterns
+        theme_patterns = {
+            'monetary_policy': ['federal reserve', 'fed policy', 'interest rates', 'rate cuts', 'inflation', 'monetary policy'],
+            'market_outlook': ['market outlook', 'economic outlook', '2025 outlook', 'market trends', 'investment outlook'],
+            'investment_strategy': ['investment strategy', 'asset allocation', 'portfolio', 'diversification', 'risk management'],
+            'sustainability': ['sustainable investing', 'esg', 'environmental', 'social', 'governance', 'climate'],
+            'sectors': ['emerging markets', 'equities', 'bonds', 'real estate', 'technology', 'healthcare'],
+            'economic_themes': ['inflation', 'growth', 'recession', 'recovery', 'volatility', 'uncertainty']
+        }
+        
+        # Extract themes present in the content
+        detected_themes = {}
+        for theme_name, keywords in theme_patterns.items():
+            theme_content = []
+            for keyword in keywords:
+                if keyword in content_lower:
+                    # Find sentences containing this keyword
+                    sentences = landing_page_content.split('.')
+                    for sentence in sentences:
+                        if keyword.lower() in sentence.lower() and len(sentence.strip()) > 20:
+                            theme_content.append(sentence.strip())
+                            break  # One sentence per keyword is enough
+            
+            if theme_content:
+                detected_themes[theme_name] = ' '.join(theme_content[:2])  # Max 2 sentences per theme
+        
+        return detected_themes
+    
+    def _create_thematic_query(self, investment_themes: Dict[str, str]) -> str:
+        """
+        Create a focused query based on extracted investment themes
+        
+        Args:
+            investment_themes: Dictionary of detected themes and their content
+            
+        Returns:
+            Optimized query string for news matching
+        """
+        if not investment_themes:
+            # Fallback to basic financial terms
+            return "market investment financial economic outlook strategy"
+        
+        # Prioritize themes for query construction
+        theme_priority = ['monetary_policy', 'market_outlook', 'investment_strategy', 'sustainability', 'sectors', 'economic_themes']
+        
+        query_parts = []
+        for theme in theme_priority:
+            if theme in investment_themes:
+                # Extract key concepts from theme content
+                theme_text = investment_themes[theme]
+                key_concepts = self.extract_keywords(theme_text, max_keywords=3)
+                query_parts.extend(key_concepts)
+                
+                # Add the theme content itself (truncated)
+                query_parts.append(theme_text[:200])
+                
+                if len(query_parts) >= 3:  # Limit to top 3 themes to keep query focused
+                    break
+        
+        # Combine into final query
+        final_query = ' '.join(query_parts)
+        
+        # Ensure query isn't too long (max 1000 chars for efficiency)
+        if len(final_query) > 1000:
+            final_query = final_query[:1000]
+            
+        return final_query
     
     def get_contextual_information(self, client_name: str, topic: str, k: int = 5) -> Dict[str, Any]:
         """
