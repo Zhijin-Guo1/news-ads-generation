@@ -212,24 +212,19 @@ class RAGProcessor:
         # REDESIGNED: Extract investment themes and market views from landing page
         investment_themes = self._extract_investment_themes(landing_page_content)
         
-        # Create a focused query based on investment themes rather than raw content
-        query = self._create_thematic_query(investment_themes)
+        # Create a focused query based on investment themes and client context
+        query = self._create_thematic_query(investment_themes, client_name)
         
-        # Search ALL news articles and filter to this client's news only
-        all_news_results = self.semantic_search(
+        # Search within this client's news articles (already pre-matched in Excel)
+        # No need for filtering - the vector database already separates by client
+        results = self.semantic_search(
             query, 
-            k=k*3,  # Get more results to ensure we have enough after filtering
-            filter_type='news_article'  # Get all news articles first
+            k=k,
+            filter_type='news_article',
+            filter_client=client_name  # Use the built-in client filter since news are pre-matched
         )
         
-        # Filter to only this client's news articles and return top k
-        client_news = [result for result in all_news_results 
-                      if result['client_name'] == client_name]
-        
-        # Debug output for troubleshooting
-        print(f"Found {len(all_news_results)} total results, {len(client_news)} for client '{client_name}'")
-        
-        return client_news[:k]  # Return top k from this client's news
+        return results
     
     def _extract_investment_themes(self, landing_page_content: str) -> Dict[str, str]:
         """
@@ -268,43 +263,60 @@ class RAGProcessor:
         
         return detected_themes
     
-    def _create_thematic_query(self, investment_themes: Dict[str, str]) -> str:
+    def _create_thematic_query(self, investment_themes: Dict[str, str], client_name: str = None) -> str:
         """
         Create a focused query based on extracted investment themes
+        Optimized to find news that connects with the company's specific message
         
         Args:
             investment_themes: Dictionary of detected themes and their content
+            client_name: Name of the client for context
             
         Returns:
-            Optimized query string for news matching
+            Optimized query string for news matching within client's collection
         """
         if not investment_themes:
-            # Fallback to basic financial terms
+            # Fallback based on client type
+            if client_name:
+                if 'PIMCO' in client_name:
+                    return "interest rates federal reserve monetary policy inflation"
+                elif 'State Street' in client_name:
+                    return "sustainable investing ESG environmental social governance"
+                elif 'T Rowe Price' in client_name or 'T. Rowe Price' in client_name:
+                    return "investment strategy portfolio management emerging markets equity"
             return "market investment financial economic outlook strategy"
+        
+        # Extract the most relevant keywords from themes
+        query_keywords = []
         
         # Prioritize themes for query construction
         theme_priority = ['monetary_policy', 'market_outlook', 'investment_strategy', 'sustainability', 'sectors', 'economic_themes']
         
-        query_parts = []
         for theme in theme_priority:
             if theme in investment_themes:
-                # Extract key concepts from theme content
                 theme_text = investment_themes[theme]
-                key_concepts = self.extract_keywords(theme_text, max_keywords=3)
-                query_parts.extend(key_concepts)
+                # Extract key concepts (focus on nouns and important terms)
+                key_concepts = self.extract_keywords(theme_text, max_keywords=5)
                 
-                # Add the theme content itself (truncated)
-                query_parts.append(theme_text[:200])
+                # Filter for the most relevant keywords (avoid generic terms)
+                filtered_concepts = []
+                for concept in key_concepts:
+                    # Skip very generic terms
+                    if len(concept.split()) <= 3 and concept not in ['the', 'and', 'for', 'with', 'this', 'that']:
+                        filtered_concepts.append(concept)
                 
-                if len(query_parts) >= 3:  # Limit to top 3 themes to keep query focused
+                query_keywords.extend(filtered_concepts[:3])  # Top 3 from each theme
+                
+                if len(query_keywords) >= 8:  # Limit total keywords for focus
                     break
         
-        # Combine into final query
-        final_query = ' '.join(query_parts)
+        # Create focused query from keywords
+        final_query = ' '.join(query_keywords[:8])  # Use top 8 keywords maximum
         
-        # Ensure query isn't too long (max 1000 chars for efficiency)
-        if len(final_query) > 1000:
-            final_query = final_query[:1000]
+        # If query is too short, add some theme content
+        if len(final_query) < 50 and investment_themes:
+            first_theme = list(investment_themes.values())[0]
+            final_query += ' ' + first_theme[:100]
             
         return final_query
     
