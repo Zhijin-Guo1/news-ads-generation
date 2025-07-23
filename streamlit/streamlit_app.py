@@ -383,24 +383,24 @@ def rag_processing_section(client_data, config):
                             )
                             st.write(f"   🔍 Complex search (processed query): {len(complex_results)} results")
                             
-                            # Test with client filtering (the actual issue)
-                            filtered_results = rag_processor.semantic_search(
-                                query,
-                                k=3,
-                                filter_type='news_article',
-                                filter_client=client['client_name']
-                            )
-                            st.write(f"   🎯 Filtered search (with client='{client['client_name']}'): {len(filtered_results)} results")
-                            
-                            # Show what gets filtered out
-                            if len(complex_results) > len(filtered_results):
-                                st.write("   🚨 ISSUE: Client filtering is removing results!")
-                                for result in complex_results:
-                                    if result['client_name'] != client['client_name']:
-                                        st.write(f"      ❌ Filtered out: '{result['client_name']}' != '{client['client_name']}'")
-                                    else:
-                                        st.write(f"      ✅ Kept: '{result['client_name']}' == '{client['client_name']}'")
-                            elif len(complex_results) == 0:
+                            # Manual client filtering test (since filter_client parameter doesn't exist)
+                            if len(complex_results) > 0:
+                                # Show what would be filtered manually
+                                client_filtered = [result for result in complex_results 
+                                                 if result['client_name'] == client['client_name']]
+                                st.write(f"   🎯 Manual filtering for '{client['client_name']}': {len(client_filtered)} results")
+                                
+                                # Show what gets filtered out
+                                if len(complex_results) > len(client_filtered):
+                                    st.write("   🚨 ISSUE: Manual filtering is removing results!")
+                                    for result in complex_results:
+                                        if result['client_name'] != client['client_name']:
+                                            st.write(f"      ❌ Filtered out: '{result['client_name']}' != '{client['client_name']}'")
+                                        else:
+                                            st.write(f"      ✅ Kept: '{result['client_name']}' == '{client['client_name']}'")
+                                else:
+                                    st.write("   ✅ All results belong to the correct client")
+                            else:
                                 st.write("   ❓ Complex search itself returns 0 - query might be the issue")
                             
                             if len(simple_results) > 0:
