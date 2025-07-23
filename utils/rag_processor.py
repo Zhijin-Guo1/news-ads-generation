@@ -212,8 +212,22 @@ class RAGProcessor:
         # Extract key themes from landing page
         keywords = self.extract_keywords(landing_page_content, max_keywords=10)
         
-        # FIXED: Use simple approach that works - just take first 500 chars like backend
-        core_content = landing_page_content[:500]
+        # SMART: Find actual content by looking for key markers
+        content_lower = landing_page_content.lower()
+        
+        # Look for actual content markers (not navigation)
+        content_markers = ['federal reserve', 'fed policymakers', 'investment', 'market', 'economic', 'sustainable', 'esg']
+        
+        best_start = 0
+        for marker in content_markers:
+            marker_pos = content_lower.find(marker)
+            if marker_pos > 0 and marker_pos < len(landing_page_content) * 0.7:  # Not too far down
+                # Go back a bit for context
+                best_start = max(0, marker_pos - 100)
+                break
+        
+        # Extract content from the best position
+        core_content = landing_page_content[best_start:best_start + 800]
         
         # Combine core content with extracted keywords
         query = f"{core_content} {' '.join(keywords[:5])}"
