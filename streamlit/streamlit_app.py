@@ -345,16 +345,47 @@ def rag_processing_section(client_data, config):
                         st.write(f"   🎯 Looking for: '{client['client_name']}'")
                         
                         # Test raw semantic search without client filtering
-                        if len(relevant_news) == 0:
-                            st.write("   🚨 Zero results - testing raw search...")
-                            raw_results = rag_processor.semantic_search(
+                        if len(relevant_news) <= 2:  # Debug for low results too
+                            st.write("   🚨 Low/zero results - testing search query...")
+                            
+                            # Test what query is actually being generated
+                            keywords = rag_processor.extract_keywords(client['landing_page_content'], max_keywords=10)
+                            
+                            # Check the content extraction logic from find_relevant_news
+                            content_length = len(client['landing_page_content'])
+                            if content_length > 2000:
+                                core_content = client['landing_page_content'][1000:3000]
+                            elif content_length > 1000:
+                                core_content = client['landing_page_content'][500:1500]
+                            else:
+                                core_content = client['landing_page_content'][:500]
+                            
+                            query = f"{core_content} {' '.join(keywords[:5])}"
+                            
+                            st.write(f"   📝 Query length: {len(query)} chars")
+                            st.write(f"   🔑 Keywords extracted: {len(keywords)} keywords")
+                            st.write(f"   📄 Core content sample: {core_content[:100]}...")
+                            
+                            # Test with simple query first
+                            simple_results = rag_processor.semantic_search(
                                 client['landing_page_content'][:500],
                                 k=3,
                                 filter_type='news_article'
                             )
-                            st.write(f"   🔍 Raw search found: {len(raw_results)} total news articles")
-                            for i, result in enumerate(raw_results[:2]):
-                                st.write(f"      {i+1}. {result['title'][:40]}... (client: {result['client_name']}, score: {result['similarity_score']:.3f})")
+                            st.write(f"   🔍 Simple search (first 500 chars): {len(simple_results)} results")
+                            
+                            # Test with the actual query used by find_relevant_news
+                            complex_results = rag_processor.semantic_search(
+                                query,
+                                k=3,
+                                filter_type='news_article'
+                            )
+                            st.write(f"   🔍 Complex search (processed query): {len(complex_results)} results")
+                            
+                            if len(simple_results) > 0:
+                                st.write("   ✅ Simple search works - issue is in content processing")
+                            if len(complex_results) > 0:
+                                st.write("   ✅ Complex search works - issue is in client filtering")
                         
                         # Extract keywords
                         keywords = rag_processor.extract_keywords(
