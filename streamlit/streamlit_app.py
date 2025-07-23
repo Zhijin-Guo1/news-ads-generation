@@ -335,6 +335,27 @@ def rag_processing_section(client_data, config):
                         landing_page_length = len(client.get('landing_page_content', ''))
                         st.write(f"   📊 Total news in Excel: {total_news_in_sheet}, Landing page: {landing_page_length} chars")
                         
+                        # Debug client name matching
+                        client_news_in_db = [item for item in rag_processor.metadata if item['type'] == 'news_article' and item['client_name'] == client['client_name']]
+                        st.write(f"   🔍 Client news in database: {len(client_news_in_db)} (should match Excel count)")
+                        
+                        # Show actual client names in database
+                        unique_clients_in_db = set(item['client_name'] for item in rag_processor.metadata if item['type'] == 'news_article')
+                        st.write(f"   👥 Client names in DB: {list(unique_clients_in_db)}")
+                        st.write(f"   🎯 Looking for: '{client['client_name']}'")
+                        
+                        # Test raw semantic search without client filtering
+                        if len(relevant_news) == 0:
+                            st.write("   🚨 Zero results - testing raw search...")
+                            raw_results = rag_processor.semantic_search(
+                                client['landing_page_content'][:500],
+                                k=3,
+                                filter_type='news_article'
+                            )
+                            st.write(f"   🔍 Raw search found: {len(raw_results)} total news articles")
+                            for i, result in enumerate(raw_results[:2]):
+                                st.write(f"      {i+1}. {result['title'][:40]}... (client: {result['client_name']}, score: {result['similarity_score']:.3f})")
+                        
                         # Extract keywords
                         keywords = rag_processor.extract_keywords(
                             client['landing_page_content'], 
