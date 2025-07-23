@@ -312,48 +312,54 @@ class RAGProcessor:
         Returns:
             Optimized query string for news matching within client's collection
         """
-        if not investment_themes:
-            # Fallback based on client type
-            if client_name:
-                if 'PIMCO' in client_name:
-                    return "interest rates federal reserve monetary policy inflation"
-                elif 'State Street' in client_name:
-                    return "sustainable investing ESG environmental social governance"
-                elif 'T Rowe Price' in client_name or 'T. Rowe Price' in client_name:
-                    return "investment strategy portfolio management emerging markets equity"
-            return "market investment financial economic outlook strategy"
+        # Always use client-specific fallback for more reliable results
+        if client_name:
+            if 'PIMCO' in client_name:
+                base_query = "federal reserve interest rates monetary policy inflation economic"
+            elif 'State Street' in client_name:
+                base_query = "sustainable investing ESG environmental social governance climate"
+            elif 'T Rowe Price' in client_name or 'T. Rowe Price' in client_name:
+                base_query = "emerging markets investment strategy portfolio management equity"
+            else:
+                base_query = "investment finance market economic outlook"
+        else:
+            base_query = "investment finance market economic outlook"
         
-        # Extract the most relevant keywords from themes
-        query_keywords = []
-        
-        # Prioritize themes for query construction
-        theme_priority = ['monetary_policy', 'market_outlook', 'investment_strategy', 'sustainability', 'sectors', 'economic_themes']
-        
-        for theme in theme_priority:
-            if theme in investment_themes:
-                theme_text = investment_themes[theme]
-                # Extract key concepts (focus on nouns and important terms)
-                key_concepts = self.extract_keywords(theme_text, max_keywords=5)
+        # If we have themes, enhance the base query with relevant keywords
+        if investment_themes:
+            # Define high-quality financial keywords for each theme
+            theme_keywords = {
+                'monetary_policy': ['federal reserve', 'interest rates', 'inflation', 'monetary policy', 'rate cuts'],
+                'market_outlook': ['market outlook', 'economic outlook', 'market trends', 'investment outlook'],
+                'investment_strategy': ['investment strategy', 'portfolio', 'asset allocation', 'risk management'],
+                'sustainability': ['ESG', 'sustainable investing', 'climate', 'environmental', 'governance'],
+                'sectors': ['emerging markets', 'equities', 'bonds', 'technology', 'healthcare'],
+                'economic_themes': ['inflation', 'growth', 'recession', 'volatility', 'economic']
+            }
+            
+            # Collect relevant keywords from detected themes
+            enhancement_keywords = []
+            for theme_name in investment_themes.keys():
+                if theme_name in theme_keywords:
+                    enhancement_keywords.extend(theme_keywords[theme_name][:2])  # Top 2 keywords per theme
+            
+            # Add enhancement keywords to base query
+            if enhancement_keywords:
+                # Remove duplicates while preserving order
+                all_keywords = base_query.split() + enhancement_keywords
+                unique_keywords = []
+                seen = set()
+                for keyword in all_keywords:
+                    if keyword.lower() not in seen:
+                        unique_keywords.append(keyword)
+                        seen.add(keyword.lower())
                 
-                # Filter for the most relevant keywords (avoid generic terms)
-                filtered_concepts = []
-                for concept in key_concepts:
-                    # Skip very generic terms
-                    if len(concept.split()) <= 3 and concept not in ['the', 'and', 'for', 'with', 'this', 'that']:
-                        filtered_concepts.append(concept)
-                
-                query_keywords.extend(filtered_concepts[:3])  # Top 3 from each theme
-                
-                if len(query_keywords) >= 8:  # Limit total keywords for focus
-                    break
-        
-        # Create focused query from keywords
-        final_query = ' '.join(query_keywords[:8])  # Use top 8 keywords maximum
-        
-        # If query is too short, add some theme content
-        if len(final_query) < 50 and investment_themes:
-            first_theme = list(investment_themes.values())[0]
-            final_query += ' ' + first_theme[:100]
+                # Limit to 8 most relevant keywords
+                final_query = ' '.join(unique_keywords[:8])
+            else:
+                final_query = base_query
+        else:
+            final_query = base_query
             
         return final_query
     
