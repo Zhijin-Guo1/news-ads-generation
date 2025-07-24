@@ -106,10 +106,10 @@ def display_header():
     
     st.markdown("""
     <div class="info-box">
-        <h3>🧠 Multi-Method AI-Powered Marketing Campaign Generation</h3>
-        <p>Transform client data and news articles into professional, contextually relevant ad campaigns using 
-        advanced RAG (Retrieval-Augmented Generation) with GPT-4o multi-method keyword extraction and semantic matching.</p>
-        <p><strong>🚀 New Features:</strong> URL analysis, semantic theme extraction, advanced query generation, and intelligent keyword ranking.</p>
+        <h3>🌐 Real-time Web Scraping AI-Powered Marketing Campaign Generation</h3>
+        <p>Transform live webpage content into professional, contextually relevant ad campaigns using 
+        real-time web scraping and GPT-4o function calling for maximum accuracy.</p>
+        <p><strong>🚀 Latest Features:</strong> Real-time web scraping, GPT-4o function calling, live content analysis, and current market positioning extraction.</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -372,14 +372,14 @@ def rag_processing_section(client_data, config):
                         st.write(f"   👥 Client names in DB: {list(unique_clients_in_db)}")
                         st.write(f"   🎯 Looking for: '{client['client_name']}'")
                         
-                        # Generate and store the enhanced query for display
+                        # Generate and store the real-time enhanced query for display
                         try:
                             investment_themes = rag_processor._extract_investment_themes(client['landing_page_content'])
-                            # Extract advanced keywords using multi-method approach
+                            # Extract keywords using real-time web scraping and GPT-4o function calling
+                            st.write(f"   🌐 Performing real-time web scraping for {client['client_name']}")
                             landing_page_keywords = rag_processor.extract_keywords(
-                                client['landing_page_content'], 
-                                max_keywords=8, 
-                                url=client.get('url')
+                                url=client.get('url'),
+                                max_keywords=8
                             )
                             enhanced_query = rag_processor._create_thematic_query(
                                 investment_themes, 
@@ -387,19 +387,19 @@ def rag_processing_section(client_data, config):
                                 landing_page_keywords
                             )
                             client['enhanced_query'] = enhanced_query
-                            client['ai_keywords'] = landing_page_keywords
+                            client['realtime_keywords'] = landing_page_keywords
                             
                             # Debug info for low results
                             if len(relevant_news) < config['max_news_articles']:
                                 st.write(f"   ℹ️ Found {len(relevant_news)}/{config['max_news_articles']} articles")
                                 st.write(f"   🎯 Investment themes: {list(investment_themes.keys())}")
-                                st.write(f"   🧠 AI-Enhanced Query: {enhanced_query}")
-                                st.write(f"   🎯 AI-Extracted Keywords: {', '.join(landing_page_keywords)}")
+                                st.write(f"   🧠 Real-time Enhanced Query: {enhanced_query}")
+                                st.write(f"   🌐 Real-time Keywords: {', '.join(landing_page_keywords)}")
                                 
                         except Exception as e:
-                            st.write(f"   ❌ Enhanced query generation error: {e}")
+                            st.write(f"   ❌ Real-time query generation error: {e}")
                             client['enhanced_query'] = "Error generating query"
-                            client['ai_keywords'] = []
+                            client['realtime_keywords'] = []
                         
                         client['relevant_news'] = relevant_news
                         
@@ -413,16 +413,16 @@ def rag_processing_section(client_data, config):
                         col1, col2 = st.columns(2)
                         
                         with col1:
-                            st.subheader("🧠 AI-Enhanced Search Query")
+                            st.subheader("🌐 Real-time Enhanced Search Query")
                             st.code(client.get('enhanced_query', 'No query generated'), language=None)
                             
-                            st.subheader("🎯 AI-Extracted Keywords")
-                            ai_keywords = client.get('ai_keywords', [])
-                            if ai_keywords:
-                                for keyword in ai_keywords:
+                            st.subheader("🌐 Real-time Web Scraped Keywords")
+                            realtime_keywords = client.get('realtime_keywords', [])
+                            if realtime_keywords:
+                                for keyword in realtime_keywords:
                                     st.write(f"• {keyword}")
                             else:
-                                st.write("• Keywords extraction unavailable")
+                                st.write("• Real-time keywords extraction unavailable")
                             
                             st.subheader("📊 Investment Themes")
                             try:
