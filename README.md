@@ -483,7 +483,7 @@ Replace OpenAI calls in `openai_ad_generator.py` with other LLM APIs (Claude, lo
 
 ## 🤝 Contributing
 
-This is a technical challenge submission. For production use, consider:
+For production use, consider:
 - Adding comprehensive test coverage
 - Implementing monitoring and logging
 - Adding rate limiting for API calls
