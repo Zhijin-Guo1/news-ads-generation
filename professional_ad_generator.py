@@ -75,7 +75,7 @@ class ProfessionalAdGenerator:
                     pass  # File might already be moved
     
     def enhance_image_prompt(self, description: str, client_name: str, ad_format: str, client_keywords: list = None) -> str:
-        """Enhanced prompt for professional financial marketing images using AI-extracted keywords"""
+        """Enhanced prompt for professional financial marketing images using real-time web scraped keywords"""
         
         # Base professional styling
         base_prompt = f"Professional financial marketing image for {client_name}. "
@@ -88,21 +88,21 @@ class ProfessionalAdGenerator:
         else:
             format_style = "Professional marketing material, clean corporate design. "
         
-        # Incorporate AI-extracted keywords for more relevant imagery
+        # Incorporate real-time web scraped keywords for more relevant imagery
         keyword_enhancement = ""
         if client_keywords:
             # Filter keywords for visual concepts
             visual_keywords = []
             financial_terms = ["investment", "portfolio", "market", "fund", "asset", "equity", "bond", 
-                             "sustainable", "ESG", "emerging", "global", "growth", "strategy"]
+                             "sustainable", "ESG", "emerging", "global", "growth", "strategy", "federal", "monetary", "policy"]
             
-            for keyword in client_keywords[:5]:  # Use top 5 keywords
+            for keyword in client_keywords[:5]:  # Use top 5 real-time keywords
                 keyword_lower = keyword.lower()
                 if any(term in keyword_lower for term in financial_terms):
                     visual_keywords.append(keyword)
             
             if visual_keywords:
-                keyword_enhancement = f"Reflecting themes of {', '.join(visual_keywords[:3])}. "
+                keyword_enhancement = f"Reflecting current themes of {', '.join(visual_keywords[:3])} (from live webpage analysis). "
         
         # Enhanced description with professional keywords and client-specific themes
         enhanced = f"{base_prompt}{format_style}{keyword_enhancement}{description}. "
@@ -303,7 +303,7 @@ class ProfessionalAdGenerator:
         for campaign in campaigns:
             client_name = campaign.get('client_name', 'Client')
             ad_creative = campaign.get('ad_creative', {})
-            client_keywords = campaign.get('top_keywords', [])  # Get AI-extracted keywords from campaign
+            client_keywords = campaign.get('top_keywords', [])  # Get real-time web scraped keywords from campaign
             
             print(f"\n🎯 Creating complete ads for {client_name}")
             print("=" * 50)

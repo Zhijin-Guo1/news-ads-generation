@@ -93,8 +93,8 @@ Output format: Return valid JSON with structured ad content."""
         for i, news in enumerate(relevant_news):
             news_context.append(f"{i+1}. {news.get('title', 'Market Development')} (Source: {news.get('source', 'Financial News')}) - Relevance: {news.get('similarity_score', 0.5):.2f}")
         
-        # Enhanced keyword context
-        keyword_context = f"**AI-Enhanced Keywords:** {', '.join(keywords[:8])}" if keywords else "**Keywords:** Not available"
+        # Real-time keyword context
+        keyword_context = f"**Real-time Web Scraped Keywords (from live webpage):** {', '.join(keywords[:8])}" if keywords else "**Keywords:** Not available"
         
         prompt = f"""
 **Client Context:**
@@ -109,7 +109,7 @@ Landing Page URL: {client_data.get('url', '')}
 **Relevant Market News (Ranked by AI Semantic Matching):**
 {chr(10).join(news_context)}
 
-**Task:** Generate ad creative using the AI-enhanced keywords and semantic news matching that meaningfully connects the client's expertise with the current news landscape:
+**Task:** Generate ad creative using the real-time web scraped keywords and semantic news matching that meaningfully connects the client's current positioning with the news landscape:
 
 1. **LinkedIn Single Image Ad:**
    - Headline (max 150 characters)
