@@ -106,10 +106,10 @@ def display_header():
     
     st.markdown("""
     <div class="info-box">
-        <h3>🌐 Real-time Web Scraping AI-Powered Marketing Campaign Generation</h3>
-        <p>Transform live webpage content into professional, contextually relevant ad campaigns using 
-        real-time web scraping and GPT-4o function calling for maximum accuracy.</p>
-        <p><strong>🚀 Latest Features:</strong> Real-time web scraping, GPT-4o function calling, live content analysis, and current market positioning extraction.</p>
+        <h3>🧠 Multi-Method AI-Powered Marketing Campaign Generation</h3>
+        <p>Transform client data and news articles into professional, contextually relevant ad campaigns using 
+        advanced RAG (Retrieval-Augmented Generation) with GPT-4o multi-method keyword extraction and semantic matching.</p>
+        <p><strong>🚀 New Features:</strong> URL analysis, semantic theme extraction, advanced query generation, and intelligent keyword ranking.</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -303,185 +303,109 @@ def rag_processing_section(client_data, config):
         st.warning(f"⚠️ You changed 'Max News Articles per Client' from {st.session_state.last_max_news_articles} to {config['max_news_articles']}. Click 'Build Vector Database' again to apply the new setting.")
     
     if st.button("🔍 Build Vector Database", type="primary"):
-        # Create progress containers
-        progress_container = st.container()
-        status_container = st.container()
-        
-        with progress_container:
-            st.subheader("🚀 RAG Processing Progress")
-            
-            # Overall progress bar
-            overall_progress = st.progress(0)
-            overall_status = st.empty()
-            
-            # Step-specific progress bars
-            step_progress = st.progress(0)
-            step_status = st.empty()
-            
-        try:
-            # Step 1: Module Initialization (10%)
-            overall_status.text("Step 1/4: Initializing modules...")
-            overall_progress.progress(10)
-            
-            with step_status:
-                st.info("🔄 Reloading modules to get latest version...")
-            
-            import importlib
-            import utils.rag_processor
-            importlib.reload(utils.rag_processor)
-            from utils.rag_processor import RAGProcessor
-            
-            step_progress.progress(100)
-            
-            # Step 2: RAG Processor Setup (25%)
-            overall_status.text("Step 2/4: Setting up RAG processor...")
-            overall_progress.progress(25)
-            step_progress.progress(0)
-            
-            with step_status:
-                st.info("🧠 Initializing RAGProcessor with OpenAI API key...")
-            
-            # Initialize RAG processor with OpenAI API key for advanced keyword extraction
+        with st.spinner("🧠 Building vector database and processing with RAG..."):
             try:
-                rag_processor = RAGProcessor(openai_api_key=st.session_state.api_key)
-                with status_container:
-                    st.success("✅ Initialized RAGProcessor with OpenAI API key for real-time web scraping")
-                step_progress.progress(100)
-            except TypeError as e:
-                with status_container:
-                    st.warning(f"⚠️ Using fallback RAGProcessor initialization: {e}")
-                # Fallback for compatibility with older version
-                rag_processor = RAGProcessor()
-                # Try to set API key manually if possible
-                if hasattr(rag_processor, 'openai_client') and st.session_state.api_key:
-                    try:
-                        from openai import OpenAI
-                        rag_processor.openai_client = OpenAI(api_key=st.session_state.api_key)
-                        with status_container:
-                            st.success("✅ Manually set OpenAI client for real-time features")
-                    except Exception as e2:
-                        with status_container:
-                            st.warning(f"Could not set OpenAI client: {e2}")
-                step_progress.progress(100)
-            except Exception as e:
-                st.error(f"Failed to initialize RAGProcessor: {e}")
-                return
-            
-            # Step 3: Vector Database Building (50%)
-            overall_status.text("Step 3/4: Building vector database...")
-            overall_progress.progress(50)
-            step_progress.progress(0)
-            
-            with step_status:
-                st.info("📊 Processing client data and news articles into vector embeddings...")
-            
-            # Build vector database with progress updates
-            rag_processor.build_vector_database(client_data)
-            step_progress.progress(100)
-            
-            # Show database stats
-            with status_container:
-                st.success(f"✅ Vector database built with {len(rag_processor.metadata)} total embeddings")
-                col1, col2 = st.columns(2)
-                with col1:
-                    news_embeddings = [item for item in rag_processor.metadata if item['type'] == 'news_article']
-                    st.metric("📰 News Embeddings", len(news_embeddings))
-                with col2:
-                    page_embeddings = [item for item in rag_processor.metadata if item['type'] == 'landing_page']
-                    st.metric("🌐 Landing Page Embeddings", len(page_embeddings))
+                # Force reload modules to get latest version
+                import importlib
+                import utils.rag_processor
+                importlib.reload(utils.rag_processor)
+                from utils.rag_processor import RAGProcessor
+                st.write("🔄 Reloaded modules to get latest version")
                 
-            
-            # Step 4: Client Processing with Real-time Web Scraping (75% to 100%)
-            overall_status.text("Step 4/4: Processing clients with real-time web scraping...")
-            overall_progress.progress(75)
-            step_progress.progress(0)
-            
-            with step_status:
-                st.info("🌐 Processing each client with real-time keyword extraction...")
-            
-            # Process each client with detailed progress
-            processed_clients = []
-            client_count = len([c for c in client_data if c.get('landing_page_content')])
-            
-            for i, client in enumerate(client_data):
-                if client.get('landing_page_content'):
-                    # Update progress for this client
-                    client_progress = int((i / client_count) * 100)
-                    step_progress.progress(client_progress)
-                    
-                    with step_status:
-                        st.info(f"🔄 Processing {client['client_name']} ({i+1}/{client_count})")
-                    
-                    # Create expandable section for this client's processing
-                    with st.expander(f"📊 Processing {client['client_name']}", expanded=True):
-                        # Sub-step 1: Find relevant news
-                        st.write("🔍 Finding relevant news articles...")
+                # Initialize RAG processor with OpenAI API key for advanced keyword extraction
+                try:
+                    rag_processor = RAGProcessor(openai_api_key=st.session_state.api_key)
+                    st.write("✅ Initialized RAGProcessor with OpenAI API key for advanced features")
+                except TypeError as e:
+                    st.warning(f"⚠️ Using fallback RAGProcessor initialization (old version): {e}")
+                    # Fallback for compatibility with older version
+                    rag_processor = RAGProcessor()
+                    # Try to set API key manually if possible
+                    if hasattr(rag_processor, 'openai_client') and st.session_state.api_key:
+                        try:
+                            from openai import OpenAI
+                            rag_processor.openai_client = OpenAI(api_key=st.session_state.api_key)
+                            st.write("✅ Manually set OpenAI client for advanced features")
+                        except Exception as e2:
+                            st.warning(f"Could not set OpenAI client: {e2}")
+                except Exception as e:
+                    st.error(f"Failed to initialize RAGProcessor: {e}")
+                    return
+                
+                # Build vector database
+                rag_processor.build_vector_database(client_data)
+                
+                # Debug: Show database stats
+                st.write(f"🔍 Debug - Vector database built with {len(rag_processor.metadata)} total embeddings")
+                news_embeddings = [item for item in rag_processor.metadata if item['type'] == 'news_article']
+                st.write(f"   📰 News embeddings: {len(news_embeddings)} total")
+                st.write(f"   🔄 Code version: 2025-07-23-v5 (simplified RAG logic - pre-matched news per client)")
+                
+                # Modules already reloaded above
+                
+                # Process each client
+                processed_clients = []
+                
+                for client in client_data:
+                    if client.get('landing_page_content'):
+                        # Find relevant news
                         relevant_news = rag_processor.find_relevant_news(
                             client['client_name'],
                             client['landing_page_content'],
                             k=config['max_news_articles']
                         )
                         
-                        # Show results
-                        st.success(f"✅ Found {len(relevant_news)}/{config['max_news_articles']} relevant articles")
+                        # Debug: Show what we found
+                        st.write(f"🔍 Debug - {client['client_name']}: Found {len(relevant_news)}/{config['max_news_articles']} articles")
                         
-                        # Sub-step 2: Real-time web scraping and keyword extraction
-                        st.write("🌐 Performing real-time web scraping...")
-                        scraping_progress = st.progress(0)
+                        # Additional debug info
+                        total_news_in_sheet = len(client.get('news_articles', []))
+                        landing_page_length = len(client.get('landing_page_content', ''))
+                        st.write(f"   📊 Total news in Excel: {total_news_in_sheet}, Landing page: {landing_page_length} chars")
                         
+                        # Debug client name matching
+                        client_news_in_db = [item for item in rag_processor.metadata if item['type'] == 'news_article' and item['client_name'] == client['client_name']]
+                        st.write(f"   🔍 Client news in database: {len(client_news_in_db)} (should match Excel count)")
+                        
+                        # Show actual client names in database
+                        unique_clients_in_db = set(item['client_name'] for item in rag_processor.metadata if item['type'] == 'news_article')
+                        st.write(f"   👥 Client names in DB: {list(unique_clients_in_db)}")
+                        st.write(f"   🎯 Looking for: '{client['client_name']}'")
+                        
+                        # Generate and store the enhanced query for display
                         try:
-                            # Extract investment themes
-                            scraping_progress.progress(25)
                             investment_themes = rag_processor._extract_investment_themes(client['landing_page_content'])
-                            
-                            # Real-time keyword extraction
-                            scraping_progress.progress(50)
-                            st.write(f"   📡 Scraping live content from: {client.get('url', 'N/A')}")
-                            
+                            # Extract advanced keywords using multi-method approach
                             landing_page_keywords = rag_processor.extract_keywords(
-                                url=client.get('url'),
-                                max_keywords=8
+                                client['landing_page_content'], 
+                                max_keywords=8, 
+                                url=client.get('url')
                             )
-                            scraping_progress.progress(75)
-                            
-                            # Generate enhanced query
                             enhanced_query = rag_processor._create_thematic_query(
                                 investment_themes, 
                                 client['client_name'], 
                                 landing_page_keywords
                             )
-                            scraping_progress.progress(100)
-                            
-                            # Store results
                             client['enhanced_query'] = enhanced_query
-                            client['realtime_keywords'] = landing_page_keywords
+                            client['ai_keywords'] = landing_page_keywords
                             
-                            # Show extracted information
-                            if landing_page_keywords:
-                                st.success(f"✅ Extracted {len(landing_page_keywords)} real-time keywords")
-                                with st.expander("🎯 View extracted keywords"):
-                                    for j, keyword in enumerate(landing_page_keywords, 1):
-                                        st.write(f"{j}. {keyword}")
-                            else:
-                                st.warning("⚠️ No keywords extracted - using fallback")
-                                
-                            st.info(f"🧠 Generated query: {enhanced_query}")
+                            # Debug info for low results
+                            if len(relevant_news) < config['max_news_articles']:
+                                st.write(f"   ℹ️ Found {len(relevant_news)}/{config['max_news_articles']} articles")
+                                st.write(f"   🎯 Investment themes: {list(investment_themes.keys())}")
+                                st.write(f"   🧠 AI-Enhanced Query: {enhanced_query}")
+                                st.write(f"   🎯 AI-Extracted Keywords: {', '.join(landing_page_keywords)}")
                                 
                         except Exception as e:
-                            st.error(f"❌ Real-time processing failed: {e}")
+                            st.write(f"   ❌ Enhanced query generation error: {e}")
                             client['enhanced_query'] = "Error generating query"
-                            client['realtime_keywords'] = []
+                            client['ai_keywords'] = []
                         
                         client['relevant_news'] = relevant_news
+                        
                         processed_clients.append(client)
-            
-            # Final completion
-            step_progress.progress(100)
-            overall_progress.progress(100)
-            overall_status.text("✅ RAG processing completed successfully!")
-            
-            with status_container:
-                st.success(f"🎉 RAG processing completed for {len(processed_clients)} clients with real-time web scraping!")
+                
+                st.success(f"✅ RAG processing completed for {len(processed_clients)} clients")
                 
                 # Display RAG results
                 for client in processed_clients:
@@ -489,16 +413,16 @@ def rag_processing_section(client_data, config):
                         col1, col2 = st.columns(2)
                         
                         with col1:
-                            st.subheader("🌐 Real-time Enhanced Search Query")
+                            st.subheader("🧠 AI-Enhanced Search Query")
                             st.code(client.get('enhanced_query', 'No query generated'), language=None)
                             
-                            st.subheader("🌐 Real-time Web Scraped Keywords")
-                            realtime_keywords = client.get('realtime_keywords', [])
-                            if realtime_keywords:
-                                for keyword in realtime_keywords:
+                            st.subheader("🎯 AI-Extracted Keywords")
+                            ai_keywords = client.get('ai_keywords', [])
+                            if ai_keywords:
+                                for keyword in ai_keywords:
                                     st.write(f"• {keyword}")
                             else:
-                                st.write("• Real-time keywords extraction unavailable")
+                                st.write("• Keywords extraction unavailable")
                             
                             st.subheader("📊 Investment Themes")
                             try:
