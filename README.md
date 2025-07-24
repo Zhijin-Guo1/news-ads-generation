@@ -133,40 +133,52 @@ GPT-4o Response: [Contextually relevant ad content with enhanced news connection
 
 ### **📢 Step 5: Generated Ad Campaigns (Latest 2025 Examples)**
 
-**PIMCO - Fed Policy & Global Market Navigation:**
+**PIMCO - Fed Policy & Global Market Navigation (Fresh Generation - July 24, 2025):**
 ```json
 {
   "linkedin_single_image": {
-    "headline": "Navigating Fed Decisions Amid Global Market Shifts",
-    "body": "As Fed policymakers face a split decision, explore PIMCO's insights on navigating the complexities of global markets. With emerging markets gaining traction amid trade dynamics, our thought leadership offers strategic perspectives on managing risks and seizing opportunities. Discover how flexible bond strategies can provide stability and income potential in this evolving landscape.",
+    "headline": "Navigating Market Shifts: Insights on Fed Policy & Emerging Trends",
+    "body": "As Fed policymakers face a split decision, the implications for emerging markets are profound. PIMCO's insights explore how these dynamics interact with global trade tensions, particularly in the context of U.S. tariffs. Discover strategies to manage risk and capture potential in uncertain times.",
     "call_to_action": "Explore PIMCO's Insights",
-    "image_description": "A globe with arrows indicating market movements, overlaid with a graph and the PIMCO logo, suggesting global market navigation.",
-    "news_connection_rationale": "The ad ties PIMCO's insights on Fed decisions with the news of emerging markets gaining traction, offering strategies to navigate these complexities."
+    "image_description": "A dynamic visual of a globe with key financial markets highlighted, overlaid with graphs indicating market trends and the PIMCO logo for brand recognition.",
+    "news_connection_rationale": "The ad connects PIMCO's insights on Fed policy decisions with the current market news about emerging markets and trade tensions, providing a comprehensive view for investors."
+  },
+  "banner_ad_300x250": {
+    "headline": "Fed Decisions & Market Trends",
+    "body": "Learn how Fed policy impacts emerging markets.",
+    "call_to_action": "Read More",
+    "image_description": "A concise image showing a split graph with Fed policymakers on one side and emerging market icons on the other, symbolizing the connection between policy and market trends."
   },
   "additional_creative": {
-    "headline": "Strategize with PIMCO: Global Market Dynamics",
-    "body": "Join our webinar discussing Fed decisions and emerging markets. Gain insights into how PIMCO's strategies can help manage risk and capture potential in today's volatile economic environment.",
-    "call_to_action": "Register for the Webinar",
-    "image_description": "A virtual conference setting with a diverse group of financial professionals engaged in discussion, capturing the essence of a thought leadership event."
+    "headline": "Join Our Webinar: Market Dynamics in a Changing World",
+    "body": "Participate in PIMCO's exclusive webinar discussing the impact of Fed decisions on emerging markets. Gain insights from our experts on navigating global trade challenges and uncover potential opportunities in the current landscape.",
+    "call_to_action": "Register Now",
+    "image_description": "A professional scene of a virtual webinar setup, with a focus on expert speakers and global financial graphics indicating market trends."
   }
 }
 ```
 
-**State Street - Sustainable Investing Leadership:**
+**State Street - Sustainable Investing Leadership (Latest Generation - July 24, 2025):**
 ```json
 {
   "linkedin_single_image": {
-    "headline": "Sustainable Investing: The Future of Financial Portfolios",
-    "body": "As sustainable investing gains momentum, State Street's expertise in ESG provides institutional investors with differentiated solutions. Discover how our deep research and proprietary tools help you navigate the evolving landscape of sustainable finance, aligning with your goals and market trends.",
-    "call_to_action": "Explore Our ESG Capabilities",
-    "image_description": "An institutional investor analyzing ESG data on a digital tablet, set against a backdrop of a green financial district skyline.",
-    "news_connection_rationale": "This ad connects State Street's sustainable investing expertise with the growing trend identified in Forbes discussing its role in modern portfolios, highlighting the firm's position as a thought leader in the ESG space."
+    "headline": "Sustainable Investing: A Pillar of Modern Portfolios",
+    "body": "As sustainable investing becomes integral to financial portfolios, State Street's insights and solutions lead the way. Leverage our expertise to align your investments with sustainability goals, supported by robust research and analytics. Discover how our innovative approaches meet the evolving demands of modern investors, ensuring you can invest with confidence.",
+    "call_to_action": "Explore Sustainable Solutions",
+    "image_description": "A graph depicting rising trends in sustainable investing, with icons representing diverse asset classes overlaying a green and blue globe.",
+    "news_connection_rationale": "Links State Street's sustainable investing expertise with Forbes' coverage on its critical role in modern portfolios."
+  },
+  "banner_ad_300x250": {
+    "headline": "Shape the Future with ESG",
+    "body": "Access insights to drive sustainability in your portfolio.",
+    "call_to_action": "Learn More",
+    "image_description": "Visual of a tree growing from a pile of coins, symbolizing growth and sustainability."
   },
   "additional_creative": {
-    "headline": "Pioneering Sustainable Investments in India",
-    "body": "State Street's first Indian asset management investment marks a significant step in sustainable finance. Discover how our strategies align with global market trends and support your ESG objectives.",
-    "call_to_action": "Read Our Insights",
-    "image_description": "A map of India with green overlays indicating sustainable investment opportunities, accompanied by financial data visuals."
+    "headline": "State Street Leads in ESG Innovation",
+    "body": "Join forces with an industry leader in sustainable investing. Our first Indian asset management venture marks a new chapter in ESG-focused growth. Benefit from our unmatched expertise and cutting-edge solutions that keep you ahead in the evolving landscape of sustainable finance.",
+    "call_to_action": "Join the Sustainability Journey",
+    "image_description": "An interactive infographic showing State Street's global footprint and ESG milestones, with clickable regions highlighting key achievements."
   }
 }
 ```
@@ -194,16 +206,16 @@ GPT-4o Response: [Contextually relevant ad content with enhanced news connection
 
 The system creates complete, ready-to-deploy marketing ads using DALL-E 3 HD with professional text overlays:
 
-#### **LinkedIn Single Image Ad - PIMCO Global Market Navigation**
-![PIMCO LinkedIn Ad](generated_ads_images/final_ads/PIMCO_linkedin_single_image_final_013039.png)
-*AI-generated ad connecting PIMCO's Fed policy insights with emerging market trade dynamics*
+#### **LinkedIn Single Image Ad - PIMCO Global Market Navigation (Generated July 24, 2025)**
+![PIMCO LinkedIn Ad](generated_ads_images/final_ads/PIMCO_linkedin_single_image_final_094419.png)
+*Fresh AI-generated ad connecting PIMCO's Fed policy insights with current emerging market trade dynamics*
 
-#### **Banner Ad - State Street ESG Innovation** 
-![State Street Banner Ad](generated_ads_images/final_ads/State_Street_banner_ad_300x250_final_013233.png)
+#### **Banner Ad - State Street ESG Innovation (Latest Generation)** 
+![State Street Banner Ad](generated_ads_images/final_ads/State_Street_banner_ad_300x250_final_094419.png)
 *Professional banner emphasizing sustainable investing leadership and ESG capabilities*
 
-#### **Additional Creative - T. Rowe Price 2025 Market Vision**
-![T. Rowe Price Creative](generated_ads_images/final_ads/T_Rowe_Price_additional_creative_final_013422.png)
+#### **Additional Creative - T. Rowe Price 2025 Market Vision (Current)**
+![T. Rowe Price Creative](generated_ads_images/final_ads/T_Rowe_Price_additional_creative_final_094419.png)
 *Webinar-style creative featuring 2025 global market outlook and growth strategies*
 
 **Key Features of Generated Images:**
@@ -543,4 +555,5 @@ For production use, consider:
 
 **Author:** Zhijin Guo  
 **Last Updated:** 2025-07-24  
-**Latest Enhancement:** Enhanced RAG processing with 265 embeddings (150 news + 115 page chunks), improved thematic matching, and detailed news connection rationales
+**Latest Enhancement:** Fresh campaign generation with 265 embeddings (150 news + 115 page chunks), current market insights, and enhanced news-to-client relevance matching  
+**Latest Campaign Generation:** July 24, 2025 - Updated with current market data and live news connections

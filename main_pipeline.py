@@ -54,8 +54,8 @@ def run_step(step_name: str, step_function, *args, **kwargs):
 def check_input_files():
     """Check if required input files exist"""
     required_files = [
-        'URL_and_news_articles_examples_by_client.xlsx',
-        'Alphix_ML_Challenge_News_Ad_Generation.docx'
+        'URL_and_news_articles_examples_by_client.xlsx'
+        # 'Alphix_ML_Challenge_News_Ad_Generation.docx'  # Documentation file - not required for pipeline
     ]
     
     print("📋 Checking input files...")

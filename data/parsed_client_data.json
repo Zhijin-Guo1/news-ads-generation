@@ -1,920 +1,920 @@
 [
-    {
-        "client_name": "PIMCO",
-        "url": "https://www.pimco.com/us/en/insights/fed-policymakers-split-decision",
-        "news_articles": [
-            {
-                "title": "Fed sees its preferred inflation gauge topping 3% this year, higher than previous forecast",
-                "source": "cnbc.com",
-                "published_date": "2025-06-18 00:00:00",
-                "url": "https://www.cnbc.com/2025/06/18/federal-reserve-dot-plot-and-economic-projection-june-2025.html?amp;qsearchterm=dot plot"
-            },
-            {
-                "title": "Traders Embrace September Fed Rate Cut Amid Job Market Weakness",
-                "source": "bloomberg.com",
-                "published_date": "2025-06-05 00:00:00",
-                "url": "https://www.bloomberg.com/news/articles/2025-06-05/treasury-rally-eases-as-investors-cautious-on-jobs-and-outlook"
-            },
-            {
-                "title": "'Afraid of his own shadow': The split that could finally take down Trump's old enemy",
-                "source": "theage.com.au",
-                "published_date": "2025-06-24 00:00:00",
-                "url": "https://www.theage.com.au/business/the-economy/afraid-of-his-own-shadow-the-split-that-could-finally-take-down-trump-s-old-enemy-20250624-p5m9rz.html"
-            },
-            {
-                "title": "Will Interest Rates Come Down In 2025? What Investors Should Watch",
-                "source": "forbes.com",
-                "published_date": "2025-04-17 00:00:00",
-                "url": "https://www.forbes.com/sites/investor-hub/article/will-interest-rates-go-down-2025"
-            },
-            {
-                "title": "Rate cuts supported by more top Fed officials, with July meeting in focus",
-                "source": "businessinsider.com",
-                "published_date": "2025-06-24 00:00:00",
-                "url": "https://www.businessinsider.com/rate-cuts-july-fed-meeting-bowman-goolsbee-inflation-trump-tariffs-2025-6"
-            },
-            {
-                "title": "Inflation holds at 3.4 per cent \u2013 here's what it means for your money",
-                "source": "inews.co.uk",
-                "published_date": "2025-06-18 00:00:00",
-                "url": "https://inews.co.uk/inews-lifestyle/money/saving-and-banking/inflation-per-cent-heres-what-means-money-3752761/?ico=most_popular"
-            },
-            {
-                "title": "Federal Reserve warns of inflation and jobs risks amid Trump's erratic trade strategy",
-                "source": "theguardian.com",
-                "published_date": "2025-05-07 00:00:00",
-                "url": "https://www.theguardian.com/business/2025/may/07/federal-reserve-interest-rate-decision"
-            },
-            {
-                "title": "Fed meets amid backdrop of Trump's spending bill, tariff confusion and Middle East conflict | CNN Business",
-                "source": "cnn.com",
-                "published_date": "2025-06-18 00:00:00",
-                "url": "https://www.cnn.com/business/live-news/federal-reserve-interest-rate-06-18-25"
-            },
-            {
-                "title": "Bank of America resets Fed interest rate cut forecast",
-                "source": "thestreet.com",
-                "published_date": "2025-06-12 00:00:00",
-                "url": "https://www.thestreet.com/fed/bank-of-america-resets-interest-rate-forecast-after-inflation-jobs-reports"
-            },
-            {
-                "title": "Bank of England warns pace of rate cuts 'shrouded in uncertainty'",
-                "source": "cityam.com",
-                "published_date": "2025-06-03 00:00:00",
-                "url": "https://www.cityam.com/bank-of-england-battling-wage-growth-and-interest-rate-cuts"
-            },
-            {
-                "title": "India strikes Pakistan and conclave to select new pope begins: Morning Rundown",
-                "source": "nbcnews.com",
-                "published_date": "2025-05-07 00:00:00",
-                "url": "https://www.nbcnews.com/news/us-news/india-strikes-pakistan-conclave-new-pope-morning-rundown-rcna205282"
-            },
-            {
-                "title": "CPI inflation report resets interest rate cut bets",
-                "source": "thestreet.com",
-                "published_date": "2025-06-11 00:00:00",
-                "url": "https://www.thestreet.com/fed/cpi-inflation-report-resets-interest-rate-cut-bets"
-            },
-            {
-                "title": "Most Fed officials waving off July rate cut",
-                "source": "investmentnews.com",
-                "published_date": "2025-06-26 00:00:00",
-                "url": "https://www.investmentnews.com/equities/most-fed-officials-waving-off-july-rate-cut/261084"
-            },
-            {
-                "title": "Trump just made the Fed's rate deliberations even more complicated",
-                "source": "finance.yahoo.com",
-                "published_date": "2025-06-23 00:00:00",
-                "url": "https://finance.yahoo.com/news/trump-just-made-the-feds-rate-deliberations-even-more-complicated-080002324.html"
-            },
-            {
-                "title": "Real Estate a Top Sector to Watch in 2025",
-                "source": "etftrends.com",
-                "published_date": "2025-05-28 00:00:00",
-                "url": "https://www.etftrends.com/monthly-income-channel/real-estate-top-sector-watch-2025"
-            },
-            {
-                "title": "How Interest Rate Changes Affect Your Finances",
-                "source": "forbes.com",
-                "published_date": "2025-05-08 00:00:00",
-                "url": "https://www.forbes.com/sites/jimwang/2025/05/08/how-interest-rate-changes-affect-your-finances"
-            },
-            {
-                "title": "Majority of Fed Officials Leaning Against July Interest-Rate Cut",
-                "source": "bloomberg.com",
-                "published_date": "2025-06-26 00:00:00",
-                "url": "https://www.bloomberg.com/news/articles/2025-06-26/majority-of-fed-officials-leaning-against-july-interest-rate-cut"
-            },
-            {
-                "title": "A crucial jobs report meets a stock market at all-time highs: What to know this week",
-                "source": "finance.yahoo.com",
-                "published_date": "2025-06-30 00:00:00",
-                "url": "https://finance.yahoo.com/news/a-crucial-jobs-report-meets-a-stock-market-at-all-time-highs-what-to-know-this-week-113259792.html"
-            },
-            {
-                "title": "US import prices unexpectedly rise in April",
-                "source": "reuters.com",
-                "published_date": "2025-05-16 00:00:00",
-                "url": "https://www.reuters.com/world/us/us-import-prices-unexpectedly-rise-in-april-2025-05-16"
-            },
-            {
-                "title": "Fed Officials Signal Rates Likely to Stay on Hold Until at Least September",
-                "source": "finance.yahoo.com",
-                "published_date": "2025-05-19 00:00:00",
-                "url": "https://finance.yahoo.com/news/fed-officials-signal-rates-likely-185634472.html"
-            },
-            {
-                "title": "Fed decision recap: Central bank signals stagflation fears, Powell says Fed 'well positioned to wait' on rates",
-                "source": "cnbc.com",
-                "published_date": "2025-06-18 00:00:00",
-                "url": "https://www.cnbc.com/2025/06/18/fed-meeting-live-updates-feds-interest-rate-projections-loom.html"
-            },
-            {
-                "title": "Investors add Fed rate uncertainty to tariff murkiness",
-                "source": "reuters.com",
-                "published_date": "2025-05-08 00:00:00",
-                "url": "https://www.reuters.com/business/investors-add-fed-rate-uncertainty-tariff-murkiness-2025-05-08"
-            },
-            {
-                "title": "What's the savings account interest rate forecast for May 2025?",
-                "source": "cbsnews.com",
-                "published_date": "2025-05-06 00:00:00",
-                "url": "https://www.cbsnews.com/news/savings-account-interest-rate-forecast-for-may-2025"
-            },
-            {
-                "title": "Veteran analyst makes urgent S&P 500 prediction",
-                "source": "thestreet.com",
-                "published_date": "2025-05-05 00:00:00",
-                "url": "https://www.thestreet.com/investing/veteran-analyst-makes-urgent-s-p-500-prediction"
-            },
-            {
-                "title": "Federal Reserve is likely to hold interest rates steady this week. Here's what that means for your money",
-                "source": "cnbc.com",
-                "published_date": "2025-06-16 00:00:00",
-                "url": "https://www.cnbc.com/2025/06/16/fed-likely-to-hold-interest-rates-steady-what-that-means-for-you.html?qsearchterm=mortgage rates"
-            },
-            {
-                "title": "Fed split over whether to hedge on inflation, proceed with cuts",
-                "source": "reuters.com",
-                "published_date": "2025-06-20 00:00:00",
-                "url": "https://www.reuters.com/business/feds-waller-rate-cuts-should-be-considered-by-july-given-inflation-data-cnbc-2025-06-20"
-            },
-            {
-                "title": "How The Fed's Next Move Could Make Or Break Job Prospects For New Grads",
-                "source": "forbes.com",
-                "published_date": "2025-05-15 00:00:00",
-                "url": "https://www.forbes.com/sites/advisor/2025/05/15/how-the-feds-next-move-could-make-or-break-job-prospects-for-new-grads"
-            },
-            {
-                "title": "US Federal Reserve split on whether to hedge on inflation, or proceed with cuts",
-                "source": "businesstimes.com.sg",
-                "published_date": "2025-06-21 00:00:00",
-                "url": "https://www.businesstimes.com.sg/international/us-federal-reserve-split-whether-hedge-inflation-or-proceed-cuts"
-            },
-            {
-                "title": "Did the Fed cut rates Wednesday? No, but here's when they might",
-                "source": "usatoday.com",
-                "published_date": "2025-06-17 00:00:00",
-                "url": "https://www.usatoday.com/story/graphics/2025/06/17/fed-interest-rates-predictions/84244079007"
-            },
-            {
-                "title": "Labor Market Risks Might Prompt Fed To Cut Rates Faster Than Planned",
-                "source": "forbes.com",
-                "published_date": "2025-06-21 00:00:00",
-                "url": "https://www.forbes.com/sites/simonmoore/2025/06/21/labor-market-risks-might-prompt-fed-to-cut-rates-faster-than-planned"
-            },
-            {
-                "title": "Fed interest rate cut decision resets forecasts for the rest of this year",
-                "source": "thestreet.com",
-                "published_date": "2025-06-18 00:00:00",
-                "url": "https://www.thestreet.com/economy/fed-interest-rate-cut-decision-resets-forecasts-for-the-rest-of-this-year"
-            },
-            {
-                "title": "Fed chair Jerome Powell cites 'uncertainty' as central bank holds key rate steady",
-                "source": "usatoday.com",
-                "published_date": "2025-05-07 00:00:00",
-                "url": "https://www.usatoday.com/story/money/2025/05/07/federal-reserve-meeting-rate-cuts-live-updates/83473623007"
-            },
-            {
-                "title": "Fannie Mae Chair Pulte drops grim message to Fed Chair Powell",
-                "source": "thestreet.com",
-                "published_date": "2025-07-03 00:00:00",
-                "url": "https://www.thestreet.com/fed/fannie-mae-chair-sends-grim-message-to-fed-chair-powell"
-            },
-            {
-                "title": "Analyst unveils surprising Fed interest rate cut prediction",
-                "source": "thestreet.com",
-                "published_date": "2025-05-06 00:00:00",
-                "url": "https://www.thestreet.com/fed/analyst-makes-shocking-fed-interest-rate-cut-prediction"
-            },
-            {
-                "title": "New Zealand Cuts Rates, in One of First Central-Bank Moves During Trade War",
-                "source": "wsj.com",
-                "published_date": "2025-04-09 00:00:00",
-                "url": "https://www.wsj.com/livecoverage/stock-market-trump-tariffs-trade-war-04-09-25/card/new-zealand-cuts-rates-in-one-of-first-central-bank-moves-during-trade-war-VXaFHluIiBty42Lfc2Qn"
-            },
-            {
-                "title": "Trump Steps Down From Threat to Fire Fed's Powell, Market Jumps",
-                "source": "usnews.com",
-                "published_date": "2025-04-22 00:00:00",
-                "url": "https://www.usnews.com/news/top-news/articles/2025-04-22/trump-no-plans-to-fire-fed-chair-powell-but-wants-lower-rates"
-            },
-            {
-                "title": "President Trump sends harsh message to Federal Reserve on interest rate cuts",
-                "source": "thestreet.com",
-                "published_date": "2025-06-07 00:00:00",
-                "url": "https://www.thestreet.com/fed/president-trump-sends-harsh-message-to-federal-reserve-on-interest-rate-cuts"
-            },
-            {
-                "title": "Federal Reserve interest rate decision June 2025: What to know.",
-                "source": "nbcnews.com",
-                "published_date": "2025-06-18 00:00:00",
-                "url": "https://www.nbcnews.com/business/economy/federal-reserve-interest-rate-decision-june-2025-what-to-know-rcna213387"
-            },
-            {
-                "title": "Strong April Jobs Report Lowers Rate-Cut Hopes: What the Experts Are Saying",
-                "source": "kiplinger.com",
-                "published_date": "2025-05-02 00:00:00",
-                "url": "https://www.kiplinger.com/investing/economy/strong-april-jobs-report-lowers-rate-cut-hopes"
-            },
-            {
-                "title": "Fed Forced to Balance Policy Predicament With Economic Uncertainty",
-                "source": "bloomberg.com",
-                "published_date": "2025-06-25 00:00:00",
-                "url": "https://www.bloomberg.com/opinion/articles/2025-06-25/fed-forced-to-balance-policy-predicament-with-economic-uncertainty"
-            },
-            {
-                "title": "May Fed Meeting: Live Updates and Commentary",
-                "source": "kiplinger.com",
-                "published_date": "2025-04-30 00:00:00",
-                "url": "https://www.kiplinger.com/news/live/may-fed-meeting-updates-and-commentary-2025"
-            },
-            {
-                "title": "Fed Meeting Starts Today\u2014Here's Why You Shouldn't Expect Interest Rate Cuts Despite Trump's Demands",
-                "source": "forbes.com",
-                "published_date": "2025-05-06 00:00:00",
-                "url": "https://www.forbes.com/sites/dereksaul/2025/05/06/fed-meeting-starts-today-heres-why-you-shouldnt-expect-interest-rate-cuts-despite-trumps-demands"
-            },
-            {
-                "title": "Veteran analyst sends urgent message on S&P 500",
-                "source": "thestreet.com",
-                "published_date": "2025-05-05 00:00:00",
-                "url": "https://www.thestreet.com/investing/veteran-analyst-makes-urgent-s-p-500-prediction?hashed_email=acd584714df4648668c4e3aa2b9d56d487ab644b8652011b08be8a93595e5100&lctg=301839089"
-            },
-            {
-                "title": "Fed keeps rates steady but pencils in two cuts by end of 2025; Powell sees 'meaningful' inflation ahead",
-                "source": "reuters.com",
-                "published_date": "2025-06-18 00:00:00",
-                "url": "https://www.reuters.com/business/fed-set-hold-rates-steady-middle-east-crisis-tariffs-cloud-outlook-2025-06-18/?taid=6852e99eb5c42d0001222cc9"
-            },
-            {
-                "title": "Fed minutes saw rising inflation, jobless risks as of May meeting",
-                "source": "reuters.com",
-                "published_date": "2025-05-28 00:00:00",
-                "url": "https://www.reuters.com/world/us/fed-minutes-saw-rising-inflation-jobless-risks-may-meeting-2025-05-28"
-            },
-            {
-                "title": "Goldman Sachs revamps Fed interest rate cut forecast for 2025",
-                "source": "thestreet.com",
-                "published_date": "2025-07-05 00:00:00",
-                "url": "https://www.thestreet.com/fed/goldman-sachs-revamps-fed-interest-rate-cut-forecast-for-2025"
-            },
-            {
-                "title": "Fed keeps rates steady but pencils in two cuts for 2025; Powell sees 'meaningful' inflation ahead",
-                "source": "reuters.com",
-                "published_date": "2025-06-18 00:00:00",
-                "url": "https://www.reuters.com/business/fed-set-hold-rates-steady-middle-east-crisis-tariffs-cloud-outlook-2025-06-18/?gaa_at=la&gaa_n=ASWzDAiqfCGi4YYFuMqvR9RQNMIRJ8yIJxOh8Q2PKvmkssRPN_4BcpMEtcAfr-U0upHx64rmQBEqXyHZ85k-yFQdlbgLEIxlXDt7urc%3D&gaa_sig=hWU-DJzcolPKanGXuGge0dksEuqoSQhvCPe9nlKEiamJacBjF5BiZtflFA3KWNoehxsa6UpAgcaKbswU-hkRIA%3D%3D&gaa_ts=6853129f"
-            },
-            {
-                "title": "Fed Doesn't Cut Interest Rates Again\u2014Despite Trump's Demands",
-                "source": "forbes.com",
-                "published_date": "2025-05-07 00:00:00",
-                "url": "https://www.forbes.com/sites/dereksaul/2025/05/07/fed-interest-rate-decision-comes--today-dont-expect-a-rate-cut-despite-trumps-demands"
-            },
-            {
-                "title": "US Fed rules out pre-emptive rate cut while flagging tariff risks to inflation, jobs",
-                "source": "straitstimes.com",
-                "published_date": "2025-05-08 00:00:00",
-                "url": "https://www.straitstimes.com/business/economy/us-fed-pauses-rate-cuts-again-and-flags-inflation-unemployment-risks?mobwebview=true"
-            },
-            {
-                "title": "Fed sees rising risks to economy as it leaves rates unchanged",
-                "source": "zawya.com",
-                "published_date": "2025-05-08 00:00:00",
-                "url": "https://www.zawya.com/en/economy/global/fed-sees-rising-risks-to-economy-as-it-leaves-rates-unchanged-rsmj8msa"
-            }
-        ]
-    },
-    {
-        "client_name": "State Street",
-        "url": "https://www.ssga.com/uk/en_gb/institutional/capabilities/esg",
-        "news_articles": [
-            {
-                "title": "A guide to greener banking: I divested my personal finances and you can too \u2013 here's how",
-                "source": "theguardian.com",
-                "published_date": "2025-05-31 00:00:00",
-                "url": "https://www.theguardian.com/australia-news/2025/may/31/a-guide-to-greener-banking-i-divested-my-personal-finances-and-you-can-too-heres-how"
-            },
-            {
-                "title": "State Street Global Advisors makes first Indian asset management investment",
-                "source": "funds-europe.com",
-                "published_date": "2025-05-16 00:00:00",
-                "url": "https://funds-europe.com/state-street-global-advisors-makes-first-indian-asset-management-investment"
-            },
-            {
-                "title": "Sustainable investing: How does it work and can my money support green issues?",
-                "source": "independent.co.uk",
-                "published_date": "2025-04-17 00:00:00",
-                "url": "https://www.independent.co.uk/money/sustainable-investing-banking-green-funds-esg-finance-b2733393.html"
-            },
-            {
-                "title": "How to scale climate finance to $1.3trn by 2035, report",
-                "source": "impact-investor.com",
-                "published_date": "2025-07-04 00:00:00",
-                "url": "https://impact-investor.com/how-to-scale-climate-finance-to-1-3trn-by-2035-report"
-            },
-            {
-                "title": "How investment funds are tackling plastic waste and resource scarcity",
-                "source": "moneymarketing.co.uk",
-                "published_date": "2025-07-03 00:00:00",
-                "url": "https://www.moneymarketing.co.uk/opinion/how-investment-funds-are-tackling-plastic-waste-and-resource-scarcity"
-            },
-            {
-                "title": "The Role Of Sustainable Investing In Modern Financial Portfolios",
-                "source": "forbes.com",
-                "published_date": "2025-04-22 00:00:00",
-                "url": "https://www.forbes.com/councils/forbesfinancecouncil/2025/04/22/the-role-of-sustainable-investing-in-modern-financial-portfolios"
-            },
-            {
-                "title": "Improve Portfolio Diversification With These ETFs",
-                "source": "etftrends.com",
-                "published_date": "2025-04-29 00:00:00",
-                "url": "https://www.etftrends.com/etf-investing-channel/improve-portfolio-diversification-these-etfs"
-            },
-            {
-                "title": "Amundi expands US equity range with new S&P 500 Equal Weight ETF",
-                "source": "portfolio-adviser.com",
-                "published_date": "2025-04-09 00:00:00",
-                "url": "https://portfolio-adviser.com/amundi-expands-us-equity-range-with-new-sp-500-equal-weight-etf"
-            },
-            {
-                "title": "Sustainable investing is no passing fad",
-                "source": "businesstimes.com.sg",
-                "published_date": "2025-05-26 00:00:00",
-                "url": "https://www.businesstimes.com.sg/wealth/wealth-investing/sustainable-investing-no-passing-fad"
-            },
-            {
-                "title": "ETF Prime: Murphy Analyzes S&P 500 ETF Offerings",
-                "source": "etftrends.com",
-                "published_date": "2025-05-27 00:00:00",
-                "url": "https://www.etftrends.com/etf-prime/murphy-analyzes-sp-500-etf-offerings"
-            },
-            {
-                "title": "Why incorporating ESG practices into your operations makes business sense?",
-                "source": "zawya.com",
-                "published_date": "2025-04-08 00:00:00",
-                "url": "https://www.zawya.com/en/economy/africa/why-incorporating-esg-practices-into-your-operations-makes-business-sense-nsgvw53s"
-            },
-            {
-                "title": "SSGA, Apollo team up on second ETF offering",
-                "source": "pionline.com",
-                "published_date": "2025-05-27 00:00:00",
-                "url": "https://www.pionline.com/exchange-traded-funds/ssga-apollo-team-second-etf-offering"
-            },
-            {
-                "title": "Wall Street bets on pair trade that favors consumer over housing",
-                "source": "finance.yahoo.com",
-                "published_date": "2025-05-22 00:00:00",
-                "url": "https://finance.yahoo.com/news/wall-street-bets-pair-trade-093001235.html"
-            },
-            {
-                "title": "Where to Invest in the Back Half of 2025",
-                "source": "kiplinger.com",
-                "published_date": "2025-06-23 00:00:00",
-                "url": "https://www.kiplinger.com/investing/where-to-invest-in-the-back-half-of-2025"
-            },
-            {
-                "title": "How Our Favorite ETFs Are Performing Amid Market Volatility",
-                "source": "kiplinger.com",
-                "published_date": "2025-06-15 00:00:00",
-                "url": "https://www.kiplinger.com/investing/etfs/how-our-favorite-etfs-are-performing-amid-market-volatility"
-            },
-            {
-                "title": "\"ESG's future is about outcomes, not labels\": Nordea",
-                "source": "funds-europe.com",
-                "published_date": "2025-06-12 00:00:00",
-                "url": "https://funds-europe.com/esgs-future-is-about-outcomes-not-labels-nordea"
-            },
-            {
-                "title": "SRI Redefined: Going Beyond Socially Responsible Investing",
-                "source": "kiplinger.com",
-                "published_date": "2025-04-22 00:00:00",
-                "url": "https://www.kiplinger.com/investing/sri-redefined-going-beyond-socially-responsible-investing"
-            },
-            {
-                "title": "Parmenion adds five funds to its ESG portfolios",
-                "source": "investmentweek.co.uk",
-                "published_date": "2025-05-14 00:00:00",
-                "url": "https://www.investmentweek.co.uk/news/4413564/parmenion-adds-funds-esg-portfolios"
-            },
-            {
-                "title": "Why Climate Risk Is A Threat To The Sports Investment Boom",
-                "source": "forbes.com",
-                "published_date": "2025-05-24 00:00:00",
-                "url": "https://www.forbes.com/sites/clairepoolesp/2025/05/24/why-climate-risk-is-a-threat-to-the-sports-investment-boom"
-            },
-            {
-                "title": "Earth Day Collides With a US Reversal on Climate and Vexing Markets",
-                "source": "morningstar.com",
-                "published_date": "2025-04-22 00:00:00",
-                "url": "https://www.morningstar.com/sustainable-investing/earth-day-collides-with-us-reversal-climate-vexing-markets"
-            },
-            {
-                "title": "The Secret Fees Behind $9.7 Trillion in Passive ETFs",
-                "source": "morningstar.com",
-                "published_date": "2025-04-23 00:00:00",
-                "url": "https://www.morningstar.com/funds/secret-fees-behind-97-trillion-passive-etfs"
-            },
-            {
-                "title": "How net-zero strategies can co-exist with active investing - Investment Magazine",
-                "source": "investmentmagazine.com.au",
-                "published_date": "2025-04-16 00:00:00",
-                "url": "https://www.investmentmagazine.com.au/2025/04/how-net-zero-strategies-can-co-exist-with-active-investing"
-            },
-            {
-                "title": "Three Key Lessons From Warren Buffett That Climate Investors Must Learn",
-                "source": "forbes.com",
-                "published_date": "2025-05-16 00:00:00",
-                "url": "https://www.forbes.com/sites/robday/2025/05/16/three-key-lessons-from-warren-buffett-that-climate-investors-must-learn"
-            },
-            {
-                "title": "CI Capital Asset Management launches Egypt's first Sustainable Equity Fund",
-                "source": "zawya.com",
-                "published_date": "2025-06-18 00:00:00",
-                "url": "https://www.zawya.com/en/press-release/companies-news/ci-capital-asset-management-launches-egypts-first-sustainable-equity-fund-xrk1kne3"
-            },
-            {
-                "title": "Best Sustainable Companies to Own: 2025 Edition",
-                "source": "morningstar.com",
-                "published_date": "2025-04-21 00:00:00",
-                "url": "https://www.morningstar.com/sustainable-investing/best-sustainable-companies-own-2025-edition"
-            },
-            {
-                "title": "Lafarge Egypt sponsors key sustainability and cement industry events by Industry Link",
-                "source": "zawya.com",
-                "published_date": "2025-05-27 00:00:00",
-                "url": "https://www.zawya.com/en/press-release/companies-news/lafarge-egypt-sponsors-key-sustainability-and-cement-industry-events-by-industry-link-daubvfkx"
-            },
-            {
-                "title": "Parmenion adds five funds to ESG portfolios",
-                "source": "portfolio-adviser.com",
-                "published_date": "2025-05-15 00:00:00",
-                "url": "https://portfolio-adviser.com/parmenion-adds-five-funds-to-esg-portfolios"
-            },
-            {
-                "title": "Smart ESG compliance: turning regulation into strategic advantage",
-                "source": "afr.com",
-                "published_date": "2025-05-27 00:00:00",
-                "url": "https://www.afr.com/companies/professional-services/smart-esg-compliance-turning-regulation-into-strategic-advantage-20250523-p5m1p6"
-            },
-            {
-                "title": "How Purpose-Driven Businesses Can Attract Investors",
-                "source": "forbes.com",
-                "published_date": "2025-04-23 00:00:00",
-                "url": "https://www.forbes.com/councils/forbesbusinesscouncil/2025/04/23/the-future-of-investment-how-purpose-driven-businesses-can-attract-investors"
-            },
-            {
-                "title": "Cracking The Code On ESG Challenges For Fashion Supply Chains",
-                "source": "forbes.com",
-                "published_date": "2025-05-06 00:00:00",
-                "url": "https://www.forbes.com/councils/forbestechcouncil/2025/05/06/how-digital-strategies-help-crack-the-code-on-esg-and-tariff-challenges-for-fashion-supply-chains"
-            },
-            {
-                "title": "Islamic ESG: A New Blueprint For Sustainable Capital",
-                "source": "forbes.com",
-                "published_date": "2025-06-22 00:00:00",
-                "url": "https://www.forbes.com/sites/pklein/2025/06/22/islamic-esg-a-new-blueprint-for-sustainable-capital"
-            },
-            {
-                "title": "Global Sustainable Funds Outperform Year to Date",
-                "source": "morningstar.com",
-                "published_date": "2025-04-25 00:00:00",
-                "url": "https://www.morningstar.com/sustainable-investing/global-sustainable-funds-outperform-year-date"
-            },
-            {
-                "title": "Are investors hitting the 'pause' button on sustainable investing?",
-                "source": "businesstimes.com.sg",
-                "published_date": "2025-05-19 00:00:00",
-                "url": "https://www.businesstimes.com.sg/wealth/wealth-investing/are-investors-hitting-pause-button-sustainable-investing"
-            },
-            {
-                "title": "BCG, Temasek see investment opportunities for private capital \u2013 in climate projects needing trillions in funds",
-                "source": "businesstimes.com.sg",
-                "published_date": "2025-05-07 00:00:00",
-                "url": "https://www.businesstimes.com.sg/esg/bcg-temasek-see-investment-opportunities-private-capital-climate-projects-needing-trillions-funds"
-            },
-            {
-                "title": "State Street (STT) Files for Second Private-Debt ETF as PRIV Stalls",
-                "source": "bloomberg.com",
-                "published_date": "2025-05-27 00:00:00",
-                "url": "https://www.bloomberg.com/news/articles/2025-05-27/state-street-files-for-second-private-debt-etf-as-priv-stalls"
-            },
-            {
-                "title": "Wealth manager Q&A with Olivia Bowen: Be in tune with your values",
-                "source": "portfolio-adviser.com",
-                "published_date": "2025-06-17 00:00:00",
-                "url": "https://portfolio-adviser.com/wealth-manager-qa-with-olivia-bowen-be-in-tune-with-your-values"
-            },
-            {
-                "title": "ESG Ucits AuM to hit \u20ac11tn by 2028",
-                "source": "funds-europe.com",
-                "published_date": "2025-06-19 00:00:00",
-                "url": "https://funds-europe.com/esg-ucits-aum-to-hit-e11tn-by-2028"
-            },
-            {
-                "title": "Europe's ESG guidelines could cause $40 billion in divestments - Morningstar",
-                "source": "pionline.com",
-                "published_date": "2025-05-20 00:00:00",
-                "url": "http://www.pionline.com/esg/europes-esg-guidelines-could-cause-40-billion-divestments-morningstar"
-            },
-            {
-                "title": "Re-risking your portfolio: Investor John Davi's picks for the second half of 2025",
-                "source": "cnbc.com",
-                "published_date": "2025-07-04 00:00:00",
-                "url": "https://www.cnbc.com/2025/07/04/re-risking-your-portfolio-investor-john-davis-picks-for-2h-of-2025.html"
-            },
-            {
-                "title": "GIIN launches climate solutions investing framework",
-                "source": "impact-investor.com",
-                "published_date": "2025-06-27 00:00:00",
-                "url": "https://impact-investor.com/giin-launches-climate-solutions-investing-framework"
-            },
-            {
-                "title": "As defence ETFs launch, where do niche funds fit into portfolios?",
-                "source": "fundselectorasia.com",
-                "published_date": "2025-06-09 00:00:00",
-                "url": "https://fundselectorasia.com/as-defence-etfs-launch-where-do-niche-funds-fit-into-portfolios"
-            },
-            {
-                "title": "The Green Economy: Don't Leave Your Money Behind",
-                "source": "forbes.com",
-                "published_date": "2025-05-19 00:00:00",
-                "url": "https://www.forbes.com/sites/sap/2025/05/19/the-green-economy-dont-leave-your-money-behind"
-            },
-            {
-                "title": "Global Arbitrage: Why Green Investing Needs An Ecosystem Approach",
-                "source": "forbes.com",
-                "published_date": "2025-07-01 00:00:00",
-                "url": "https://www.forbes.com/councils/forbesbusinesscouncil/2025/07/01/global-arbitrage-why-green-investing-needs-an-ecosystem-approach"
-            },
-            {
-                "title": "3 ETFs to Diversify Your Portfolio",
-                "source": "morningstar.com",
-                "published_date": "2025-05-21 00:00:00",
-                "url": "https://www.morningstar.com/funds/3-etfs-diversify-your-portfolio-2"
-            },
-            {
-                "title": "ESG-aligned indices in Asean outperform conventional benchmarks: CGS International",
-                "source": "businesstimes.com.sg",
-                "published_date": "2025-05-25 00:00:00",
-                "url": "https://www.businesstimes.com.sg/esg/esg-aligned-indices-asean-outperform-conventional-benchmarks-cgs-international"
-            },
-            {
-                "title": "Managers looking for more leadership from asset owners, says PRI CEO",
-                "source": "ipe.com",
-                "published_date": "2025-05-01 00:00:00",
-                "url": "https://www.ipe.com/news/managers-crying-out-for-more-asset-owner-leadership-says-pri-ceo/10130306.article"
-            },
-            {
-                "title": "Sustainable investors hold their ground as energy, defence stocks surge",
-                "source": "businesstimes.com.sg",
-                "published_date": "2025-06-22 00:00:00",
-                "url": "https://www.businesstimes.com.sg/esg/sustainable-investors-hold-their-ground-energy-defence-stocks-surge"
-            },
-            {
-                "title": "Hedge funds seek out ways to navigate Trump's anticlimate agenda",
-                "source": "pionline.com",
-                "published_date": "2025-04-25 00:00:00",
-                "url": "https://www.pionline.com/esg/hedge-funds-seek-out-ways-navigate-trumps-anticlimate-agenda"
-            },
-            {
-                "title": "Square Mile backs sustainable bond funds in new batch of re-ratings",
-                "source": "portfolio-adviser.com",
-                "published_date": "2025-04-09 00:00:00",
-                "url": "https://portfolio-adviser.com/square-mile-backs-sustainable-bond-funds-in-new-batch-of-re-ratings"
-            },
-            {
-                "title": "Climate Finance Meets Fintech: Innovation For A Sustainable Future",
-                "source": "forbes.com",
-                "published_date": "2025-06-05 00:00:00",
-                "url": "https://www.forbes.com/councils/forbesbusinesscouncil/2025/06/05/climate-finance-meets-fintech-innovation-for-a-sustainable-future"
-            }
-        ]
-    },
-    {
-        "client_name": "T Rowe Price",
-        "url": "https://www.troweprice.com/financial-intermediary/uk/en/lp/global-market-outlook.html",
-        "news_articles": [
-            {
-                "title": "Corporate credit tremors in aftershock of tariff-led stock rout",
-                "source": "zawya.com",
-                "published_date": "2025-04-10 00:00:00",
-                "url": "https://www.zawya.com/en/news/insights/corporate-credit-tremors-in-aftershock-of-tariff-led-stock-rout-aie2k9lj"
-            },
-            {
-                "title": "Diversification will present managers with significant opportunities",
-                "source": "funds-europe.com",
-                "published_date": "2025-06-04 00:00:00",
-                "url": "https://funds-europe.com/diversification-will-present-managers-with-significant-opportunities"
-            },
-            {
-                "title": "Value Stocks Leading This Year",
-                "source": "forbes.com",
-                "published_date": "2025-07-02 00:00:00",
-                "url": "https://www.forbes.com/sites/jamesberman/2025/07/02/value-stocks-leading-this-year"
-            },
-            {
-                "title": "BofA's Hartnett Says EM Stocks Will Outperform Everything Else",
-                "source": "bloomberg.com",
-                "published_date": "2025-05-16 00:00:00",
-                "url": "https://www.bloomberg.com/news/articles/2025-05-16/bofa-s-hartnett-says-em-stocks-will-outperform-everything-else"
-            },
-            {
-                "title": "Market volatility is creating enticing opportunities for value investors",
-                "source": "fundselectorasia.com",
-                "published_date": "2025-05-19 00:00:00",
-                "url": "https://fundselectorasia.com/market-volatility-is-creating-enticing-opportunities-for-value-investors"
-            },
-            {
-                "title": "Retail investment in private markets raises liquidity, systemic risk: Moody's",
-                "source": "businessinsider.com",
-                "published_date": "2025-06-10 00:00:00",
-                "url": "https://www.businessinsider.com/retail-investors-private-equity-debt-market-401k-liquidity-moodys-2025-6"
-            },
-            {
-                "title": "Emerging Market Stocks Erase Loss for the Year in Contrast to US Slump",
-                "source": "bloomberg.com",
-                "published_date": "2025-04-23 00:00:00",
-                "url": "https://www.bloomberg.com/news/articles/2025-04-23/em-stocks-erase-loss-for-the-year-in-contrast-to-us-slump"
-            },
-            {
-                "title": "Why Portfolio Diversification Has Helped in 2025",
-                "source": "morningstar.com",
-                "published_date": "2025-04-22 00:00:00",
-                "url": "https://www.morningstar.com/portfolios/why-portfolio-diversification-has-helped-2025"
-            },
-            {
-                "title": "Emerging markets outperformance is 'coming back' amid AI boom",
-                "source": "finance.yahoo.com",
-                "published_date": "2025-05-22 00:00:00",
-                "url": "https://finance.yahoo.com/video/emerging-markets-outperformance-coming-back-120059781.html"
-            },
-            {
-                "title": "Why emerging markets are a 'key area' for diversification",
-                "source": "finance.yahoo.com",
-                "published_date": "2025-05-14 00:00:00",
-                "url": "https://finance.yahoo.com/video/why-emerging-markets-key-area-110004870.html"
-            },
-            {
-                "title": "With US stocks faltering, why not look to emerging markets",
-                "source": "thetimes.com",
-                "published_date": "2025-04-25 00:00:00",
-                "url": "https://www.thetimes.com/business-money/money/article/us-stocks-tariffs-buy-emerging-markets-shares-dgn5jzr2l"
-            },
-            {
-                "title": "Unloved emerging markets are due a revival",
-                "source": "reuters.com",
-                "published_date": "2025-06-12 00:00:00",
-                "url": "https://www.reuters.com/commentary/breakingviews/global-markets-breakingviews-2025-06-12"
-            },
-            {
-                "title": "Should investors be looking to emerging markets after Liberation Day?",
-                "source": "sharesmagazine.co.uk",
-                "published_date": "2025-05-22 00:00:00",
-                "url": "https://www.sharesmagazine.co.uk/article/should-investors-be-looking-to-emerging-markets-after-liberation-day"
-            },
-            {
-                "title": "Diversify Internationally With QINT's Blended Factor Approach",
-                "source": "etftrends.com",
-                "published_date": "2025-04-28 00:00:00",
-                "url": "https://www.etftrends.com/core-strategies-channel/diversify-internationally-qint-blended-factor"
-            },
-            {
-                "title": "Emerging markets said to see the next bull run as the 'sell U.S.' narrative gains ground",
-                "source": "cnbc.com",
-                "published_date": "2025-05-21 00:00:00",
-                "url": "https://www.cnbc.com/2025/05/22/emerging-markets-next-bull-market-sell-us-market-watchers.html"
-            },
-            {
-                "title": "Asia-Pacific equities are a compelling investment proposition",
-                "source": "businesstimes.com.sg",
-                "published_date": "2025-06-16 00:00:00",
-                "url": "https://www.businesstimes.com.sg/wealth/wealth-investing/asia-pacific-equities-are-compelling-investment-proposition"
-            },
-            {
-                "title": "Trade war deescalation a 'great opportunity' for emerging markets: Amundi",
-                "source": "cnbc.com",
-                "published_date": "2025-05-29 00:00:00",
-                "url": "https://www.cnbc.com/video/2025/05/29/trade-war-de-escalation-sparks-positive-spillover-for-em-amundi.html"
-            },
-            {
-                "title": "Rethinking Investments: Managing Your Portfolio Five Years Post-Pandemic",
-                "source": "forbes.com",
-                "published_date": "2025-04-18 00:00:00",
-                "url": "https://www.forbes.com/councils/forbesfinancecouncil/2025/04/18/rethinking-investments-managing-your-portfolio-five-years-post-pandemic"
-            },
-            {
-                "title": "7 Key Diversification Strategies To Secure Your Investment Portfolio",
-                "source": "forbes.com",
-                "published_date": "2025-04-14 00:00:00",
-                "url": "https://www.forbes.com/sites/truetamplin/2025/04/14/7-key-diversification-strategies-to-secure-your-investment-portfolio"
-            },
-            {
-                "title": "Wall Street banks are seeing strong EM returns again",
-                "source": "investmentnews.com",
-                "published_date": "2025-05-19 00:00:00",
-                "url": "https://www.investmentnews.com/industry-news/wall-street-banks-are-seeing-strong-em-returns-again/260564"
-            },
-            {
-                "title": "EM stocks have come roaring back stronger",
-                "source": "investmentnews.com",
-                "published_date": "2025-05-02 00:00:00",
-                "url": "https://www.investmentnews.com/industry-news/em-stocks-have-come-roaring-back-stronger/260348"
-            },
-            {
-                "title": "A market options hedge as other risks lurking out there despite Tuesday's rally",
-                "source": "cnbc.com",
-                "published_date": "2025-05-27 00:00:00",
-                "url": "https://www.cnbc.com/2025/05/27/a-market-options-hedge-as-other-risks-lurking-out-there-despite-tuesdays-rally.html"
-            },
-            {
-                "title": "Why bonds matter more now than ever",
-                "source": "finance.yahoo.com",
-                "published_date": "2025-04-22 00:00:00",
-                "url": "https://finance.yahoo.com/video/why-bonds-matter-more-now-100040256.html"
-            },
-            {
-                "title": "Investors look to private markets for new opportunities",
-                "source": "lgcplus.com",
-                "published_date": "2025-06-23 00:00:00",
-                "url": "https://www.lgcplus.com/investment/investors-look-to-private-markets-for-new-opportunities-23-06-2025"
-            },
-            {
-                "title": "Partner Insight: Robeco Emerging Markets Equities strategy - Targeting alpha in a new world of growth",
-                "source": "investmentweek.co.uk",
-                "published_date": "2025-06-06 00:00:00",
-                "url": "https://www.investmentweek.co.uk/sponsored/4414303/robeco-iw-25-emerging-markets-equities-strategy-targeting-alpha-world-growth"
-            },
-            {
-                "title": "Investors should lean into equities in a 'glass half full' market",
-                "source": "finance.yahoo.com",
-                "published_date": "2025-05-16 00:00:00",
-                "url": "https://finance.yahoo.com/video/investors-lean-equities-glass-half-201229737.html"
-            },
-            {
-                "title": "FundCalibre: The new landscape of corporate bonds",
-                "source": "portfolio-adviser.com",
-                "published_date": "2025-06-12 00:00:00",
-                "url": "https://portfolio-adviser.com/fundcalibre-the-new-landscape-of-corporate-bonds"
-            },
-            {
-                "title": "Stock Pickers Shine, Sniffing Out Value During Market Tumult",
-                "source": "finance.yahoo.com",
-                "published_date": "2025-07-03 00:00:00",
-                "url": "https://finance.yahoo.com/news/stock-pickers-shine-sniffing-value-093000913.html"
-            },
-            {
-                "title": "Emerging markets gains in the cards as Trump's tariffs challenge U.S. exceptionalism",
-                "source": "pionline.com",
-                "published_date": "2025-04-11 00:00:00",
-                "url": "http://www.pionline.com/money-management/emerging-market-gains-cards-trumps-tariffs-challenge-us-exceptionalism"
-            },
-            {
-                "title": "Denver Employees lowers emerging markets equities, raises domestic large caps",
-                "source": "pionline.com",
-                "published_date": "2025-05-30 00:00:00",
-                "url": "https://www.pionline.com/pension-funds/denver-employees-pension-plan-lowers-emerging-markets-equities-raises-domestic-large"
-            },
-            {
-                "title": "Traders 'Hold Their Nerve' to Ride Bumpy Emerging Market Rally",
-                "source": "bloomberg.com",
-                "published_date": "2025-06-15 00:00:00",
-                "url": "https://www.bloomberg.com/news/articles/2025-06-15/traders-hold-their-nerve-to-ride-bumpy-emerging-market-rally"
-            },
-            {
-                "title": "Volatility In The Market: Why It Pays To Plan Ahead",
-                "source": "forbes.com",
-                "published_date": "2025-05-07 00:00:00",
-                "url": "https://www.forbes.com/councils/forbesfinancecouncil/2025/05/07/volatility-in-the-market-why-it-pays-to-plan-ahead"
-            },
-            {
-                "title": "Schroders: bond opportunities amid panic selling",
-                "source": "fundselectorasia.com",
-                "published_date": "2025-05-13 00:00:00",
-                "url": "https://fundselectorasia.com/schroders-bond-opportunities-amid-panic-selling"
-            },
-            {
-                "title": "Emerging markets: South Korea, trade and tariffs and Chinese banks",
-                "source": "sharesmagazine.co.uk",
-                "published_date": "2025-04-24 00:00:00",
-                "url": "https://www.sharesmagazine.co.uk/article/emerging-markets-south-korea-trade-and-tariffs-and-chinese-banks/marketfundstable1"
-            },
-            {
-                "title": "Institutional Investors Lagging Behind Equity Market Rally",
-                "source": "superreview.com.au",
-                "published_date": "2025-06-06 00:00:00",
-                "url": "https://www.superreview.com.au/news/institutional-investment/institutional-investors-lagging-behind-equity-market-rally"
-            },
-            {
-                "title": "The Best Ways to Diversify Your Investment Portfolio in Today's Market",
-                "source": "morningstar.com",
-                "published_date": "2025-05-13 00:00:00",
-                "url": "https://www.morningstar.com/portfolios/best-ways-diversify-your-investment-portfolio-todays-market"
-            },
-            {
-                "title": "Smart Investor: Top-Performing Dividend Stocks, Buffett's Japan Investments, and Muni Bond Funds",
-                "source": "morningstar.com",
-                "published_date": "2025-05-03 00:00:00",
-                "url": "https://www.morningstar.com/markets/smart-investor-top-performing-dividend-stocks-buffetts-japan-investments-muni-bond-funds"
-            },
-            {
-                "title": "Why & How Investors Should Challenge Home Country Bias",
-                "source": "etftrends.com",
-                "published_date": "2025-04-11 00:00:00",
-                "url": "https://www.etftrends.com/etfs-in-canada-channel/why-how-investors-should-challenge-home-country-bias"
-            },
-            {
-                "title": "The bond market sell-off is more worrisome than the one in stocks. Here's what to know.",
-                "source": "usatoday.com",
-                "published_date": "2025-04-12 00:00:00",
-                "url": "https://www.usatoday.com/story/money/markets/2025/04/12/investors-dumping-bonds-stock-market/83028542007"
-            },
-            {
-                "title": "What Is Portfolio Diversification And Why Is It Important?",
-                "source": "forbes.com",
-                "published_date": "2025-05-10 00:00:00",
-                "url": "https://www.forbes.com/sites/investor-hub/article/what-is-portfolio-diversification"
-            },
-            {
-                "title": "Tariff Impact: Placing Precise Bets on Single-Country ETFs",
-                "source": "etftrends.com",
-                "published_date": "2025-04-10 00:00:00",
-                "url": "https://www.etftrends.com/tariff-impact-placing-precise-bets-single-country-etfs"
-            },
-            {
-                "title": "This is the new investing portfolio for the next 10 years",
-                "source": "finance.yahoo.com",
-                "published_date": "2025-04-19 00:00:00",
-                "url": "https://finance.yahoo.com/news/this-is-the-new-investing-portfolio-for-the-next-10-years-154556584.html?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAMTeXK1no2OT7--txa32v87lgkqwtyld8ey4ZTQcm7ysJylQWED_tRJv7Fj0TZ77cSRrEMhh4ypn4Oacpck_Vny7qXSmAk90UR9XFt-51_eoBrUQSfeNBIRIm4nxGZlRy8WF6wpknTYwKQ06LCzSzhpjnnlpIlYGBxYdJ4GuSUHS"
-            },
-            {
-                "title": "Market Turbulence Setting The Stage For Active Management's Resurgence",
-                "source": "superreview.com.au",
-                "published_date": "2025-05-28 00:00:00",
-                "url": "https://www.superreview.com.au/news/funds-management/market-turbulence-setting-stage-active-managements-resurgence"
-            },
-            {
-                "title": "Wall Street Banks Bet on Emerging Markets After Wasted Years",
-                "source": "advisorperspectives.com",
-                "published_date": "2025-05-19 00:00:00",
-                "url": "https://www.advisorperspectives.com/articles/2025/05/19/wall-street-banks-bet-emerging-markets-wasted"
-            },
-            {
-                "title": "Indian stocks hitting emerging markets for six",
-                "source": "livewiremarkets.com",
-                "published_date": "2025-07-03 00:00:00",
-                "url": "https://www.livewiremarkets.com/wires/indian-stocks-hitting-emerging-markets-for-six"
-            },
-            {
-                "title": "Trump China tariffs: Equity benchmarks in India, Mexico, Brazil and South Korea roar back a month after levy shock",
-                "source": "afr.com",
-                "published_date": "2025-05-03 00:00:00",
-                "url": "https://www.afr.com/markets/equity-markets/emerging-market-stocks-roar-back-a-month-after-tariff-shock-20250502-p5lw4h"
-            },
-            {
-                "title": "India File: Investors look homeward for safe harbours",
-                "source": "reuters.com",
-                "published_date": "2025-04-16 00:00:00",
-                "url": "https://www.reuters.com/world/india/india-file-investors-look-homeward-safe-harbours-2025-04-16"
-            },
-            {
-                "title": "Emerging market equity funds lure investors fleeing overvalued U.S. assets",
-                "source": "finance.yahoo.com",
-                "published_date": "2025-05-23 00:00:00",
-                "url": "https://finance.yahoo.com/news/emerging-market-equity-funds-lure-092441538.html"
-            },
-            {
-                "title": "Is it time to invest in value stocks?",
-                "source": "thetimes.com",
-                "published_date": "2025-05-10 00:00:00",
-                "url": "https://www.thetimes.com/business-money/money/article/is-it-time-to-invest-in-value-stocks-9t38x0mvc"
-            },
-            {
-                "title": "US credit rating: Should investors be overly concerned about latest downgrade?",
-                "source": "gulfnews.com",
-                "published_date": "2025-05-26 00:00:00",
-                "url": "https://gulfnews.com/business/analysis/us-credit-rating-should-investors-be-overly-concerned-about-latest-downgrade-1.500140571"
-            }
-        ]
-    }
+  {
+    "client_name": "PIMCO",
+    "url": "https://www.pimco.com/us/en/insights/fed-policymakers-split-decision",
+    "news_articles": [
+      {
+        "title": "Fed sees its preferred inflation gauge topping 3% this year, higher than previous forecast",
+        "source": "cnbc.com",
+        "published_date": "2025-06-18 00:00:00",
+        "url": "https://www.cnbc.com/2025/06/18/federal-reserve-dot-plot-and-economic-projection-june-2025.html?amp;qsearchterm=dot plot"
+      },
+      {
+        "title": "Traders Embrace September Fed Rate Cut Amid Job Market Weakness",
+        "source": "bloomberg.com",
+        "published_date": "2025-06-05 00:00:00",
+        "url": "https://www.bloomberg.com/news/articles/2025-06-05/treasury-rally-eases-as-investors-cautious-on-jobs-and-outlook"
+      },
+      {
+        "title": "'Afraid of his own shadow': The split that could finally take down Trump's old enemy",
+        "source": "theage.com.au",
+        "published_date": "2025-06-24 00:00:00",
+        "url": "https://www.theage.com.au/business/the-economy/afraid-of-his-own-shadow-the-split-that-could-finally-take-down-trump-s-old-enemy-20250624-p5m9rz.html"
+      },
+      {
+        "title": "Will Interest Rates Come Down In 2025? What Investors Should Watch",
+        "source": "forbes.com",
+        "published_date": "2025-04-17 00:00:00",
+        "url": "https://www.forbes.com/sites/investor-hub/article/will-interest-rates-go-down-2025"
+      },
+      {
+        "title": "Rate cuts supported by more top Fed officials, with July meeting in focus",
+        "source": "businessinsider.com",
+        "published_date": "2025-06-24 00:00:00",
+        "url": "https://www.businessinsider.com/rate-cuts-july-fed-meeting-bowman-goolsbee-inflation-trump-tariffs-2025-6"
+      },
+      {
+        "title": "Inflation holds at 3.4 per cent \u2013 here's what it means for your money",
+        "source": "inews.co.uk",
+        "published_date": "2025-06-18 00:00:00",
+        "url": "https://inews.co.uk/inews-lifestyle/money/saving-and-banking/inflation-per-cent-heres-what-means-money-3752761/?ico=most_popular"
+      },
+      {
+        "title": "Federal Reserve warns of inflation and jobs risks amid Trump's erratic trade strategy",
+        "source": "theguardian.com",
+        "published_date": "2025-05-07 00:00:00",
+        "url": "https://www.theguardian.com/business/2025/may/07/federal-reserve-interest-rate-decision"
+      },
+      {
+        "title": "Fed meets amid backdrop of Trump's spending bill, tariff confusion and Middle East conflict | CNN Business",
+        "source": "cnn.com",
+        "published_date": "2025-06-18 00:00:00",
+        "url": "https://www.cnn.com/business/live-news/federal-reserve-interest-rate-06-18-25"
+      },
+      {
+        "title": "Bank of America resets Fed interest rate cut forecast",
+        "source": "thestreet.com",
+        "published_date": "2025-06-12 00:00:00",
+        "url": "https://www.thestreet.com/fed/bank-of-america-resets-interest-rate-forecast-after-inflation-jobs-reports"
+      },
+      {
+        "title": "Bank of England warns pace of rate cuts 'shrouded in uncertainty'",
+        "source": "cityam.com",
+        "published_date": "2025-06-03 00:00:00",
+        "url": "https://www.cityam.com/bank-of-england-battling-wage-growth-and-interest-rate-cuts"
+      },
+      {
+        "title": "India strikes Pakistan and conclave to select new pope begins: Morning Rundown",
+        "source": "nbcnews.com",
+        "published_date": "2025-05-07 00:00:00",
+        "url": "https://www.nbcnews.com/news/us-news/india-strikes-pakistan-conclave-new-pope-morning-rundown-rcna205282"
+      },
+      {
+        "title": "CPI inflation report resets interest rate cut bets",
+        "source": "thestreet.com",
+        "published_date": "2025-06-11 00:00:00",
+        "url": "https://www.thestreet.com/fed/cpi-inflation-report-resets-interest-rate-cut-bets"
+      },
+      {
+        "title": "Most Fed officials waving off July rate cut",
+        "source": "investmentnews.com",
+        "published_date": "2025-06-26 00:00:00",
+        "url": "https://www.investmentnews.com/equities/most-fed-officials-waving-off-july-rate-cut/261084"
+      },
+      {
+        "title": "Trump just made the Fed's rate deliberations even more complicated",
+        "source": "finance.yahoo.com",
+        "published_date": "2025-06-23 00:00:00",
+        "url": "https://finance.yahoo.com/news/trump-just-made-the-feds-rate-deliberations-even-more-complicated-080002324.html"
+      },
+      {
+        "title": "Real Estate a Top Sector to Watch in 2025",
+        "source": "etftrends.com",
+        "published_date": "2025-05-28 00:00:00",
+        "url": "https://www.etftrends.com/monthly-income-channel/real-estate-top-sector-watch-2025"
+      },
+      {
+        "title": "How Interest Rate Changes Affect Your Finances",
+        "source": "forbes.com",
+        "published_date": "2025-05-08 00:00:00",
+        "url": "https://www.forbes.com/sites/jimwang/2025/05/08/how-interest-rate-changes-affect-your-finances"
+      },
+      {
+        "title": "Majority of Fed Officials Leaning Against July Interest-Rate Cut",
+        "source": "bloomberg.com",
+        "published_date": "2025-06-26 00:00:00",
+        "url": "https://www.bloomberg.com/news/articles/2025-06-26/majority-of-fed-officials-leaning-against-july-interest-rate-cut"
+      },
+      {
+        "title": "A crucial jobs report meets a stock market at all-time highs: What to know this week",
+        "source": "finance.yahoo.com",
+        "published_date": "2025-06-30 00:00:00",
+        "url": "https://finance.yahoo.com/news/a-crucial-jobs-report-meets-a-stock-market-at-all-time-highs-what-to-know-this-week-113259792.html"
+      },
+      {
+        "title": "US import prices unexpectedly rise in April",
+        "source": "reuters.com",
+        "published_date": "2025-05-16 00:00:00",
+        "url": "https://www.reuters.com/world/us/us-import-prices-unexpectedly-rise-in-april-2025-05-16"
+      },
+      {
+        "title": "Fed Officials Signal Rates Likely to Stay on Hold Until at Least September",
+        "source": "finance.yahoo.com",
+        "published_date": "2025-05-19 00:00:00",
+        "url": "https://finance.yahoo.com/news/fed-officials-signal-rates-likely-185634472.html"
+      },
+      {
+        "title": "Fed decision recap: Central bank signals stagflation fears, Powell says Fed 'well positioned to wait' on rates",
+        "source": "cnbc.com",
+        "published_date": "2025-06-18 00:00:00",
+        "url": "https://www.cnbc.com/2025/06/18/fed-meeting-live-updates-feds-interest-rate-projections-loom.html"
+      },
+      {
+        "title": "Investors add Fed rate uncertainty to tariff murkiness",
+        "source": "reuters.com",
+        "published_date": "2025-05-08 00:00:00",
+        "url": "https://www.reuters.com/business/investors-add-fed-rate-uncertainty-tariff-murkiness-2025-05-08"
+      },
+      {
+        "title": "What's the savings account interest rate forecast for May 2025?",
+        "source": "cbsnews.com",
+        "published_date": "2025-05-06 00:00:00",
+        "url": "https://www.cbsnews.com/news/savings-account-interest-rate-forecast-for-may-2025"
+      },
+      {
+        "title": "Veteran analyst makes urgent S&P 500 prediction",
+        "source": "thestreet.com",
+        "published_date": "2025-05-05 00:00:00",
+        "url": "https://www.thestreet.com/investing/veteran-analyst-makes-urgent-s-p-500-prediction"
+      },
+      {
+        "title": "Federal Reserve is likely to hold interest rates steady this week. Here's what that means for your money",
+        "source": "cnbc.com",
+        "published_date": "2025-06-16 00:00:00",
+        "url": "https://www.cnbc.com/2025/06/16/fed-likely-to-hold-interest-rates-steady-what-that-means-for-you.html?qsearchterm=mortgage rates"
+      },
+      {
+        "title": "Fed split over whether to hedge on inflation, proceed with cuts",
+        "source": "reuters.com",
+        "published_date": "2025-06-20 00:00:00",
+        "url": "https://www.reuters.com/business/feds-waller-rate-cuts-should-be-considered-by-july-given-inflation-data-cnbc-2025-06-20"
+      },
+      {
+        "title": "How The Fed's Next Move Could Make Or Break Job Prospects For New Grads",
+        "source": "forbes.com",
+        "published_date": "2025-05-15 00:00:00",
+        "url": "https://www.forbes.com/sites/advisor/2025/05/15/how-the-feds-next-move-could-make-or-break-job-prospects-for-new-grads"
+      },
+      {
+        "title": "US Federal Reserve split on whether to hedge on inflation, or proceed with cuts",
+        "source": "businesstimes.com.sg",
+        "published_date": "2025-06-21 00:00:00",
+        "url": "https://www.businesstimes.com.sg/international/us-federal-reserve-split-whether-hedge-inflation-or-proceed-cuts"
+      },
+      {
+        "title": "Did the Fed cut rates Wednesday? No, but here's when they might",
+        "source": "usatoday.com",
+        "published_date": "2025-06-17 00:00:00",
+        "url": "https://www.usatoday.com/story/graphics/2025/06/17/fed-interest-rates-predictions/84244079007"
+      },
+      {
+        "title": "Labor Market Risks Might Prompt Fed To Cut Rates Faster Than Planned",
+        "source": "forbes.com",
+        "published_date": "2025-06-21 00:00:00",
+        "url": "https://www.forbes.com/sites/simonmoore/2025/06/21/labor-market-risks-might-prompt-fed-to-cut-rates-faster-than-planned"
+      },
+      {
+        "title": "Fed interest rate cut decision resets forecasts for the rest of this year",
+        "source": "thestreet.com",
+        "published_date": "2025-06-18 00:00:00",
+        "url": "https://www.thestreet.com/economy/fed-interest-rate-cut-decision-resets-forecasts-for-the-rest-of-this-year"
+      },
+      {
+        "title": "Fed chair Jerome Powell cites 'uncertainty' as central bank holds key rate steady",
+        "source": "usatoday.com",
+        "published_date": "2025-05-07 00:00:00",
+        "url": "https://www.usatoday.com/story/money/2025/05/07/federal-reserve-meeting-rate-cuts-live-updates/83473623007"
+      },
+      {
+        "title": "Fannie Mae Chair Pulte drops grim message to Fed Chair Powell",
+        "source": "thestreet.com",
+        "published_date": "2025-07-03 00:00:00",
+        "url": "https://www.thestreet.com/fed/fannie-mae-chair-sends-grim-message-to-fed-chair-powell"
+      },
+      {
+        "title": "Analyst unveils surprising Fed interest rate cut prediction",
+        "source": "thestreet.com",
+        "published_date": "2025-05-06 00:00:00",
+        "url": "https://www.thestreet.com/fed/analyst-makes-shocking-fed-interest-rate-cut-prediction"
+      },
+      {
+        "title": "New Zealand Cuts Rates, in One of First Central-Bank Moves During Trade War",
+        "source": "wsj.com",
+        "published_date": "2025-04-09 00:00:00",
+        "url": "https://www.wsj.com/livecoverage/stock-market-trump-tariffs-trade-war-04-09-25/card/new-zealand-cuts-rates-in-one-of-first-central-bank-moves-during-trade-war-VXaFHluIiBty42Lfc2Qn"
+      },
+      {
+        "title": "Trump Steps Down From Threat to Fire Fed's Powell, Market Jumps",
+        "source": "usnews.com",
+        "published_date": "2025-04-22 00:00:00",
+        "url": "https://www.usnews.com/news/top-news/articles/2025-04-22/trump-no-plans-to-fire-fed-chair-powell-but-wants-lower-rates"
+      },
+      {
+        "title": "President Trump sends harsh message to Federal Reserve on interest rate cuts",
+        "source": "thestreet.com",
+        "published_date": "2025-06-07 00:00:00",
+        "url": "https://www.thestreet.com/fed/president-trump-sends-harsh-message-to-federal-reserve-on-interest-rate-cuts"
+      },
+      {
+        "title": "Federal Reserve interest rate decision June 2025: What to know.",
+        "source": "nbcnews.com",
+        "published_date": "2025-06-18 00:00:00",
+        "url": "https://www.nbcnews.com/business/economy/federal-reserve-interest-rate-decision-june-2025-what-to-know-rcna213387"
+      },
+      {
+        "title": "Strong April Jobs Report Lowers Rate-Cut Hopes: What the Experts Are Saying",
+        "source": "kiplinger.com",
+        "published_date": "2025-05-02 00:00:00",
+        "url": "https://www.kiplinger.com/investing/economy/strong-april-jobs-report-lowers-rate-cut-hopes"
+      },
+      {
+        "title": "Fed Forced to Balance Policy Predicament With Economic Uncertainty",
+        "source": "bloomberg.com",
+        "published_date": "2025-06-25 00:00:00",
+        "url": "https://www.bloomberg.com/opinion/articles/2025-06-25/fed-forced-to-balance-policy-predicament-with-economic-uncertainty"
+      },
+      {
+        "title": "May Fed Meeting: Live Updates and Commentary",
+        "source": "kiplinger.com",
+        "published_date": "2025-04-30 00:00:00",
+        "url": "https://www.kiplinger.com/news/live/may-fed-meeting-updates-and-commentary-2025"
+      },
+      {
+        "title": "Fed Meeting Starts Today\u2014Here's Why You Shouldn't Expect Interest Rate Cuts Despite Trump's Demands",
+        "source": "forbes.com",
+        "published_date": "2025-05-06 00:00:00",
+        "url": "https://www.forbes.com/sites/dereksaul/2025/05/06/fed-meeting-starts-today-heres-why-you-shouldnt-expect-interest-rate-cuts-despite-trumps-demands"
+      },
+      {
+        "title": "Veteran analyst sends urgent message on S&P 500",
+        "source": "thestreet.com",
+        "published_date": "2025-05-05 00:00:00",
+        "url": "https://www.thestreet.com/investing/veteran-analyst-makes-urgent-s-p-500-prediction?hashed_email=acd584714df4648668c4e3aa2b9d56d487ab644b8652011b08be8a93595e5100&lctg=301839089"
+      },
+      {
+        "title": "Fed keeps rates steady but pencils in two cuts by end of 2025; Powell sees 'meaningful' inflation ahead",
+        "source": "reuters.com",
+        "published_date": "2025-06-18 00:00:00",
+        "url": "https://www.reuters.com/business/fed-set-hold-rates-steady-middle-east-crisis-tariffs-cloud-outlook-2025-06-18/?taid=6852e99eb5c42d0001222cc9"
+      },
+      {
+        "title": "Fed minutes saw rising inflation, jobless risks as of May meeting",
+        "source": "reuters.com",
+        "published_date": "2025-05-28 00:00:00",
+        "url": "https://www.reuters.com/world/us/fed-minutes-saw-rising-inflation-jobless-risks-may-meeting-2025-05-28"
+      },
+      {
+        "title": "Goldman Sachs revamps Fed interest rate cut forecast for 2025",
+        "source": "thestreet.com",
+        "published_date": "2025-07-05 00:00:00",
+        "url": "https://www.thestreet.com/fed/goldman-sachs-revamps-fed-interest-rate-cut-forecast-for-2025"
+      },
+      {
+        "title": "Fed keeps rates steady but pencils in two cuts for 2025; Powell sees 'meaningful' inflation ahead",
+        "source": "reuters.com",
+        "published_date": "2025-06-18 00:00:00",
+        "url": "https://www.reuters.com/business/fed-set-hold-rates-steady-middle-east-crisis-tariffs-cloud-outlook-2025-06-18/?gaa_at=la&gaa_n=ASWzDAiqfCGi4YYFuMqvR9RQNMIRJ8yIJxOh8Q2PKvmkssRPN_4BcpMEtcAfr-U0upHx64rmQBEqXyHZ85k-yFQdlbgLEIxlXDt7urc%3D&gaa_sig=hWU-DJzcolPKanGXuGge0dksEuqoSQhvCPe9nlKEiamJacBjF5BiZtflFA3KWNoehxsa6UpAgcaKbswU-hkRIA%3D%3D&gaa_ts=6853129f"
+      },
+      {
+        "title": "Fed Doesn't Cut Interest Rates Again\u2014Despite Trump's Demands",
+        "source": "forbes.com",
+        "published_date": "2025-05-07 00:00:00",
+        "url": "https://www.forbes.com/sites/dereksaul/2025/05/07/fed-interest-rate-decision-comes--today-dont-expect-a-rate-cut-despite-trumps-demands"
+      },
+      {
+        "title": "US Fed rules out pre-emptive rate cut while flagging tariff risks to inflation, jobs",
+        "source": "straitstimes.com",
+        "published_date": "2025-05-08 00:00:00",
+        "url": "https://www.straitstimes.com/business/economy/us-fed-pauses-rate-cuts-again-and-flags-inflation-unemployment-risks?mobwebview=true"
+      },
+      {
+        "title": "Fed sees rising risks to economy as it leaves rates unchanged",
+        "source": "zawya.com",
+        "published_date": "2025-05-08 00:00:00",
+        "url": "https://www.zawya.com/en/economy/global/fed-sees-rising-risks-to-economy-as-it-leaves-rates-unchanged-rsmj8msa"
+      }
+    ]
+  },
+  {
+    "client_name": "State Street",
+    "url": "https://www.ssga.com/uk/en_gb/institutional/capabilities/esg",
+    "news_articles": [
+      {
+        "title": "A guide to greener banking: I divested my personal finances and you can too \u2013 here's how",
+        "source": "theguardian.com",
+        "published_date": "2025-05-31 00:00:00",
+        "url": "https://www.theguardian.com/australia-news/2025/may/31/a-guide-to-greener-banking-i-divested-my-personal-finances-and-you-can-too-heres-how"
+      },
+      {
+        "title": "State Street Global Advisors makes first Indian asset management investment",
+        "source": "funds-europe.com",
+        "published_date": "2025-05-16 00:00:00",
+        "url": "https://funds-europe.com/state-street-global-advisors-makes-first-indian-asset-management-investment"
+      },
+      {
+        "title": "Sustainable investing: How does it work and can my money support green issues?",
+        "source": "independent.co.uk",
+        "published_date": "2025-04-17 00:00:00",
+        "url": "https://www.independent.co.uk/money/sustainable-investing-banking-green-funds-esg-finance-b2733393.html"
+      },
+      {
+        "title": "How to scale climate finance to $1.3trn by 2035, report",
+        "source": "impact-investor.com",
+        "published_date": "2025-07-04 00:00:00",
+        "url": "https://impact-investor.com/how-to-scale-climate-finance-to-1-3trn-by-2035-report"
+      },
+      {
+        "title": "How investment funds are tackling plastic waste and resource scarcity",
+        "source": "moneymarketing.co.uk",
+        "published_date": "2025-07-03 00:00:00",
+        "url": "https://www.moneymarketing.co.uk/opinion/how-investment-funds-are-tackling-plastic-waste-and-resource-scarcity"
+      },
+      {
+        "title": "The Role Of Sustainable Investing In Modern Financial Portfolios",
+        "source": "forbes.com",
+        "published_date": "2025-04-22 00:00:00",
+        "url": "https://www.forbes.com/councils/forbesfinancecouncil/2025/04/22/the-role-of-sustainable-investing-in-modern-financial-portfolios"
+      },
+      {
+        "title": "Improve Portfolio Diversification With These ETFs",
+        "source": "etftrends.com",
+        "published_date": "2025-04-29 00:00:00",
+        "url": "https://www.etftrends.com/etf-investing-channel/improve-portfolio-diversification-these-etfs"
+      },
+      {
+        "title": "Amundi expands US equity range with new S&P 500 Equal Weight ETF",
+        "source": "portfolio-adviser.com",
+        "published_date": "2025-04-09 00:00:00",
+        "url": "https://portfolio-adviser.com/amundi-expands-us-equity-range-with-new-sp-500-equal-weight-etf"
+      },
+      {
+        "title": "Sustainable investing is no passing fad",
+        "source": "businesstimes.com.sg",
+        "published_date": "2025-05-26 00:00:00",
+        "url": "https://www.businesstimes.com.sg/wealth/wealth-investing/sustainable-investing-no-passing-fad"
+      },
+      {
+        "title": "ETF Prime: Murphy Analyzes S&P 500 ETF Offerings",
+        "source": "etftrends.com",
+        "published_date": "2025-05-27 00:00:00",
+        "url": "https://www.etftrends.com/etf-prime/murphy-analyzes-sp-500-etf-offerings"
+      },
+      {
+        "title": "Why incorporating ESG practices into your operations makes business sense?",
+        "source": "zawya.com",
+        "published_date": "2025-04-08 00:00:00",
+        "url": "https://www.zawya.com/en/economy/africa/why-incorporating-esg-practices-into-your-operations-makes-business-sense-nsgvw53s"
+      },
+      {
+        "title": "SSGA, Apollo team up on second ETF offering",
+        "source": "pionline.com",
+        "published_date": "2025-05-27 00:00:00",
+        "url": "https://www.pionline.com/exchange-traded-funds/ssga-apollo-team-second-etf-offering"
+      },
+      {
+        "title": "Wall Street bets on pair trade that favors consumer over housing",
+        "source": "finance.yahoo.com",
+        "published_date": "2025-05-22 00:00:00",
+        "url": "https://finance.yahoo.com/news/wall-street-bets-pair-trade-093001235.html"
+      },
+      {
+        "title": "Where to Invest in the Back Half of 2025",
+        "source": "kiplinger.com",
+        "published_date": "2025-06-23 00:00:00",
+        "url": "https://www.kiplinger.com/investing/where-to-invest-in-the-back-half-of-2025"
+      },
+      {
+        "title": "How Our Favorite ETFs Are Performing Amid Market Volatility",
+        "source": "kiplinger.com",
+        "published_date": "2025-06-15 00:00:00",
+        "url": "https://www.kiplinger.com/investing/etfs/how-our-favorite-etfs-are-performing-amid-market-volatility"
+      },
+      {
+        "title": "\"ESG's future is about outcomes, not labels\": Nordea",
+        "source": "funds-europe.com",
+        "published_date": "2025-06-12 00:00:00",
+        "url": "https://funds-europe.com/esgs-future-is-about-outcomes-not-labels-nordea"
+      },
+      {
+        "title": "SRI Redefined: Going Beyond Socially Responsible Investing",
+        "source": "kiplinger.com",
+        "published_date": "2025-04-22 00:00:00",
+        "url": "https://www.kiplinger.com/investing/sri-redefined-going-beyond-socially-responsible-investing"
+      },
+      {
+        "title": "Parmenion adds five funds to its ESG portfolios",
+        "source": "investmentweek.co.uk",
+        "published_date": "2025-05-14 00:00:00",
+        "url": "https://www.investmentweek.co.uk/news/4413564/parmenion-adds-funds-esg-portfolios"
+      },
+      {
+        "title": "Why Climate Risk Is A Threat To The Sports Investment Boom",
+        "source": "forbes.com",
+        "published_date": "2025-05-24 00:00:00",
+        "url": "https://www.forbes.com/sites/clairepoolesp/2025/05/24/why-climate-risk-is-a-threat-to-the-sports-investment-boom"
+      },
+      {
+        "title": "Earth Day Collides With a US Reversal on Climate and Vexing Markets",
+        "source": "morningstar.com",
+        "published_date": "2025-04-22 00:00:00",
+        "url": "https://www.morningstar.com/sustainable-investing/earth-day-collides-with-us-reversal-climate-vexing-markets"
+      },
+      {
+        "title": "The Secret Fees Behind $9.7 Trillion in Passive ETFs",
+        "source": "morningstar.com",
+        "published_date": "2025-04-23 00:00:00",
+        "url": "https://www.morningstar.com/funds/secret-fees-behind-97-trillion-passive-etfs"
+      },
+      {
+        "title": "How net-zero strategies can co-exist with active investing - Investment Magazine",
+        "source": "investmentmagazine.com.au",
+        "published_date": "2025-04-16 00:00:00",
+        "url": "https://www.investmentmagazine.com.au/2025/04/how-net-zero-strategies-can-co-exist-with-active-investing"
+      },
+      {
+        "title": "Three Key Lessons From Warren Buffett That Climate Investors Must Learn",
+        "source": "forbes.com",
+        "published_date": "2025-05-16 00:00:00",
+        "url": "https://www.forbes.com/sites/robday/2025/05/16/three-key-lessons-from-warren-buffett-that-climate-investors-must-learn"
+      },
+      {
+        "title": "CI Capital Asset Management launches Egypt's first Sustainable Equity Fund",
+        "source": "zawya.com",
+        "published_date": "2025-06-18 00:00:00",
+        "url": "https://www.zawya.com/en/press-release/companies-news/ci-capital-asset-management-launches-egypts-first-sustainable-equity-fund-xrk1kne3"
+      },
+      {
+        "title": "Best Sustainable Companies to Own: 2025 Edition",
+        "source": "morningstar.com",
+        "published_date": "2025-04-21 00:00:00",
+        "url": "https://www.morningstar.com/sustainable-investing/best-sustainable-companies-own-2025-edition"
+      },
+      {
+        "title": "Lafarge Egypt sponsors key sustainability and cement industry events by Industry Link",
+        "source": "zawya.com",
+        "published_date": "2025-05-27 00:00:00",
+        "url": "https://www.zawya.com/en/press-release/companies-news/lafarge-egypt-sponsors-key-sustainability-and-cement-industry-events-by-industry-link-daubvfkx"
+      },
+      {
+        "title": "Parmenion adds five funds to ESG portfolios",
+        "source": "portfolio-adviser.com",
+        "published_date": "2025-05-15 00:00:00",
+        "url": "https://portfolio-adviser.com/parmenion-adds-five-funds-to-esg-portfolios"
+      },
+      {
+        "title": "Smart ESG compliance: turning regulation into strategic advantage",
+        "source": "afr.com",
+        "published_date": "2025-05-27 00:00:00",
+        "url": "https://www.afr.com/companies/professional-services/smart-esg-compliance-turning-regulation-into-strategic-advantage-20250523-p5m1p6"
+      },
+      {
+        "title": "How Purpose-Driven Businesses Can Attract Investors",
+        "source": "forbes.com",
+        "published_date": "2025-04-23 00:00:00",
+        "url": "https://www.forbes.com/councils/forbesbusinesscouncil/2025/04/23/the-future-of-investment-how-purpose-driven-businesses-can-attract-investors"
+      },
+      {
+        "title": "Cracking The Code On ESG Challenges For Fashion Supply Chains",
+        "source": "forbes.com",
+        "published_date": "2025-05-06 00:00:00",
+        "url": "https://www.forbes.com/councils/forbestechcouncil/2025/05/06/how-digital-strategies-help-crack-the-code-on-esg-and-tariff-challenges-for-fashion-supply-chains"
+      },
+      {
+        "title": "Islamic ESG: A New Blueprint For Sustainable Capital",
+        "source": "forbes.com",
+        "published_date": "2025-06-22 00:00:00",
+        "url": "https://www.forbes.com/sites/pklein/2025/06/22/islamic-esg-a-new-blueprint-for-sustainable-capital"
+      },
+      {
+        "title": "Global Sustainable Funds Outperform Year to Date",
+        "source": "morningstar.com",
+        "published_date": "2025-04-25 00:00:00",
+        "url": "https://www.morningstar.com/sustainable-investing/global-sustainable-funds-outperform-year-date"
+      },
+      {
+        "title": "Are investors hitting the 'pause' button on sustainable investing?",
+        "source": "businesstimes.com.sg",
+        "published_date": "2025-05-19 00:00:00",
+        "url": "https://www.businesstimes.com.sg/wealth/wealth-investing/are-investors-hitting-pause-button-sustainable-investing"
+      },
+      {
+        "title": "BCG, Temasek see investment opportunities for private capital \u2013 in climate projects needing trillions in funds",
+        "source": "businesstimes.com.sg",
+        "published_date": "2025-05-07 00:00:00",
+        "url": "https://www.businesstimes.com.sg/esg/bcg-temasek-see-investment-opportunities-private-capital-climate-projects-needing-trillions-funds"
+      },
+      {
+        "title": "State Street (STT) Files for Second Private-Debt ETF as PRIV Stalls",
+        "source": "bloomberg.com",
+        "published_date": "2025-05-27 00:00:00",
+        "url": "https://www.bloomberg.com/news/articles/2025-05-27/state-street-files-for-second-private-debt-etf-as-priv-stalls"
+      },
+      {
+        "title": "Wealth manager Q&A with Olivia Bowen: Be in tune with your values",
+        "source": "portfolio-adviser.com",
+        "published_date": "2025-06-17 00:00:00",
+        "url": "https://portfolio-adviser.com/wealth-manager-qa-with-olivia-bowen-be-in-tune-with-your-values"
+      },
+      {
+        "title": "ESG Ucits AuM to hit \u20ac11tn by 2028",
+        "source": "funds-europe.com",
+        "published_date": "2025-06-19 00:00:00",
+        "url": "https://funds-europe.com/esg-ucits-aum-to-hit-e11tn-by-2028"
+      },
+      {
+        "title": "Europe's ESG guidelines could cause $40 billion in divestments - Morningstar",
+        "source": "pionline.com",
+        "published_date": "2025-05-20 00:00:00",
+        "url": "http://www.pionline.com/esg/europes-esg-guidelines-could-cause-40-billion-divestments-morningstar"
+      },
+      {
+        "title": "Re-risking your portfolio: Investor John Davi's picks for the second half of 2025",
+        "source": "cnbc.com",
+        "published_date": "2025-07-04 00:00:00",
+        "url": "https://www.cnbc.com/2025/07/04/re-risking-your-portfolio-investor-john-davis-picks-for-2h-of-2025.html"
+      },
+      {
+        "title": "GIIN launches climate solutions investing framework",
+        "source": "impact-investor.com",
+        "published_date": "2025-06-27 00:00:00",
+        "url": "https://impact-investor.com/giin-launches-climate-solutions-investing-framework"
+      },
+      {
+        "title": "As defence ETFs launch, where do niche funds fit into portfolios?",
+        "source": "fundselectorasia.com",
+        "published_date": "2025-06-09 00:00:00",
+        "url": "https://fundselectorasia.com/as-defence-etfs-launch-where-do-niche-funds-fit-into-portfolios"
+      },
+      {
+        "title": "The Green Economy: Don't Leave Your Money Behind",
+        "source": "forbes.com",
+        "published_date": "2025-05-19 00:00:00",
+        "url": "https://www.forbes.com/sites/sap/2025/05/19/the-green-economy-dont-leave-your-money-behind"
+      },
+      {
+        "title": "Global Arbitrage: Why Green Investing Needs An Ecosystem Approach",
+        "source": "forbes.com",
+        "published_date": "2025-07-01 00:00:00",
+        "url": "https://www.forbes.com/councils/forbesbusinesscouncil/2025/07/01/global-arbitrage-why-green-investing-needs-an-ecosystem-approach"
+      },
+      {
+        "title": "3 ETFs to Diversify Your Portfolio",
+        "source": "morningstar.com",
+        "published_date": "2025-05-21 00:00:00",
+        "url": "https://www.morningstar.com/funds/3-etfs-diversify-your-portfolio-2"
+      },
+      {
+        "title": "ESG-aligned indices in Asean outperform conventional benchmarks: CGS International",
+        "source": "businesstimes.com.sg",
+        "published_date": "2025-05-25 00:00:00",
+        "url": "https://www.businesstimes.com.sg/esg/esg-aligned-indices-asean-outperform-conventional-benchmarks-cgs-international"
+      },
+      {
+        "title": "Managers looking for more leadership from asset owners, says PRI CEO",
+        "source": "ipe.com",
+        "published_date": "2025-05-01 00:00:00",
+        "url": "https://www.ipe.com/news/managers-crying-out-for-more-asset-owner-leadership-says-pri-ceo/10130306.article"
+      },
+      {
+        "title": "Sustainable investors hold their ground as energy, defence stocks surge",
+        "source": "businesstimes.com.sg",
+        "published_date": "2025-06-22 00:00:00",
+        "url": "https://www.businesstimes.com.sg/esg/sustainable-investors-hold-their-ground-energy-defence-stocks-surge"
+      },
+      {
+        "title": "Hedge funds seek out ways to navigate Trump's anticlimate agenda",
+        "source": "pionline.com",
+        "published_date": "2025-04-25 00:00:00",
+        "url": "https://www.pionline.com/esg/hedge-funds-seek-out-ways-navigate-trumps-anticlimate-agenda"
+      },
+      {
+        "title": "Square Mile backs sustainable bond funds in new batch of re-ratings",
+        "source": "portfolio-adviser.com",
+        "published_date": "2025-04-09 00:00:00",
+        "url": "https://portfolio-adviser.com/square-mile-backs-sustainable-bond-funds-in-new-batch-of-re-ratings"
+      },
+      {
+        "title": "Climate Finance Meets Fintech: Innovation For A Sustainable Future",
+        "source": "forbes.com",
+        "published_date": "2025-06-05 00:00:00",
+        "url": "https://www.forbes.com/councils/forbesbusinesscouncil/2025/06/05/climate-finance-meets-fintech-innovation-for-a-sustainable-future"
+      }
+    ]
+  },
+  {
+    "client_name": "T Rowe Price",
+    "url": "https://www.troweprice.com/financial-intermediary/uk/en/lp/global-market-outlook.html",
+    "news_articles": [
+      {
+        "title": "Corporate credit tremors in aftershock of tariff-led stock rout",
+        "source": "zawya.com",
+        "published_date": "2025-04-10 00:00:00",
+        "url": "https://www.zawya.com/en/news/insights/corporate-credit-tremors-in-aftershock-of-tariff-led-stock-rout-aie2k9lj"
+      },
+      {
+        "title": "Diversification will present managers with significant opportunities",
+        "source": "funds-europe.com",
+        "published_date": "2025-06-04 00:00:00",
+        "url": "https://funds-europe.com/diversification-will-present-managers-with-significant-opportunities"
+      },
+      {
+        "title": "Value Stocks Leading This Year",
+        "source": "forbes.com",
+        "published_date": "2025-07-02 00:00:00",
+        "url": "https://www.forbes.com/sites/jamesberman/2025/07/02/value-stocks-leading-this-year"
+      },
+      {
+        "title": "BofA's Hartnett Says EM Stocks Will Outperform Everything Else",
+        "source": "bloomberg.com",
+        "published_date": "2025-05-16 00:00:00",
+        "url": "https://www.bloomberg.com/news/articles/2025-05-16/bofa-s-hartnett-says-em-stocks-will-outperform-everything-else"
+      },
+      {
+        "title": "Market volatility is creating enticing opportunities for value investors",
+        "source": "fundselectorasia.com",
+        "published_date": "2025-05-19 00:00:00",
+        "url": "https://fundselectorasia.com/market-volatility-is-creating-enticing-opportunities-for-value-investors"
+      },
+      {
+        "title": "Retail investment in private markets raises liquidity, systemic risk: Moody's",
+        "source": "businessinsider.com",
+        "published_date": "2025-06-10 00:00:00",
+        "url": "https://www.businessinsider.com/retail-investors-private-equity-debt-market-401k-liquidity-moodys-2025-6"
+      },
+      {
+        "title": "Emerging Market Stocks Erase Loss for the Year in Contrast to US Slump",
+        "source": "bloomberg.com",
+        "published_date": "2025-04-23 00:00:00",
+        "url": "https://www.bloomberg.com/news/articles/2025-04-23/em-stocks-erase-loss-for-the-year-in-contrast-to-us-slump"
+      },
+      {
+        "title": "Why Portfolio Diversification Has Helped in 2025",
+        "source": "morningstar.com",
+        "published_date": "2025-04-22 00:00:00",
+        "url": "https://www.morningstar.com/portfolios/why-portfolio-diversification-has-helped-2025"
+      },
+      {
+        "title": "Emerging markets outperformance is 'coming back' amid AI boom",
+        "source": "finance.yahoo.com",
+        "published_date": "2025-05-22 00:00:00",
+        "url": "https://finance.yahoo.com/video/emerging-markets-outperformance-coming-back-120059781.html"
+      },
+      {
+        "title": "Why emerging markets are a 'key area' for diversification",
+        "source": "finance.yahoo.com",
+        "published_date": "2025-05-14 00:00:00",
+        "url": "https://finance.yahoo.com/video/why-emerging-markets-key-area-110004870.html"
+      },
+      {
+        "title": "With US stocks faltering, why not look to emerging markets",
+        "source": "thetimes.com",
+        "published_date": "2025-04-25 00:00:00",
+        "url": "https://www.thetimes.com/business-money/money/article/us-stocks-tariffs-buy-emerging-markets-shares-dgn5jzr2l"
+      },
+      {
+        "title": "Unloved emerging markets are due a revival",
+        "source": "reuters.com",
+        "published_date": "2025-06-12 00:00:00",
+        "url": "https://www.reuters.com/commentary/breakingviews/global-markets-breakingviews-2025-06-12"
+      },
+      {
+        "title": "Should investors be looking to emerging markets after Liberation Day?",
+        "source": "sharesmagazine.co.uk",
+        "published_date": "2025-05-22 00:00:00",
+        "url": "https://www.sharesmagazine.co.uk/article/should-investors-be-looking-to-emerging-markets-after-liberation-day"
+      },
+      {
+        "title": "Diversify Internationally With QINT's Blended Factor Approach",
+        "source": "etftrends.com",
+        "published_date": "2025-04-28 00:00:00",
+        "url": "https://www.etftrends.com/core-strategies-channel/diversify-internationally-qint-blended-factor"
+      },
+      {
+        "title": "Emerging markets said to see the next bull run as the 'sell U.S.' narrative gains ground",
+        "source": "cnbc.com",
+        "published_date": "2025-05-21 00:00:00",
+        "url": "https://www.cnbc.com/2025/05/22/emerging-markets-next-bull-market-sell-us-market-watchers.html"
+      },
+      {
+        "title": "Asia-Pacific equities are a compelling investment proposition",
+        "source": "businesstimes.com.sg",
+        "published_date": "2025-06-16 00:00:00",
+        "url": "https://www.businesstimes.com.sg/wealth/wealth-investing/asia-pacific-equities-are-compelling-investment-proposition"
+      },
+      {
+        "title": "Trade war deescalation a 'great opportunity' for emerging markets: Amundi",
+        "source": "cnbc.com",
+        "published_date": "2025-05-29 00:00:00",
+        "url": "https://www.cnbc.com/video/2025/05/29/trade-war-de-escalation-sparks-positive-spillover-for-em-amundi.html"
+      },
+      {
+        "title": "Rethinking Investments: Managing Your Portfolio Five Years Post-Pandemic",
+        "source": "forbes.com",
+        "published_date": "2025-04-18 00:00:00",
+        "url": "https://www.forbes.com/councils/forbesfinancecouncil/2025/04/18/rethinking-investments-managing-your-portfolio-five-years-post-pandemic"
+      },
+      {
+        "title": "7 Key Diversification Strategies To Secure Your Investment Portfolio",
+        "source": "forbes.com",
+        "published_date": "2025-04-14 00:00:00",
+        "url": "https://www.forbes.com/sites/truetamplin/2025/04/14/7-key-diversification-strategies-to-secure-your-investment-portfolio"
+      },
+      {
+        "title": "Wall Street banks are seeing strong EM returns again",
+        "source": "investmentnews.com",
+        "published_date": "2025-05-19 00:00:00",
+        "url": "https://www.investmentnews.com/industry-news/wall-street-banks-are-seeing-strong-em-returns-again/260564"
+      },
+      {
+        "title": "EM stocks have come roaring back stronger",
+        "source": "investmentnews.com",
+        "published_date": "2025-05-02 00:00:00",
+        "url": "https://www.investmentnews.com/industry-news/em-stocks-have-come-roaring-back-stronger/260348"
+      },
+      {
+        "title": "A market options hedge as other risks lurking out there despite Tuesday's rally",
+        "source": "cnbc.com",
+        "published_date": "2025-05-27 00:00:00",
+        "url": "https://www.cnbc.com/2025/05/27/a-market-options-hedge-as-other-risks-lurking-out-there-despite-tuesdays-rally.html"
+      },
+      {
+        "title": "Why bonds matter more now than ever",
+        "source": "finance.yahoo.com",
+        "published_date": "2025-04-22 00:00:00",
+        "url": "https://finance.yahoo.com/video/why-bonds-matter-more-now-100040256.html"
+      },
+      {
+        "title": "Investors look to private markets for new opportunities",
+        "source": "lgcplus.com",
+        "published_date": "2025-06-23 00:00:00",
+        "url": "https://www.lgcplus.com/investment/investors-look-to-private-markets-for-new-opportunities-23-06-2025"
+      },
+      {
+        "title": "Partner Insight: Robeco Emerging Markets Equities strategy - Targeting alpha in a new world of growth",
+        "source": "investmentweek.co.uk",
+        "published_date": "2025-06-06 00:00:00",
+        "url": "https://www.investmentweek.co.uk/sponsored/4414303/robeco-iw-25-emerging-markets-equities-strategy-targeting-alpha-world-growth"
+      },
+      {
+        "title": "Investors should lean into equities in a 'glass half full' market",
+        "source": "finance.yahoo.com",
+        "published_date": "2025-05-16 00:00:00",
+        "url": "https://finance.yahoo.com/video/investors-lean-equities-glass-half-201229737.html"
+      },
+      {
+        "title": "FundCalibre: The new landscape of corporate bonds",
+        "source": "portfolio-adviser.com",
+        "published_date": "2025-06-12 00:00:00",
+        "url": "https://portfolio-adviser.com/fundcalibre-the-new-landscape-of-corporate-bonds"
+      },
+      {
+        "title": "Stock Pickers Shine, Sniffing Out Value During Market Tumult",
+        "source": "finance.yahoo.com",
+        "published_date": "2025-07-03 00:00:00",
+        "url": "https://finance.yahoo.com/news/stock-pickers-shine-sniffing-value-093000913.html"
+      },
+      {
+        "title": "Emerging markets gains in the cards as Trump's tariffs challenge U.S. exceptionalism",
+        "source": "pionline.com",
+        "published_date": "2025-04-11 00:00:00",
+        "url": "http://www.pionline.com/money-management/emerging-market-gains-cards-trumps-tariffs-challenge-us-exceptionalism"
+      },
+      {
+        "title": "Denver Employees lowers emerging markets equities, raises domestic large caps",
+        "source": "pionline.com",
+        "published_date": "2025-05-30 00:00:00",
+        "url": "https://www.pionline.com/pension-funds/denver-employees-pension-plan-lowers-emerging-markets-equities-raises-domestic-large"
+      },
+      {
+        "title": "Traders 'Hold Their Nerve' to Ride Bumpy Emerging Market Rally",
+        "source": "bloomberg.com",
+        "published_date": "2025-06-15 00:00:00",
+        "url": "https://www.bloomberg.com/news/articles/2025-06-15/traders-hold-their-nerve-to-ride-bumpy-emerging-market-rally"
+      },
+      {
+        "title": "Volatility In The Market: Why It Pays To Plan Ahead",
+        "source": "forbes.com",
+        "published_date": "2025-05-07 00:00:00",
+        "url": "https://www.forbes.com/councils/forbesfinancecouncil/2025/05/07/volatility-in-the-market-why-it-pays-to-plan-ahead"
+      },
+      {
+        "title": "Schroders: bond opportunities amid panic selling",
+        "source": "fundselectorasia.com",
+        "published_date": "2025-05-13 00:00:00",
+        "url": "https://fundselectorasia.com/schroders-bond-opportunities-amid-panic-selling"
+      },
+      {
+        "title": "Emerging markets: South Korea, trade and tariffs and Chinese banks",
+        "source": "sharesmagazine.co.uk",
+        "published_date": "2025-04-24 00:00:00",
+        "url": "https://www.sharesmagazine.co.uk/article/emerging-markets-south-korea-trade-and-tariffs-and-chinese-banks/marketfundstable1"
+      },
+      {
+        "title": "Institutional Investors Lagging Behind Equity Market Rally",
+        "source": "superreview.com.au",
+        "published_date": "2025-06-06 00:00:00",
+        "url": "https://www.superreview.com.au/news/institutional-investment/institutional-investors-lagging-behind-equity-market-rally"
+      },
+      {
+        "title": "The Best Ways to Diversify Your Investment Portfolio in Today's Market",
+        "source": "morningstar.com",
+        "published_date": "2025-05-13 00:00:00",
+        "url": "https://www.morningstar.com/portfolios/best-ways-diversify-your-investment-portfolio-todays-market"
+      },
+      {
+        "title": "Smart Investor: Top-Performing Dividend Stocks, Buffett's Japan Investments, and Muni Bond Funds",
+        "source": "morningstar.com",
+        "published_date": "2025-05-03 00:00:00",
+        "url": "https://www.morningstar.com/markets/smart-investor-top-performing-dividend-stocks-buffetts-japan-investments-muni-bond-funds"
+      },
+      {
+        "title": "Why & How Investors Should Challenge Home Country Bias",
+        "source": "etftrends.com",
+        "published_date": "2025-04-11 00:00:00",
+        "url": "https://www.etftrends.com/etfs-in-canada-channel/why-how-investors-should-challenge-home-country-bias"
+      },
+      {
+        "title": "The bond market sell-off is more worrisome than the one in stocks. Here's what to know.",
+        "source": "usatoday.com",
+        "published_date": "2025-04-12 00:00:00",
+        "url": "https://www.usatoday.com/story/money/markets/2025/04/12/investors-dumping-bonds-stock-market/83028542007"
+      },
+      {
+        "title": "What Is Portfolio Diversification And Why Is It Important?",
+        "source": "forbes.com",
+        "published_date": "2025-05-10 00:00:00",
+        "url": "https://www.forbes.com/sites/investor-hub/article/what-is-portfolio-diversification"
+      },
+      {
+        "title": "Tariff Impact: Placing Precise Bets on Single-Country ETFs",
+        "source": "etftrends.com",
+        "published_date": "2025-04-10 00:00:00",
+        "url": "https://www.etftrends.com/tariff-impact-placing-precise-bets-single-country-etfs"
+      },
+      {
+        "title": "This is the new investing portfolio for the next 10 years",
+        "source": "finance.yahoo.com",
+        "published_date": "2025-04-19 00:00:00",
+        "url": "https://finance.yahoo.com/news/this-is-the-new-investing-portfolio-for-the-next-10-years-154556584.html?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAMTeXK1no2OT7--txa32v87lgkqwtyld8ey4ZTQcm7ysJylQWED_tRJv7Fj0TZ77cSRrEMhh4ypn4Oacpck_Vny7qXSmAk90UR9XFt-51_eoBrUQSfeNBIRIm4nxGZlRy8WF6wpknTYwKQ06LCzSzhpjnnlpIlYGBxYdJ4GuSUHS"
+      },
+      {
+        "title": "Market Turbulence Setting The Stage For Active Management's Resurgence",
+        "source": "superreview.com.au",
+        "published_date": "2025-05-28 00:00:00",
+        "url": "https://www.superreview.com.au/news/funds-management/market-turbulence-setting-stage-active-managements-resurgence"
+      },
+      {
+        "title": "Wall Street Banks Bet on Emerging Markets After Wasted Years",
+        "source": "advisorperspectives.com",
+        "published_date": "2025-05-19 00:00:00",
+        "url": "https://www.advisorperspectives.com/articles/2025/05/19/wall-street-banks-bet-emerging-markets-wasted"
+      },
+      {
+        "title": "Indian stocks hitting emerging markets for six",
+        "source": "livewiremarkets.com",
+        "published_date": "2025-07-03 00:00:00",
+        "url": "https://www.livewiremarkets.com/wires/indian-stocks-hitting-emerging-markets-for-six"
+      },
+      {
+        "title": "Trump China tariffs: Equity benchmarks in India, Mexico, Brazil and South Korea roar back a month after levy shock",
+        "source": "afr.com",
+        "published_date": "2025-05-03 00:00:00",
+        "url": "https://www.afr.com/markets/equity-markets/emerging-market-stocks-roar-back-a-month-after-tariff-shock-20250502-p5lw4h"
+      },
+      {
+        "title": "India File: Investors look homeward for safe harbours",
+        "source": "reuters.com",
+        "published_date": "2025-04-16 00:00:00",
+        "url": "https://www.reuters.com/world/india/india-file-investors-look-homeward-safe-harbours-2025-04-16"
+      },
+      {
+        "title": "Emerging market equity funds lure investors fleeing overvalued U.S. assets",
+        "source": "finance.yahoo.com",
+        "published_date": "2025-05-23 00:00:00",
+        "url": "https://finance.yahoo.com/news/emerging-market-equity-funds-lure-092441538.html"
+      },
+      {
+        "title": "Is it time to invest in value stocks?",
+        "source": "thetimes.com",
+        "published_date": "2025-05-10 00:00:00",
+        "url": "https://www.thetimes.com/business-money/money/article/is-it-time-to-invest-in-value-stocks-9t38x0mvc"
+      },
+      {
+        "title": "US credit rating: Should investors be overly concerned about latest downgrade?",
+        "source": "gulfnews.com",
+        "published_date": "2025-05-26 00:00:00",
+        "url": "https://gulfnews.com/business/analysis/us-credit-rating-should-investors-be-overly-concerned-about-latest-downgrade-1.500140571"
+      }
+    ]
+  }
 ]
