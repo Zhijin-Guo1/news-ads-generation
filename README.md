@@ -82,7 +82,7 @@ Result: 20,156 characters of landing page content
 
 ### **🧠 Step 3: RAG Processing & Vector Database**
 ```python
-# System builds FAISS vector database with 911 total embeddings
+# System builds FAISS vector database with 265 total embeddings
 Vector Database: 384-dimensional embeddings using Sentence-BERT
 Embedding Model: "all-MiniLM-L6-v2"
 
@@ -224,7 +224,7 @@ The system creates complete, ready-to-deploy marketing ads using DALL-E 3 HD wit
 5. Creates visual assets separately
 
 **Our AI Process (10 minutes):**
-1. ✅ Automatically analyzes 911+ total embeddings in vector database
+1. ✅ Automatically analyzes 265 total embeddings in vector database (150 news + 115 landing page chunks)
 2. ✅ Finds semantic connections using cosine similarity (0.28-0.53 relevance scores)
 3. ✅ Generates professional, compliant ad copy with GPT-4o
 4. ✅ Creates complete visual campaigns with DALL-E 3 HD
@@ -448,7 +448,7 @@ The system successfully processes 3 major asset management firms with enhanced 2
   - "Strategic Growth in Emerging Markets"
 
 ### RAG System Performance (Enhanced 2025 Implementation)
-- **Vector Database**: 911 total embeddings successfully built (landing pages + comprehensive news corpus)
+- **Vector Database**: 265 total embeddings successfully built (150 news articles + 115 landing page chunks)
 - **Semantic Search Accuracy**: 0.28-0.53 relevance scores (0.45+ indicates strong thematic relevance)
 - **Keyword Extraction**: Advanced RAKE algorithm with thematic categorization
 - **News-Client Matching**: Enhanced precision with 2-6 contextually relevant articles per client
@@ -471,7 +471,7 @@ The system successfully processes 3 major asset management firms with enhanced 2
 - **Compliance**: Built-in financial services tone and regulatory awareness
 
 ### Data Processing
-- **Input**: Excel file with 3 clients, 911+ total embeddings (landing pages + comprehensive news corpus)
+- **Input**: Excel file with 3 clients, 150 news articles + 115 landing page chunk embeddings (265 total)
 - **Web Scraping**: BeautifulSoup with intelligent content extraction (10K-27K chars per client)
 - **Content Chunking**: Smart text segmentation (512 char max) for optimal embedding performance
 - **Vector Storage**: FAISS IndexFlatIP with L2 normalization for cosine similarity
@@ -497,7 +497,7 @@ Replace OpenAI calls in `openai_ad_generator.py` with other LLM APIs (Claude, lo
 
 ## 📈 Performance & Scalability
 
-- **Processing Speed**: ~10 minutes for complete pipeline (3 clients, 911 embeddings, 9 visual ads)
+- **Processing Speed**: ~10 minutes for complete pipeline (3 clients, 265 embeddings, 9 visual ads)
 - **Memory Usage**: ~1.2GB for enhanced vector database, embeddings, and image processing
 - **API Costs**: ~$3-7 per complete campaign (includes GPT-4o + DALL-E 3 HD)
 - **Image Generation**: ~30 seconds per DALL-E 3 HD image with intelligent text overlays
@@ -543,4 +543,4 @@ For production use, consider:
 
 **Author:** Zhijin Guo  
 **Last Updated:** 2025-07-24  
-**Latest Enhancement:** Enhanced RAG processing with 911 embeddings, improved thematic matching, and detailed news connection rationales
+**Latest Enhancement:** Enhanced RAG processing with 265 embeddings (150 news + 115 page chunks), improved thematic matching, and detailed news connection rationales
