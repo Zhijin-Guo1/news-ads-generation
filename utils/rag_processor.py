@@ -12,9 +12,6 @@ import pickle
 import os
 import nltk
 from openai import OpenAI
-import requests
-from bs4 import BeautifulSoup
-import time
 
 # Set NLTK data path to local directory first
 local_nltk_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'nltk_data')
@@ -63,154 +60,159 @@ class RAGProcessor:
         """Get embedding for text"""
         return self.model.encode(text)
     
-    def extract_keywords(self, text: str = None, max_keywords: int = 5, url: str = None) -> List[str]:
-        """Extract keywords using real-time web scraping and GPT-4o function calling for maximum accuracy"""
-        if self.openai_client and url:
-            return self._extract_keywords_realtime_web(url, max_keywords)
-        elif self.openai_client and text:
-            return self._extract_keywords_openai(text, max_keywords)
+    def extract_keywords(self, text: str, max_keywords: int = 5, url: str = None) -> List[str]:
+        """Extract keywords using multiple advanced methods for maximum accuracy"""
+        if self.openai_client:
+            return self._extract_keywords_multi_method(text, max_keywords, url)
         else:
-            return self._extract_keywords_rake(text or "", max_keywords)
+            return self._extract_keywords_rake(text, max_keywords)
     
-    def _extract_keywords_realtime_web(self, url: str, max_keywords: int = 5) -> List[str]:
-        """Extract keywords using real-time web scraping and GPT-4o function calling"""
-        try:
-            print(f"🌐 Real-time scraping: {url}")
-            
-            # Step 1: Real-time web scraping
-            scraped_content = self._scrape_webpage_realtime(url)
-            if not scraped_content or scraped_content.startswith("Error"):
-                print(f"❌ Web scraping failed: {scraped_content}")
-                return []
-            
-            print(f"✅ Scraped {len(scraped_content)} characters from live webpage")
-            
-            # Step 2: GPT-4o function calling with fresh content
-            return self._extract_keywords_with_function_calling(scraped_content, url, max_keywords)
-            
-        except Exception as e:
-            print(f"❌ Real-time keyword extraction failed: {e}")
-            return []
+    def _extract_keywords_multi_method(self, text: str, max_keywords: int = 5, url: str = None) -> List[str]:
+        """Combine multiple extraction methods for maximum accuracy"""
+        all_keywords = []
+        
+        # Method 1: Advanced OpenAI text analysis
+        openai_keywords = []
+        if text:
+            try:
+                openai_keywords = self._extract_keywords_openai(text, max_keywords + 2)
+                all_keywords.extend([(kw, 'openai_text', 1.0) for kw in openai_keywords])
+            except Exception as e:
+                print(f"OpenAI text extraction failed: {e}")
+        
+        # Method 2: URL-based keyword extraction  
+        url_keywords = []
+        if url and self.openai_client:
+            try:
+                url_keywords = self._extract_keywords_from_url(url, max_keywords)
+                all_keywords.extend([(kw, 'url_analysis', 0.9) for kw in url_keywords])
+            except Exception as e:
+                print(f"URL keyword extraction failed: {e}")
+        
+        # Method 3: Enhanced semantic analysis
+        semantic_keywords = []
+        if text and self.openai_client:
+            try:
+                semantic_keywords = self._extract_semantic_themes(text, max_keywords)
+                all_keywords.extend([(kw, 'semantic', 0.8) for kw in semantic_keywords])
+            except Exception as e:
+                print(f"Semantic extraction failed: {e}")
+        
+        # Method 4: RAKE as backup
+        if not all_keywords or len(all_keywords) < max_keywords:
+            rake_keywords = self._extract_keywords_rake(text, max_keywords)
+            all_keywords.extend([(kw, 'rake', 0.3) for kw in rake_keywords])
+        
+        # Combine and rank keywords
+        return self._combine_and_rank_keywords(all_keywords, max_keywords)
     
-    def _scrape_webpage_realtime(self, url: str) -> str:
-        """Perform real-time web scraping during AI processing"""
+    def _extract_keywords_from_url(self, url: str, max_keywords: int = 3) -> List[str]:
+        """Extract keywords by analyzing the URL structure and semantics"""
         try:
-            headers = {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-                'Accept-Language': 'en-US,en;q=0.5',
-                'Accept-Encoding': 'gzip, deflate',
-                'Connection': 'keep-alive',
-                'Upgrade-Insecure-Requests': '1'
-            }
-            
-            print(f"   📡 Fetching live content from {url}")
-            response = requests.get(url, headers=headers, timeout=30)
-            response.raise_for_status()
-            
-            # Parse HTML content
-            soup = BeautifulSoup(response.content, 'html.parser')
-            
-            # Remove script and style elements
-            for script in soup(["script", "style", "nav", "header", "footer"]):
-                script.decompose()
-            
-            # Extract text content
-            text = soup.get_text()
-            
-            # Clean up text
-            lines = (line.strip() for line in text.splitlines())
-            chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
-            text = ' '.join(chunk for chunk in chunks if chunk)
-            
-            # Limit text length for AI processing
-            if len(text) > 8000:
-                text = text[:8000]
-            
-            return text
-            
-        except requests.exceptions.Timeout:
-            return f"Error: Timeout while accessing {url}"
-        except requests.exceptions.RequestException as e:
-            return f"Error: Network error - {str(e)}"
-        except Exception as e:
-            return f"Error: Scraping failed - {str(e)}"
-    
-    def _extract_keywords_with_function_calling(self, content: str, url: str, max_keywords: int = 5) -> List[str]:
-        """Use GPT-4o function calling to analyze fresh web content for investment themes"""
-        try:
-            # Define the function for keyword extraction
-            keyword_function = {
-                "name": "extract_investment_keywords",
-                "description": "Extract strategic investment keywords from financial services webpage content",
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "keywords": {
-                            "type": "array",
-                            "items": {"type": "string"},
-                            "description": f"List of exactly {max_keywords} strategic investment keywords/phrases (1-4 words each) that capture the firm's core investment focus and expertise"
-                        },
-                        "analysis_summary": {
-                            "type": "string",
-                            "description": "Brief summary of the investment themes and market focus identified"
-                        }
-                    },
-                    "required": ["keywords", "analysis_summary"]
-                }
-            }
-            
             prompt = f"""
-            You are analyzing LIVE, CURRENT content from a financial services webpage to extract the most strategically important investment keywords.
+            You are an expert in financial services marketing. Analyze this URL to extract the most strategically important keywords that reveal the company's investment focus and expertise.
             
             URL: {url}
-            Fresh webpage content (just scraped): {content[:4000]}
             
-            As a world-class financial services expert, identify the {max_keywords} most important keywords that represent:
+            Extract insights from:
+            1. Domain name and company identity
+            2. URL path structure revealing content focus
+            3. Page naming conventions indicating specialization
+            4. Investment themes implied by URL structure
             
-            1. CORE INVESTMENT PHILOSOPHY: What fundamental approach defines this firm?
-            2. STRATEGIC MARKET FOCUS: Which markets, sectors, or themes do they specialize in?
-            3. CURRENT POSITIONING: How are they positioned for today's market conditions?
-            4. COMPETITIVE ADVANTAGES: What makes them unique in their space?
-            5. EXPERTISE DOMAINS: What are their recognized areas of deep knowledge?
+            Extract exactly {max_keywords} strategic keywords that capture what this URL reveals about the firm's investment identity and expertise.
             
-            Focus on investment-relevant terms that would help match this firm with relevant financial news.
-            Each keyword should be 1-4 words and capture strategic investment themes.
+            Return ONLY the keywords, one per line:
             """
             
             response = self.openai_client.chat.completions.create(
-                model="gpt-4o-mini",
+                model="gpt-4o",
                 messages=[
-                    {"role": "system", "content": "You are a world-class financial services marketing strategist and investment analyst with deep expertise in identifying strategic investment themes from current market communications."},
+                    {"role": "system", "content": "You are a world-class financial services marketing strategist specializing in URL analysis and SEO strategy."},
                     {"role": "user", "content": prompt}
                 ],
-                functions=[keyword_function],
-                function_call={"name": "extract_investment_keywords"},
+                max_tokens=150,
                 temperature=0.1
             )
             
-            # Parse function call result
-            function_call = response.choices[0].message.function_call
-            if function_call and function_call.name == "extract_investment_keywords":
-                import json
-                result = json.loads(function_call.arguments)
-                keywords = result.get("keywords", [])
-                analysis = result.get("analysis_summary", "")
-                
-                print(f"   🧠 AI Analysis: {analysis}")
-                print(f"   🎯 Extracted keywords: {keywords}")
-                
-                return keywords[:max_keywords]
-            else:
-                print("❌ Function calling failed, falling back to direct extraction")
-                return self._extract_keywords_openai(content, max_keywords)
-                
+            keywords = response.choices[0].message.content.strip().split('\n')
+            clean_keywords = []
+            for keyword in keywords:
+                keyword = keyword.strip().strip('-').strip('•').strip('*').strip()
+                if keyword and len(keyword) > 2:
+                    clean_keywords.append(keyword)
+            
+            return clean_keywords[:max_keywords]
+            
         except Exception as e:
-            print(f"❌ Function calling extraction failed: {e}")
-            # Fallback to standard OpenAI extraction
-            return self._extract_keywords_openai(content, max_keywords)
+            print(f"URL keyword extraction failed: {e}")
+            return []
     
+    def _extract_semantic_themes(self, text: str, max_keywords: int = 3) -> List[str]:
+        """Extract semantic themes using advanced model reasoning"""
+        try:
+            prompt = f"""
+            As a financial markets expert, analyze this text to identify the 3 most strategically important SEMANTIC THEMES that represent deeper investment philosophies and market approaches.
+            
+            Look beyond surface keywords to identify:
+            - Underlying investment philosophy and approach
+            - Market positioning and competitive strategy  
+            - Deep expertise areas and thought leadership
+            - Strategic market timing and opportunity focus
+            
+            Text: {text[:3000]}
+            
+            Extract exactly {max_keywords} semantic themes as strategic keywords (1-4 words each):
+            """
+            
+            response = self.openai_client.chat.completions.create(
+                model="gpt-4o",
+                messages=[
+                    {"role": "system", "content": "You are a financial markets philosopher and strategic analyst who identifies deep semantic patterns in investment communications."},
+                    {"role": "user", "content": prompt}
+                ],
+                max_tokens=150,
+                temperature=0.2
+            )
+            
+            keywords = response.choices[0].message.content.strip().split('\n')
+            clean_keywords = []
+            for keyword in keywords:
+                keyword = keyword.strip().strip('-').strip('•').strip('*').strip()
+                if keyword and len(keyword) > 2:
+                    clean_keywords.append(keyword)
+            
+            return clean_keywords[:max_keywords]
+            
+        except Exception as e:
+            print(f"Semantic theme extraction failed: {e}")
+            return []
     
+    def _combine_and_rank_keywords(self, all_keywords: List[tuple], max_keywords: int) -> List[str]:
+        """Combine keywords from multiple methods and rank by importance"""
+        # Create weighted keyword scores
+        keyword_scores = {}
+        for keyword, method, weight in all_keywords:
+            if keyword.lower() not in keyword_scores:
+                keyword_scores[keyword.lower()] = {'keyword': keyword, 'score': 0, 'methods': []}
+            
+            keyword_scores[keyword.lower()]['score'] += weight
+            keyword_scores[keyword.lower()]['methods'].append(method)
+        
+        # Boost keywords found by multiple methods
+        for kw_data in keyword_scores.values():
+            if len(kw_data['methods']) > 1:
+                kw_data['score'] *= 1.5  # Boost for consensus
+        
+        # Sort by score and return top keywords
+        sorted_keywords = sorted(keyword_scores.values(), key=lambda x: x['score'], reverse=True)
+        
+        final_keywords = []
+        for item in sorted_keywords[:max_keywords]:
+            final_keywords.append(item['keyword'])
+            print(f"  🎯 Selected keyword: '{item['keyword']}' (score: {item['score']:.2f}, methods: {item['methods']})")
+        
+        return final_keywords
     
     def _extract_keywords_openai(self, text: str, max_keywords: int = 5) -> List[str]:
         """Extract keywords using most advanced OpenAI model for maximum financial domain accuracy"""
@@ -444,7 +446,7 @@ class RAGProcessor:
         # Extract investment themes and market views from landing page
         investment_themes = self._extract_investment_themes(landing_page_content)
         
-        # Extract keywords using real-time web scraping
+        # Extract enhanced keywords using multiple advanced methods including URL analysis
         client_url = None
         # Try to get URL from the processed data structure
         if hasattr(self, 'metadata'):
@@ -454,8 +456,7 @@ class RAGProcessor:
                     client_url = item.get('url')
                     break
         
-        print(f"🌐 Using real-time web scraping for {client_name} at {client_url}")
-        landing_page_keywords = self.extract_keywords(url=client_url, max_keywords=8)
+        landing_page_keywords = self.extract_keywords(landing_page_content, max_keywords=8, url=client_url)
         
         # Create a focused query based on investment themes and AI-extracted keywords
         query = self._create_thematic_query(investment_themes, normalized_client_name, landing_page_keywords)
@@ -531,48 +532,55 @@ class RAGProcessor:
     
     def _create_thematic_query(self, investment_themes: Dict[str, str], client_name: str = None, landing_page_keywords: List[str] = None) -> str:
         """
-        Create a focused query based on real-time web scraping keywords
+        Create a focused query based on extracted investment themes and OpenAI-generated keywords
         
         Args:
             investment_themes: Dictionary of detected themes and their content
             client_name: Name of the client for context
-            landing_page_keywords: Real-time web scraping extracted keywords
+            landing_page_keywords: OpenAI-extracted keywords from landing page
             
         Returns:
             Optimized query string for news matching within client's collection
         """
         if self.openai_client and landing_page_keywords:
-            return self._create_realtime_enhanced_query(client_name, landing_page_keywords)
+            return self._create_ai_enhanced_query(investment_themes, client_name, landing_page_keywords)
         else:
             return self._create_traditional_query(investment_themes, client_name)
     
-    def _create_realtime_enhanced_query(self, client_name: str, landing_page_keywords: List[str]) -> str:
-        """Create query using real-time web scraping keywords for maximum accuracy"""
+    def _create_ai_enhanced_query(self, investment_themes: Dict[str, str], client_name: str, landing_page_keywords: List[str]) -> str:
+        """Create query using most advanced OpenAI model for maximum accuracy"""
         try:
+            themes_text = ""
+            if investment_themes:
+                themes_text = " ".join([f"{k}: {v[:200]}" for k, v in investment_themes.items()])
+            
             prompt = f"""
-            You are the world's leading expert in financial markets and investment strategy. 
-            Create the most strategically accurate search query to find financial news articles 
-            that would be highly relevant to {client_name}'s current investment focus and expertise.
+            You are the world's leading expert in financial markets and investment strategy. Your task is to create the most strategically accurate search query to find financial news articles that would be highly relevant to {client_name}'s investment focus and expertise.
             
-            REAL-TIME EXTRACTED KEYWORDS (from live webpage): {', '.join(landing_page_keywords)}
+            COMPANY STRATEGIC KEYWORDS (AI-extracted from multiple sources): {', '.join(landing_page_keywords)}
+            INVESTMENT THEMES ANALYSIS: {themes_text}
             
-            Based on these fresh, current keywords that represent the firm's actual positioning today, 
-            create a precise search query (maximum 8 strategically chosen words) that would return 
-            the most relevant financial news.
+            Your search query should capture the intersection of:
+            1. The firm's core competitive advantages and market positioning
+            2. Current market themes and economic conditions they specialize in
+            3. Investment strategies and approaches they are known for
+            4. Market segments and asset classes they focus on
             
-            Focus on the core investment themes and market positioning revealed by the real-time analysis.
+            Create a precise search query (maximum 8 strategically chosen words) that would return the most relevant financial news for this firm's expertise and current market positioning.
+            
+            Consider market timing, sector focus, investment philosophy, and strategic differentiation.
             
             Return ONLY the optimized search query:
             """
             
             response = self.openai_client.chat.completions.create(
-                model="gpt-4o",
+                model="gpt-4o",  # Most advanced model for maximum accuracy
                 messages=[
-                    {"role": "system", "content": "You are a world-class financial markets strategist specializing in semantic search optimization."},
+                    {"role": "system", "content": "You are a world-class financial markets strategist and investment analyst with deep expertise in semantic search and information retrieval for financial services."},
                     {"role": "user", "content": prompt}
                 ],
                 max_tokens=100,
-                temperature=0.1
+                temperature=0.1  # Very low temperature for precise, focused results
             )
             
             ai_query = response.choices[0].message.content.strip()
@@ -583,14 +591,13 @@ class RAGProcessor:
                 query_words = query_words[:8]
             
             enhanced_query = ' '.join(query_words)
-            print(f"  🧠 Real-time enhanced query: '{enhanced_query}'")
+            print(f"  🧠 AI-generated enhanced query: '{enhanced_query}'")
             
             return enhanced_query
             
         except Exception as e:
-            print(f"Real-time query generation failed: {e}")
-            # Simple fallback using keywords directly
-            return ' '.join(landing_page_keywords[:6]) if landing_page_keywords else "investment finance market"
+            print(f"Advanced AI query generation failed: {e}")
+            return self._create_traditional_query(investment_themes, client_name)
     
     def _create_traditional_query(self, investment_themes: Dict[str, str], client_name: str) -> str:
         """Traditional query creation as fallback"""
@@ -731,9 +738,8 @@ def process_client_data_with_rag(client_data_file: str = 'client_data_with_conte
             print(f"Warning: No landing page content for {client_name}")
             continue
         
-        # Extract keywords using real-time web scraping and GPT-4o function calling
-        print(f"🌐 Real-time keyword extraction for {client_name}")
-        keywords = rag_processor.extract_keywords(url=client.get('url'), max_keywords=8)
+        # Extract keywords from landing page using advanced multi-method approach
+        keywords = rag_processor.extract_keywords(landing_page_content, url=client.get('url'))
         
         # Find relevant news articles
         relevant_news = rag_processor.find_relevant_news(client_name, landing_page_content)

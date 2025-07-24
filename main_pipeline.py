@@ -150,7 +150,7 @@ def main():
     import os
     openai_key = os.getenv('OPENAI_API_KEY')
     rag_result, success = run_step(
-        "STEP 3: Building RAG vector database with real-time web scraping keywords",
+        "STEP 3: Building RAG vector database with OpenAI-enhanced keywords",
         process_client_data_with_rag,
         'client_data_with_content.json',
         openai_key
@@ -165,7 +165,7 @@ def main():
         for client in processed_clients:
             rel_news = len(client.get('relevant_news', []))
             keywords = len(client.get('landing_page_keywords', []))
-            print(f"    - {client['client_name']}: {rel_news} relevant news, {keywords} real-time keywords")
+            print(f"    - {client['client_name']}: {rel_news} relevant news, {keywords} keywords")
     
     # Step 4: Generate ad campaigns
     print("\n" + "="*50)
