@@ -102,14 +102,13 @@ def init_session_state():
 
 def display_header():
     """Display the main header and description"""
-    st.markdown('<h1 class="main-header">🎯 Advanced AI News-Responsive Ad Generator</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header">🎯 News-Responsive Ad Generator</h1>', unsafe_allow_html=True)
     
     st.markdown("""
     <div class="info-box">
-        <h3>🧠 Multi-Method AI-Powered Marketing Campaign Generation</h3>
+        <h3>🤖 AI-Powered Marketing Campaign Generation</h3>
         <p>Transform client data and news articles into professional, contextually relevant ad campaigns using 
-        advanced RAG (Retrieval-Augmented Generation) with GPT-4o multi-method keyword extraction and semantic matching.</p>
-        <p><strong>🚀 New Features:</strong> URL analysis, semantic theme extraction, advanced query generation, and intelligent keyword ranking.</p>
+        RAG (Retrieval-Augmented Generation) and OpenAI's latest models.</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -305,8 +304,8 @@ def rag_processing_section(client_data, config):
     if st.button("🔍 Build Vector Database", type="primary"):
         with st.spinner("🧠 Building vector database and processing with RAG..."):
             try:
-                # Initialize RAG processor with OpenAI API key for advanced keyword extraction
-                rag_processor = RAGProcessor(openai_api_key=st.session_state.api_key)
+                # Initialize RAG processor
+                rag_processor = RAGProcessor()
                 
                 # Build vector database
                 rag_processor.build_vector_database(client_data)
@@ -352,34 +351,21 @@ def rag_processing_section(client_data, config):
                         st.write(f"   👥 Client names in DB: {list(unique_clients_in_db)}")
                         st.write(f"   🎯 Looking for: '{client['client_name']}'")
                         
-                        # Generate and store the enhanced query for display
+                        # Generate and store the thematic query for display
                         try:
                             investment_themes = rag_processor._extract_investment_themes(client['landing_page_content'])
-                            # Extract advanced keywords using multi-method approach
-                            landing_page_keywords = rag_processor.extract_keywords(
-                                client['landing_page_content'], 
-                                max_keywords=8, 
-                                url=client.get('url')
-                            )
-                            enhanced_query = rag_processor._create_thematic_query(
-                                investment_themes, 
-                                client['client_name'], 
-                                landing_page_keywords
-                            )
-                            client['enhanced_query'] = enhanced_query
-                            client['ai_keywords'] = landing_page_keywords
+                            thematic_query = rag_processor._create_thematic_query(investment_themes, client['client_name'])
+                            client['thematic_query'] = thematic_query
                             
                             # Debug info for low results
                             if len(relevant_news) < config['max_news_articles']:
                                 st.write(f"   ℹ️ Found {len(relevant_news)}/{config['max_news_articles']} articles")
                                 st.write(f"   🎯 Investment themes: {list(investment_themes.keys())}")
-                                st.write(f"   🧠 AI-Enhanced Query: {enhanced_query}")
-                                st.write(f"   🎯 AI-Extracted Keywords: {', '.join(landing_page_keywords)}")
+                                st.write(f"   📝 Query: {thematic_query}")
                                 
                         except Exception as e:
-                            st.write(f"   ❌ Enhanced query generation error: {e}")
-                            client['enhanced_query'] = "Error generating query"
-                            client['ai_keywords'] = []
+                            st.write(f"   ❌ Query generation error: {e}")
+                            client['thematic_query'] = "Error generating query"
                         
                         client['relevant_news'] = relevant_news
                         
@@ -393,18 +379,10 @@ def rag_processing_section(client_data, config):
                         col1, col2 = st.columns(2)
                         
                         with col1:
-                            st.subheader("🧠 AI-Enhanced Search Query")
-                            st.code(client.get('enhanced_query', 'No query generated'), language=None)
+                            st.subheader("🔍 Search Query")
+                            st.code(client.get('thematic_query', 'No query generated'), language=None)
                             
-                            st.subheader("🎯 AI-Extracted Keywords")
-                            ai_keywords = client.get('ai_keywords', [])
-                            if ai_keywords:
-                                for keyword in ai_keywords:
-                                    st.write(f"• {keyword}")
-                            else:
-                                st.write("• Keywords extraction unavailable")
-                            
-                            st.subheader("📊 Investment Themes")
+                            st.subheader("🎯 Investment Themes")
                             try:
                                 investment_themes = rag_processor._extract_investment_themes(client['landing_page_content'])
                                 for theme in list(investment_themes.keys())[:4]:  # Show top 4 themes
