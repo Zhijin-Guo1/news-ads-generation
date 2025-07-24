@@ -305,8 +305,32 @@ def rag_processing_section(client_data, config):
     if st.button("🔍 Build Vector Database", type="primary"):
         with st.spinner("🧠 Building vector database and processing with RAG..."):
             try:
+                # Force reload modules to get latest version
+                import importlib
+                import utils.rag_processor
+                importlib.reload(utils.rag_processor)
+                from utils.rag_processor import RAGProcessor
+                st.write("🔄 Reloaded modules to get latest version")
+                
                 # Initialize RAG processor with OpenAI API key for advanced keyword extraction
-                rag_processor = RAGProcessor(openai_api_key=st.session_state.api_key)
+                try:
+                    rag_processor = RAGProcessor(openai_api_key=st.session_state.api_key)
+                    st.write("✅ Initialized RAGProcessor with OpenAI API key for advanced features")
+                except TypeError as e:
+                    st.warning(f"⚠️ Using fallback RAGProcessor initialization (old version): {e}")
+                    # Fallback for compatibility with older version
+                    rag_processor = RAGProcessor()
+                    # Try to set API key manually if possible
+                    if hasattr(rag_processor, 'openai_client') and st.session_state.api_key:
+                        try:
+                            from openai import OpenAI
+                            rag_processor.openai_client = OpenAI(api_key=st.session_state.api_key)
+                            st.write("✅ Manually set OpenAI client for advanced features")
+                        except Exception as e2:
+                            st.warning(f"Could not set OpenAI client: {e2}")
+                except Exception as e:
+                    st.error(f"Failed to initialize RAGProcessor: {e}")
+                    return
                 
                 # Build vector database
                 rag_processor.build_vector_database(client_data)
@@ -317,11 +341,7 @@ def rag_processing_section(client_data, config):
                 st.write(f"   📰 News embeddings: {len(news_embeddings)} total")
                 st.write(f"   🔄 Code version: 2025-07-23-v5 (simplified RAG logic - pre-matched news per client)")
                 
-                # Force clear any import caches
-                import importlib
-                import utils.rag_processor
-                importlib.reload(utils.rag_processor)
-                st.write(f"   🔄 Reloaded rag_processor module")
+                # Modules already reloaded above
                 
                 # Process each client
                 processed_clients = []
