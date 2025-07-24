@@ -207,16 +207,20 @@ GPT-4o Response: [Contextually relevant ad content with enhanced news connection
 The system creates complete, ready-to-deploy marketing ads using DALL-E 3 HD with professional text overlays:
 
 #### **LinkedIn Single Image Ad - PIMCO Global Market Navigation (Generated July 24, 2025)**
-![PIMCO LinkedIn Ad](generated_ads_images/final_ads/PIMCO_linkedin_single_image_final_094419.png)
+![PIMCO LinkedIn Ad](generated_ads_images/final_ads/PIMCO_linkedin_single_image_final_094316.png)
 *Fresh AI-generated ad connecting PIMCO's Fed policy insights with current emerging market trade dynamics*
 
-#### **Banner Ad - State Street ESG Innovation (Latest Generation)** 
-![State Street Banner Ad](generated_ads_images/final_ads/State_Street_banner_ad_300x250_final_094419.png)
-*Professional banner emphasizing sustainable investing leadership and ESG capabilities*
+#### **Banner Ad - PIMCO Fed Policy & Market Trends (Latest Generation)** 
+![PIMCO Banner Ad](generated_ads_images/final_ads/PIMCO_banner_ad_300x250_final_094350.png)
+*Professional banner highlighting Fed decision impacts on emerging markets*
 
-#### **Additional Creative - T. Rowe Price 2025 Market Vision (Current)**
-![T. Rowe Price Creative](generated_ads_images/final_ads/T_Rowe_Price_additional_creative_final_094419.png)
-*Webinar-style creative featuring 2025 global market outlook and growth strategies*
+#### **Additional Creative - PIMCO Webinar Concept (Current)**
+![PIMCO Additional Creative](generated_ads_images/final_ads/PIMCO_additional_creative_final_094419.png)
+*Interactive webinar-style creative for thought leadership engagement*
+
+#### **State Street ESG Leadership Ad (Fresh Generation)**
+![State Street LinkedIn Ad](generated_ads_images/final_ads/State_Street_linkedin_single_image_final_094445.png)
+*AI-generated LinkedIn ad emphasizing sustainable investing leadership and ESG innovation*
 
 **Key Features of Generated Images:**
 - ✅ **DALL-E 3 HD backgrounds** with enhanced professional quality
