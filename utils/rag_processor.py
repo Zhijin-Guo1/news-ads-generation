@@ -179,7 +179,7 @@ class RAGProcessor:
             """
             
             response = self.openai_client.chat.completions.create(
-                model="gpt-4o",
+                model="gpt-4o-mini",
                 messages=[
                     {"role": "system", "content": "You are a world-class financial services marketing strategist and investment analyst with deep expertise in identifying strategic investment themes from current market communications."},
                     {"role": "user", "content": prompt}

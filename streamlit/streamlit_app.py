@@ -378,7 +378,7 @@ def rag_processing_section(client_data, config):
                             # Extract advanced keywords using multi-method approach
                             landing_page_keywords = rag_processor.extract_keywords(
                                 client['landing_page_content'], 
-                                max_keywords=8, 
+                                max_keywords=3,
                                 url=client.get('url')
                             )
                             enhanced_query = rag_processor._create_thematic_query(
