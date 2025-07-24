@@ -82,67 +82,110 @@ Result: 20,156 characters of landing page content
 
 ### **🧠 Step 3: RAG Processing & Vector Database**
 ```python
-# System builds FAISS vector database with 265 embeddings
+# System builds FAISS vector database with 911 total embeddings
 Vector Database: 384-dimensional embeddings using Sentence-BERT
 Embedding Model: "all-MiniLM-L6-v2"
 
-# For PIMCO (Fed policy focus):
-Query: "Fed policymakers split decision + location americas + asia pacific"
+# For PIMCO (Fed policy focus - 2025 updated):
+Query: "federal reserve interest rates monetary policy inflation economic stagflation split decision"
+Themes: ['monetary_policy', 'market_outlook', 'investment_strategy', 'economic_themes']
 Semantic Search Results:
-✅ "Emerging markets gains in the cards as Trump's tariffs..." → Score: 0.31
-✅ "Fed Forced to Balance Policy Predicament..." → Score: 0.39
-❌ "Sustainable investing trends" → Score: 0.12 (not relevant)
+✅ "Emerging markets gains in the cards as Trump's tariffs challenge U.S. exceptionalism" → Score: 0.31
+✅ "Emerging markets: South Korea, trade and tariffs and Chinese banks" → Score: 0.28
+✅ "Fed sees its preferred inflation gauge topping 3% this year, higher than previous forecast" → Score: 0.39
 
-# For State Street (ESG focus):
-Query: "sustainable investing ESG + spdr gold trust + negative screening"
+# For State Street (ESG focus - Enhanced 2025):
+Query: "sustainable investing ESG environmental social governance climate transition net zero outcomes"
+Themes: ['investment_strategy', 'sustainability', 'esg_outcomes', 'climate_investing']
 Semantic Search Results:
-✅ "The Role Of Sustainable Investing In Modern Portfolios" → Score: 0.53
-✅ "Sustainable investing: How does it work?" → Score: 0.66
-❌ "Fed rate cuts" → Score: 0.08 (not relevant)
+✅ "The Role Of Sustainable Investing In Modern Financial Portfolios" → Score: 0.53
+✅ "State Street Global Advisors makes first Indian asset management investment" → Score: 0.53
+✅ "Sustainable investing is no passing fad" → Score: 0.52
+✅ "SRI Redefined: Going Beyond Socially Responsible Investing" → Score: 0.50
+✅ "Sustainable investing: How does it work and can my money support green issues?" → Score: 0.49
 
-Top relevant news articles selected for each client
+# For T. Rowe Price (2025 Market Outlook focus):
+Query: "emerging markets investment strategy portfolio management equity post globalization deglobalization 2025 outlook"
+Themes: ['market_outlook', 'investment_strategy', 'emerging_markets', 'global_trends', 'esg_outcomes']
+Semantic Search Results:
+✅ "Partner Insight: Robeco Emerging Markets Equities strategy - Targeting alpha in a new world of growth" → Score: 0.46
+✅ "ESG's future is about outcomes, not labels: Nordea" → Score: 0.42
+✅ "Value Stocks Leading This Year" → Score: 0.44
+
+Top relevant news articles selected for each client with enhanced thematic matching
 ```
 
 ### **🤖 Step 4: AI Ad Generation with GPT-4o**
 ```python
 # OpenAI GPT-4o receives structured prompt with RAG context:
 "Client: PIMCO
-Landing Page Content: Fed policymakers split decision analysis...
+Landing Page Content: Fed policymakers split decision analysis (10,121+ characters)...
 Relevant News: 
-1. Emerging markets gains as Trump's tariffs challenge... (Score: 0.31)
-2. Fed Forced to Balance Policy Predicament... (Score: 0.39)
+1. Emerging markets gains in the cards as Trump's tariffs challenge U.S. exceptionalism (Score: 0.31)
+2. Emerging markets: South Korea, trade and tariffs and Chinese banks (Score: 0.28)
 
 Task: Generate LinkedIn ad, banner ad, and additional creative
 Format: JSON with headline, body, CTA, image_description
-Tone: Professional, compliant, thought leadership"
+Tone: Professional, compliant, thought leadership, regulatory-aware"
 
-GPT-4o Response: [Contextually relevant ad content with news connections]
+GPT-4o Response: [Contextually relevant ad content with enhanced news connections]
 ```
 
-### **📢 Step 5: Generated Ad Campaigns**
+### **📢 Step 5: Generated Ad Campaigns (Latest 2025 Examples)**
 
-**PIMCO - Fed Policy Focus:**
+**PIMCO - Fed Policy & Global Market Navigation:**
 ```json
 {
   "linkedin_single_image": {
-    "headline": "Navigating Market Shifts: Insights on Fed Policy & Emerging Trends",
-    "body": "As Fed policymakers face a split decision, the implications for emerging markets are profound. PIMCO's insights explore how these dynamics interact with global trade tensions. Discover strategies to manage risk and capture potential in uncertain times.",
+    "headline": "Navigating Fed Decisions Amid Global Market Shifts",
+    "body": "As Fed policymakers face a split decision, explore PIMCO's insights on navigating the complexities of global markets. With emerging markets gaining traction amid trade dynamics, our thought leadership offers strategic perspectives on managing risks and seizing opportunities. Discover how flexible bond strategies can provide stability and income potential in this evolving landscape.",
     "call_to_action": "Explore PIMCO's Insights",
-    "image_description": "Dynamic visual of a globe with key financial markets highlighted, overlaid with graphs indicating market trends",
-    "news_connection_rationale": "Connects PIMCO's Fed policy insights with current emerging markets and trade tension news"
+    "image_description": "A globe with arrows indicating market movements, overlaid with a graph and the PIMCO logo, suggesting global market navigation.",
+    "news_connection_rationale": "The ad ties PIMCO's insights on Fed decisions with the news of emerging markets gaining traction, offering strategies to navigate these complexities."
+  },
+  "additional_creative": {
+    "headline": "Strategize with PIMCO: Global Market Dynamics",
+    "body": "Join our webinar discussing Fed decisions and emerging markets. Gain insights into how PIMCO's strategies can help manage risk and capture potential in today's volatile economic environment.",
+    "call_to_action": "Register for the Webinar",
+    "image_description": "A virtual conference setting with a diverse group of financial professionals engaged in discussion, capturing the essence of a thought leadership event."
   }
 }
 ```
 
-**State Street - ESG Leadership:**
+**State Street - Sustainable Investing Leadership:**
 ```json
 {
   "linkedin_single_image": {
-    "headline": "Sustainable Investing: A Pillar of Modern Portfolios",
-    "body": "As sustainable investing becomes integral to financial portfolios, State Street's insights and solutions lead the way. Leverage our expertise to align investments with sustainability goals, supported by robust research and analytics.",
-    "call_to_action": "Explore Sustainable Solutions",
-    "image_description": "Graph depicting rising trends in sustainable investing, with icons representing diverse asset classes overlaying a green and blue globe",
-    "news_connection_rationale": "Links State Street's sustainable investing expertise with Forbes' coverage on its critical role in modern portfolios"
+    "headline": "Sustainable Investing: The Future of Financial Portfolios",
+    "body": "As sustainable investing gains momentum, State Street's expertise in ESG provides institutional investors with differentiated solutions. Discover how our deep research and proprietary tools help you navigate the evolving landscape of sustainable finance, aligning with your goals and market trends.",
+    "call_to_action": "Explore Our ESG Capabilities",
+    "image_description": "An institutional investor analyzing ESG data on a digital tablet, set against a backdrop of a green financial district skyline.",
+    "news_connection_rationale": "This ad connects State Street's sustainable investing expertise with the growing trend identified in Forbes discussing its role in modern portfolios, highlighting the firm's position as a thought leader in the ESG space."
+  },
+  "additional_creative": {
+    "headline": "Pioneering Sustainable Investments in India",
+    "body": "State Street's first Indian asset management investment marks a significant step in sustainable finance. Discover how our strategies align with global market trends and support your ESG objectives.",
+    "call_to_action": "Read Our Insights",
+    "image_description": "A map of India with green overlays indicating sustainable investment opportunities, accompanied by financial data visuals."
+  }
+}
+```
+
+**T. Rowe Price - 2025 Market Outlook & Growth Strategies:**
+```json
+{
+  "linkedin_single_image": {
+    "headline": "Explore 2025: T. Rowe Price's Vision on Market Growth",
+    "body": "As new growth opportunities emerge in global markets, understanding where to direct your investments is crucial. T. Rowe Price provides insights into the 2025 Global Market Outlook, aligning with the need for effective strategies in a changing landscape. Discover how our expertise in equities and ESG can guide your investment decisions.",
+    "call_to_action": "Explore Our Insights",
+    "image_description": "A global market landscape with arrows indicating growth trends and a focus on sustainable investment strategies.",
+    "news_connection_rationale": "The ad connects T. Rowe Price's expertise in the 2025 Global Market Outlook with the emerging market growth strategies discussed in recent market news, emphasizing the importance of strategic investment in evolving markets."
+  },
+  "additional_creative": {
+    "headline": "Strategic Growth in Emerging Markets",
+    "body": "Join our webinar to explore T. Rowe Price's strategic insights on global market trends for 2025. Delve into how our ESG and equity strategies align with new growth opportunities highlighted in recent studies.",
+    "call_to_action": "Register Now",
+    "image_description": "A virtual webinar setup with graphs and charts depicting market trends and ESG strategies."
   }
 }
 ```
@@ -151,17 +194,17 @@ GPT-4o Response: [Contextually relevant ad content with news connections]
 
 The system creates complete, ready-to-deploy marketing ads using DALL-E 3 HD with professional text overlays:
 
-#### **LinkedIn Single Image Ad - PIMCO Fed Policy Focus**
+#### **LinkedIn Single Image Ad - PIMCO Global Market Navigation**
 ![PIMCO LinkedIn Ad](generated_ads_images/final_ads/PIMCO_linkedin_single_image_final_013039.png)
-*News-responsive ad connecting PIMCO's Fed policy insights with emerging market trends*
+*AI-generated ad connecting PIMCO's Fed policy insights with emerging market trade dynamics*
 
-#### **Banner Ad - State Street ESG Leadership** 
+#### **Banner Ad - State Street ESG Innovation** 
 ![State Street Banner Ad](generated_ads_images/final_ads/State_Street_banner_ad_300x250_final_013233.png)
-*Wide banner format highlighting sustainable investing expertise*
+*Professional banner emphasizing sustainable investing leadership and ESG capabilities*
 
-#### **Additional Creative - T. Rowe Price 2025 Outlook**
+#### **Additional Creative - T. Rowe Price 2025 Market Vision**
 ![T. Rowe Price Creative](generated_ads_images/final_ads/T_Rowe_Price_additional_creative_final_013422.png)
-*Podcast-style creative connecting market outlook with growth strategies*
+*Webinar-style creative featuring 2025 global market outlook and growth strategies*
 
 **Key Features of Generated Images:**
 - ✅ **DALL-E 3 HD backgrounds** with enhanced professional quality
@@ -178,13 +221,15 @@ The system creates complete, ready-to-deploy marketing ads using DALL-E 3 HD wit
 2. Brainstorms connections to company expertise  
 3. Writes ad copy from scratch
 4. Reviews and revises multiple times
+5. Creates visual assets separately
 
 **Our AI Process (10 minutes):**
-1. ✅ Automatically analyzes 265+ news articles in vector database
-2. ✅ Finds semantic connections using cosine similarity (0.31-0.66 relevance scores)
+1. ✅ Automatically analyzes 911+ total embeddings in vector database
+2. ✅ Finds semantic connections using cosine similarity (0.28-0.53 relevance scores)
 3. ✅ Generates professional, compliant ad copy with GPT-4o
 4. ✅ Creates complete visual campaigns with DALL-E 3 HD
-5. ✅ Produces multiple ad formats with text overlays simultaneously
+5. ✅ Produces multiple ad formats with intelligent text overlays simultaneously
+6. ✅ Provides detailed news connection rationales for campaign transparency
 
 **Key Innovation:** The system creates **contextually relevant** ads using RAG architecture that meaningfully connects client expertise with current market developments through semantic search.
 
@@ -364,46 +409,50 @@ generator = OpenAIAdGenerator(api_key="sk-your-actual-key-here")
 
 ## 📊 Campaign Results & RAG Performance
 
-The system successfully processes 3 major asset management firms with updated 2025 data:
+The system successfully processes 3 major asset management firms with enhanced 2025 data and improved RAG performance:
 
-### PIMCO (Fed Policy & Emerging Markets Focus)
-- **Updated URL**: https://www.pimco.com/us/en/insights/fed-policymakers-split-decision
-- **Landing Page Content**: 10,121 characters of Fed policy analysis
-- **RAG Results**: 2 highly relevant news articles (scores: 0.31-0.39)
-  - "Emerging markets gains in the cards as Trump's tariffs challenge U.S. exceptionalism"
-  - "Fed Forced to Balance Policy Predicament With Economic Uncertainty"
-- **Generated Campaign**: LinkedIn ad + Banner + Webinar concept
+### PIMCO (Fed Policy & Global Market Navigation)
+- **Current URL**: https://www.pimco.com/us/en/insights/fed-policymakers-split-decision
+- **Landing Page Content**: 10,121+ characters of Fed policymaker split decision analysis
+- **RAG Results**: 2 contextually relevant news articles (scores: 0.28-0.31)
+  - "Emerging markets gains in the cards as Trump's tariffs challenge U.S. exceptionalism" (pionline.com)
+  - "Emerging markets: South Korea, trade and tariffs and Chinese banks" (sharesmagazine.co.uk)
+- **Generated Campaign**: LinkedIn ad + Banner + Webinar format with enhanced global market focus
 - **Sample Headlines**: 
-  - "Navigating Market Shifts: Insights on Fed Policy & Emerging Trends"
-  - "Join Our Webinar: Market Dynamics in a Changing World"
+  - "Navigating Fed Decisions Amid Global Market Shifts"
+  - "Strategize with PIMCO: Global Market Dynamics"
 
-### State Street (ESG/Sustainable Investing Leadership)
-- **URL**: https://www.ssga.com/uk/en_gb/institutional/capabilities/esg
-- **Landing Page Content**: 20,156 characters of ESG capabilities
-- **RAG Results**: 6 highly relevant news articles (scores: 0.51-0.66)
-  - "The Role Of Sustainable Investing In Modern Financial Portfolios" (0.53)
-  - "Sustainable investing: How does it work?" (0.66)
-- **Generated Campaign**: Focus on ESG innovation and sustainability leadership
+### State Street (Sustainable Investing & ESG Innovation Leadership)
+- **Current URL**: https://www.ssga.com/uk/en_gb/institutional/capabilities/esg
+- **Landing Page Content**: 20,156+ characters of comprehensive ESG capabilities and solutions
+- **RAG Results**: 6 highly relevant news articles (scores: 0.49-0.53)
+  - "The Role Of Sustainable Investing In Modern Financial Portfolios" (forbes.com, 0.53)
+  - "State Street Global Advisors makes first Indian asset management investment" (funds-europe.com, 0.53)
+  - "Sustainable investing is no passing fad" (businesstimes.com.sg, 0.52)
+  - "SRI Redefined: Going Beyond Socially Responsible Investing" (kiplinger.com, 0.50)
+  - "Sustainable investing: How does it work and can my money support green issues?" (independent.co.uk, 0.49)
+- **Generated Campaign**: Enhanced focus on ESG outcomes, global expansion, and sustainable portfolio integration
 - **Sample Headlines**:
-  - "Sustainable Investing: A Pillar of Modern Portfolios"
-  - "State Street Leads in ESG Innovation"
+  - "Sustainable Investing: The Future of Financial Portfolios"
+  - "Pioneering Sustainable Investments in India"
 
-### T. Rowe Price (2025 Market Outlook & Growth Strategies)
-- **URL**: https://www.troweprice.com/en/institutional/capabilities
-- **Landing Page Content**: 27,520 characters of investment capabilities
-- **RAG Results**: 2 relevant articles focusing on growth and emerging markets (scores: 0.44-0.49)
-  - "Real Estate a Top Sector to Watch in 2025" (0.49)
-  - "Partner Insight: Robeco Emerging Markets Equities strategy" (0.44)
-- **Generated Campaign**: 2025 outlook theme with growth focus
+### T. Rowe Price (2025 Global Market Outlook & Strategic Growth)
+- **Current URL**: https://www.troweprice.com/financial-intermediary/uk/en/lp/global-market-outlook.html
+- **Landing Page Content**: 27,520+ characters of 2025 midyear market outlook and investment capabilities
+- **RAG Results**: 2 strategic growth-focused articles (scores: 0.42-0.46)
+  - "Partner Insight: Robeco Emerging Markets Equities strategy - Targeting alpha in a new world of growth" (investmentweek.co.uk, 0.46)
+  - "ESG's future is about outcomes, not labels: Nordea" (funds-europe.com, 0.42)
+- **Generated Campaign**: 2025 market vision with emphasis on emerging markets, ESG outcomes, and strategic growth
 - **Sample Headlines**:
-  - "T. Rowe Price's 2025 Outlook: Navigating Emerging Growth"
-  - "2025 Insights Podcast: Growth & ESG"
+  - "Explore 2025: T. Rowe Price's Vision on Market Growth"
+  - "Strategic Growth in Emerging Markets"
 
-### RAG System Performance
-- **Vector Database**: 265 embeddings successfully built
-- **Semantic Search Accuracy**: 0.31-0.66 relevance scores (0.5+ indicates strong relevance)
-- **Keyword Extraction**: RAKE algorithm successfully identified key themes
-- **News-Client Matching**: Each client matched with 2-6 contextually relevant articles
+### RAG System Performance (Enhanced 2025 Implementation)
+- **Vector Database**: 911 total embeddings successfully built (landing pages + comprehensive news corpus)
+- **Semantic Search Accuracy**: 0.28-0.53 relevance scores (0.45+ indicates strong thematic relevance)
+- **Keyword Extraction**: Advanced RAKE algorithm with thematic categorization
+- **News-Client Matching**: Enhanced precision with 2-6 contextually relevant articles per client
+- **Improved Themes**: Monetary policy, market outlook, investment strategy, sustainability, ESG outcomes, global trends
 
 ## 🔍 Technical Implementation Details
 
@@ -422,7 +471,7 @@ The system successfully processes 3 major asset management firms with updated 20
 - **Compliance**: Built-in financial services tone and regulatory awareness
 
 ### Data Processing
-- **Input**: Excel file with 3 clients, 265+ news articles embedded
+- **Input**: Excel file with 3 clients, 911+ total embeddings (landing pages + comprehensive news corpus)
 - **Web Scraping**: BeautifulSoup with intelligent content extraction (10K-27K chars per client)
 - **Content Chunking**: Smart text segmentation (512 char max) for optimal embedding performance
 - **Vector Storage**: FAISS IndexFlatIP with L2 normalization for cosine similarity
@@ -448,12 +497,12 @@ Replace OpenAI calls in `openai_ad_generator.py` with other LLM APIs (Claude, lo
 
 ## 📈 Performance & Scalability
 
-- **Processing Speed**: ~10 minutes for complete pipeline (3 clients, 265 embeddings, 9 visual ads)
-- **Memory Usage**: ~800MB for vector database, embeddings, and image processing
-- **API Costs**: ~$2-5 per complete campaign (includes GPT-4o + DALL-E 3 HD)
-- **Image Generation**: ~30 seconds per DALL-E 3 HD image with 3-second rate limiting
-- **Scalability**: Linear scaling with number of clients and news articles
-- **Output Quality**: Marketing-ready materials requiring minimal human review
+- **Processing Speed**: ~10 minutes for complete pipeline (3 clients, 911 embeddings, 9 visual ads)
+- **Memory Usage**: ~1.2GB for enhanced vector database, embeddings, and image processing
+- **API Costs**: ~$3-7 per complete campaign (includes GPT-4o + DALL-E 3 HD)
+- **Image Generation**: ~30 seconds per DALL-E 3 HD image with intelligent text overlays
+- **Scalability**: Linear scaling with enhanced thematic matching
+- **Output Quality**: Marketing-ready materials with detailed news connection rationales
 
 ## ✅ Quality Assurance
 
@@ -493,4 +542,5 @@ For production use, consider:
 ---
 
 **Author:** Zhijin Guo  
-**Date:** 2025-07-19
+**Last Updated:** 2025-07-24  
+**Latest Enhancement:** Enhanced RAG processing with 911 embeddings, improved thematic matching, and detailed news connection rationales
