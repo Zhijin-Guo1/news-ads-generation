@@ -74,8 +74,8 @@ class ProfessionalAdGenerator:
                 except:
                     pass  # File might already be moved
     
-    def enhance_image_prompt(self, description: str, client_name: str, ad_format: str) -> str:
-        """Enhanced prompt for professional financial marketing images"""
+    def enhance_image_prompt(self, description: str, client_name: str, ad_format: str, client_keywords: list = None) -> str:
+        """Enhanced prompt for professional financial marketing images using AI-extracted keywords"""
         
         # Base professional styling
         base_prompt = f"Professional financial marketing image for {client_name}. "
@@ -88,8 +88,24 @@ class ProfessionalAdGenerator:
         else:
             format_style = "Professional marketing material, clean corporate design. "
         
-        # Enhanced description with professional keywords
-        enhanced = f"{base_prompt}{format_style}{description}. "
+        # Incorporate AI-extracted keywords for more relevant imagery
+        keyword_enhancement = ""
+        if client_keywords:
+            # Filter keywords for visual concepts
+            visual_keywords = []
+            financial_terms = ["investment", "portfolio", "market", "fund", "asset", "equity", "bond", 
+                             "sustainable", "ESG", "emerging", "global", "growth", "strategy"]
+            
+            for keyword in client_keywords[:5]:  # Use top 5 keywords
+                keyword_lower = keyword.lower()
+                if any(term in keyword_lower for term in financial_terms):
+                    visual_keywords.append(keyword)
+            
+            if visual_keywords:
+                keyword_enhancement = f"Reflecting themes of {', '.join(visual_keywords[:3])}. "
+        
+        # Enhanced description with professional keywords and client-specific themes
+        enhanced = f"{base_prompt}{format_style}{keyword_enhancement}{description}. "
         enhanced += "High-quality professional photography or clean vector graphics, "
         enhanced += "modern financial services aesthetic, sophisticated color palette with blues and greens, "
         enhanced += "corporate professional style, minimal and clean design, "
@@ -287,6 +303,7 @@ class ProfessionalAdGenerator:
         for campaign in campaigns:
             client_name = campaign.get('client_name', 'Client')
             ad_creative = campaign.get('ad_creative', {})
+            client_keywords = campaign.get('top_keywords', [])  # Get AI-extracted keywords from campaign
             
             print(f"\n🎯 Creating complete ads for {client_name}")
             print("=" * 50)
@@ -301,9 +318,9 @@ class ProfessionalAdGenerator:
                 
                 print(f"\n📢 Processing {ad_format}")
                 
-                # Enhanced prompt for background image (no text)
+                # Enhanced prompt for background image using AI-extracted keywords
                 enhanced_prompt = self.enhance_image_prompt(
-                    image_description, client_name, ad_format
+                    image_description, client_name, ad_format, client_keywords
                 )
                 
                 # Determine size based on format

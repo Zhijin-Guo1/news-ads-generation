@@ -145,12 +145,15 @@ def main():
     
     print(f"  📊 Successfully scraped {scraped_count}/{len(parsed_data)} landing pages")
     
-    # Step 3: Build RAG system and process data
+    # Step 3: Build RAG system and process data with OpenAI enhancement
     print("\n" + "="*50)
+    import os
+    openai_key = os.getenv('OPENAI_API_KEY')
     rag_result, success = run_step(
-        "STEP 3: Building RAG vector database and processing",
+        "STEP 3: Building RAG vector database with OpenAI-enhanced keywords",
         process_client_data_with_rag,
-        'client_data_with_content.json'
+        'client_data_with_content.json',
+        openai_key
     )
     
     if not success:
