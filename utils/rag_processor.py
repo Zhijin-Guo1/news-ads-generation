@@ -1,5 +1,5 @@
 """
-RAG-Enabled NLP Processor for Alphix ML Challenge
+RAG-Enabled NLP Processor for News-Responsive Ad Generation
 Implements vector database and semantic search for news-responsive ad generation
 """
 import json

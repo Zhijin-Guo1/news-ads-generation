@@ -1,6 +1,6 @@
 """
 Streamlit Frontend for News-Responsive Ad Generation System
-Interactive web interface for the Alphix ML Challenge solution
+Interactive web interface for the News-Responsive Ad Generation solution
 """
 
 import streamlit as st

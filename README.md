@@ -307,7 +307,7 @@ news-ads-generation/
 ├── openai_ad_generator.py             # AI ad generation with GPT-4o
 ├── professional_ad_generator.py       # DALL-E 3 + text overlay system
 ├── solution_design.md                 # Technical design document
-├── Alphix_ML_Challenge_News_Ad_Generation.docx  # Challenge requirements
+├── requirements.txt                   # Dependencies and requirements
 ├── URL_and_news_articles_examples_by_client.xlsx # Input data
 ├── data/                              # Organized data folder
 │   ├── parsed_client_data.json       # Parsed Excel data
@@ -536,40 +536,15 @@ Replace OpenAI calls in `openai_ad_generator.py` with other LLM APIs (Claude, lo
 
 ## 🚧 Future Enhancements
 
-### **🎯 Client-Requested Priority Features**
-
-**Speed to Market:**
-- **Real-time News Integration**: Live RSS feeds from Bloomberg, Reuters, WSJ with breaking news alerts that trigger automatic campaign updates
-- **One-Click Deployment**: Direct API integration with LinkedIn Campaign Manager, Google Ads for automated campaign setup and immediate publishing
-- **Template Customization**: Client-specific messaging frameworks, industry compliance templates (RIA, broker-dealer), and quick theme variations
-- **Market Event Calendars**: Fed meetings, earnings releases as automatic content triggers
-
-**Brand Compliance & Workflow:**
-- **Brand Asset Integration**: Automatic logo, color, font integration with client brand guidelines
-- **Approval Workflow**: Legal/compliance review queue with version control for approved content
-- **Multi-Channel Orchestration**: LinkedIn, Twitter, website banners, email headers generated simultaneously with cross-platform consistency
-- **Regulatory Templates**: Pre-approved messaging templates aligned with financial services regulations
-
-**Performance & Attribution:**
-- **Campaign ROI Tracking**: Connect generated content to actual leads/conversions with detailed attribution
-- **A/B Testing Framework**: Automated testing of AI-generated variations with performance metrics
-- **Client Feedback Loop**: Human-in-the-loop refinement based on campaign performance data
-- **Engagement Analytics**: Performance tracking, click-through rates, and campaign optimization
-
-**Advanced Personalization:**
-- **Audience Intelligence**: Persona-specific messaging (institutional vs. retail, CFOs vs. portfolio managers)
-- **Portfolio-Specific Content**: Tailored messaging based on client investment focus areas
-- **AUM-Based Strategies**: Different approaches for $1B vs. $100B asset management firms
-- **Geographic/Sector Targeting**: News relevance-based audience targeting
-
-### **🔧 Technical Enhancements**
-
-- **Dynamic Content Optimization**: Sentiment analysis of news to adjust messaging tone, competitor monitoring
-- **Advanced Image Customization**: Logo integration, brand color schemes, custom templates  
+- **A/B Testing Framework**: Automated testing of ad variations with performance metrics
+- **Real-time News Integration**: RSS feeds and live news APIs for dynamic updates
+- **Advanced Image Customization**: Logo integration, brand color schemes, custom templates
 - **Multi-language Support**: International client expansion with localized content
+- **Compliance Monitoring**: Automated regulatory compliance checking with industry rules
+- **Analytics Dashboard**: Performance tracking, click-through rates, and campaign optimization
 - **Video Generation**: Short-form video ads using AI video generation models
 - **Enhanced RAG**: Hybrid search combining keyword and semantic approaches
-- **Market Volatility Indicators**: Automatic defensive vs. growth messaging based on market conditions
+- **Client Feedback Loop**: Human-in-the-loop refinement based on campaign performance
 
 ## 🤝 Contributing
 

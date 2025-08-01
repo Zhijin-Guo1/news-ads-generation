@@ -1,4 +1,4 @@
-# Alphix ML Engineering Challenge: News-Responsive Ad Generation with LLMs
+# ML Engineering Challenge: News-Responsive Ad Generation with LLMs
 
 ## 1. Introduction
 

@@ -1,5 +1,5 @@
 """
-Main Pipeline for Alphix ML Challenge: News-Responsive Ad Generation
+Main Pipeline for News-Responsive Ad Generation
 Orchestrates the complete workflow from data parsing to ad generation
 """
 import sys
@@ -55,7 +55,7 @@ def check_input_files():
     """Check if required input files exist"""
     required_files = [
         'URL_and_news_articles_examples_by_client.xlsx'
-        # 'Alphix_ML_Challenge_News_Ad_Generation.docx'  # Documentation file - not required for pipeline
+        # 'requirements.txt'  # Dependencies file - not required for pipeline
     ]
     
     print("📋 Checking input files...")
@@ -76,7 +76,7 @@ def check_input_files():
 def main():
     """Main pipeline execution"""
     print("=" * 60)
-    print("🎯 ALPHIX ML CHALLENGE: NEWS-RESPONSIVE AD GENERATION")
+    print("🎯 NEWS-RESPONSIVE AD GENERATION")
     print("🤖 RAG-Enabled Pipeline with OpenAI Integration")
     print("=" * 60)
     
@@ -84,7 +84,7 @@ def main():
     if not check_input_files():
         print("\n❌ Missing required input files. Please ensure you have:")
         print("   - URL_and_news_articles_examples_by_client.xlsx")
-        print("   - Alphix_ML_Challenge_News_Ad_Generation.docx")
+        print("   - requirements.txt")
         return
     
     # Install requirements
